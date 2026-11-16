@@ -3698,7 +3698,8 @@
    "single_object": false,
    "strict": false,
    "no_effect": [
-    401
+    401,
+    403
    ],
    "price_note": false
   },
@@ -4045,7 +4046,8 @@
    "single_object": false,
    "strict": false,
    "no_effect": [
-    401
+    401,
+    403
    ],
    "price_note": false
   },

@@ -24,10 +24,10 @@ and a step id may not change after a release.
 scalar lists or nested objects; "several" when it carries a list of records or rows
 (document lines, norm rows, a price list) — a refusal can then follow a partial save.
 
-``no_effect``: the HTTP statuses after which a write certainly changed nothing. It is
-built from the statuses each operation documents; a status an operation does not
-document, and every status after which the outcome is not certain, leaves the write
-``timeout_unknown``.
+``no_effect``: the HTTP statuses after which a write certainly changed nothing: 401 and
+403 on every write (the key is refused before routing, see AUTH_REFUSALS), and 400,
+404 and 409 only where the operation documents them and they can prove it. Every other
+status after a write was sent leaves it ``timeout_unknown``.
 """
 
 from __future__ import annotations
@@ -175,8 +175,11 @@ IRREVERSIBLE = {
     ),
 }
 
-#: Statuses that, where an operation documents them, prove a write changed nothing.
-AUTH_REFUSALS = ("401", "403")
+#: A refused key proves a write changed nothing on every operation, documented or not:
+#: the security filter answers before routing (checked without a key 2026-11-16: POST
+#: /api/orders with {} → 403, and POST/PUT/DELETE/GET on /api/does-not-exist → 403),
+#: so the specification's per-operation lists are incomplete here.
+AUTH_REFUSALS = (401, 403)
 
 
 @cache
@@ -260,9 +263,10 @@ def objects(op: dict[str, Any]) -> str:
 
 
 def no_effect(op: dict[str, Any]) -> list[int]:
-    """The documented statuses after which this write certainly changed nothing."""
+    """The statuses after which this write certainly changed nothing: a refused key, and
+    the documented statuses below."""
     documented = set(op["answers"])
-    codes = {int(c) for c in AUTH_REFUSALS if c in documented}
+    codes = set(AUTH_REFUSALS)
     strict = bool(danger(op))
     if "400" in documented and objects(op) == "one" and not strict:
         codes.add(400)

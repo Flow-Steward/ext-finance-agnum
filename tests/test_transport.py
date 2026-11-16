@@ -166,8 +166,8 @@ def test_a_refused_key_on_a_read_changes_nothing(status: int) -> None:
             False,
         ),
         ("orders_create", ORDER, "POST /api/orders", 401, True),
-        # POST /api/orders documents no 403: its meaning there is not known.
-        ("orders_create", ORDER, "POST /api/orders", 403, False),
+        # Not documented for POST /api/orders, but the key is refused before routing.
+        ("orders_create", ORDER, "POST /api/orders", 403, True),
         # Several lines: a validation refusal may follow a partial save.
         ("orders_create", ORDER, "POST /api/orders", 400, False),
         ("orders_create", ORDER, "POST /api/orders", 409, False),
@@ -287,3 +287,36 @@ def test_the_key_is_never_in_a_result() -> None:
     response = run(fake, "clients_get", {"id": 7})
     assert response["ok"] is True
     assert API_KEY not in dumped(response)
+
+
+# -- a refused key on every write (R1) --------------------------------------------------------
+
+
+def _write_cases() -> list[tuple[str, str]]:
+    from test_generic import SAMPLES
+
+    from runtime import generic
+
+    cases = []
+    for operation_id, entry in sorted(generic.registry().items()):
+        if entry["kind"] in {"create", "update", "patch", "delete"}:
+            key = f"{entry['method']} {entry['path'].replace('{id}', '1')}"
+            cases.append((operation_id, key))
+    assert len(cases) == 17 and all(oid in SAMPLES for oid, _ in cases)
+    return cases
+
+
+@pytest.mark.parametrize("status", [401, 403])
+@pytest.mark.parametrize(("operation_id", "key"), _write_cases())
+def test_a_refused_key_on_any_write_changed_nothing(
+    operation_id: str, key: str, status: int
+) -> None:
+    from test_generic import SAMPLES
+
+    fake = FakeAgnum({key: (status, b"")})
+    response = run(fake, operation_id, SAMPLES[operation_id])
+    assert response["error_code"] == "authentication_failed", response
+    assert response["definitely_no_external_effect"] is True
+    assert response["external_effect_status"] == "failed"
+    assert "nothing was changed" in response["error"]
+    assert len(fake.calls) == 1

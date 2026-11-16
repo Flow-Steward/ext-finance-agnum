@@ -236,3 +236,82 @@ def test_a_document_refused_after_the_check_is_reported_as_the_write_says() -> N
     # Several lines: a 400 may follow a partial save.
     assert response["external_effect_status"] == "timeout_unknown"
     assert "Price cannot be null" in response["error"]
+
+
+# -- what counts as "nothing found" (R2) ------------------------------------------------------
+
+SPRING_404 = (
+    404,
+    {
+        "timestamp": "2026-11-16T10:00:00.000+00:00",
+        "status": 404,
+        "error": "Not Found",
+        "path": "/agnumAPIv2/api/clients/search",
+    },
+)
+SPEC_404 = (  # the specification's NotFound example, word for word
+    404,
+    {
+        "title": "Not Found",
+        "status": 404,
+        "detail": "product ABC123 not found",
+        "instance": "/api/products/search",
+        "timestamp": "2026-01-15T14:30:00.000+00:00",
+        "message": "product ABC123 not found",
+    },
+)
+EMPTY_404 = (404, b"")
+UNTITLED_404 = (404, {"status": 404, "detail": "", "title": ""})
+
+
+@pytest.mark.parametrize("answer", [SPRING_404, EMPTY_404, UNTITLED_404])
+def test_a_404_that_is_not_agnums_problem_fails_the_connection_test(answer: Any) -> None:
+    response = run(FakeAgnum({CLIENTS: answer}), "test_connection")
+    assert response["error_code"] == "not_found"
+    assert "address" in response["error"]
+
+
+def test_the_specifications_not_found_example_is_nothing_found() -> None:
+    assert run(FakeAgnum({CLIENTS: SPEC_404}), "test_connection")["ok"] is True
+    response = run(FakeAgnum({CLIENTS: SPEC_404}), "find_client", {"code": "C1"})
+    assert response["result"]["found"] is False
+
+
+@pytest.mark.parametrize("answer", [SPRING_404, EMPTY_404, UNTITLED_404])
+def test_a_404_that_is_not_agnums_problem_is_not_nothing_found(answer: Any) -> None:
+    response = run(FakeAgnum({CLIENTS: answer}), "find_client", {"code": "C1"})
+    assert response["error_code"] == "not_found"
+
+
+@pytest.mark.parametrize("answer", [SPRING_404, EMPTY_404, UNTITLED_404])
+@pytest.mark.parametrize(
+    ("operation_id", "search", "inputs"),
+    [
+        ("find_or_create_client", CLIENTS, {"code": "C1", "name": "UAB"}),
+        ("create_sales_document_if_new", ORDERS, ORDER),
+        ("create_purchase_receipt_if_new", RECEIPTS, RECEIPT),
+    ],
+)
+def test_a_lookup_404_that_is_not_agnums_problem_writes_nothing(
+    answer: Any, operation_id: str, search: str, inputs: dict[str, Any]
+) -> None:
+    fake = FakeAgnum({search: answer})
+    response = run(fake, operation_id, inputs)
+    assert response["error_code"] == "not_found"
+    assert response["definitely_no_external_effect"] is True
+    assert all(c.verb == "GET" for c in fake.calls)
+
+
+# -- an invented value is said (M1) ----------------------------------------------------------
+
+
+def test_a_default_creation_date_is_named_in_the_warnings() -> None:
+    fake = FakeAgnum({CLIENTS: not_found(), "POST /api/clients": (201, {"id": 1})})
+    response = run(fake, "find_or_create_client", {"code": "C1", "name": "UAB"})
+    assert "create_date was not given; today (UTC) was sent" in response["result"]["warnings"]
+    fake = FakeAgnum({CLIENTS: not_found(), "POST /api/clients": (201, {"id": 1})})
+    response = run(
+        fake, "find_or_create_client", {"code": "C1", "name": "UAB", "create_date": "2020-05-05"}
+    )
+    assert response["result"]["warnings"] == []
+    assert fake.calls[-1].body["create_date"] == "2020-05-05"

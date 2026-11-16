@@ -229,17 +229,20 @@ def test_dangerous_steps_are_strict_and_say_what_cannot_be_undone() -> None:
 
 
 def test_the_outcome_table_follows_the_documented_statuses() -> None:
-    """A status counts as "nothing changed" only where the operation documents it."""
+    """A refused key changes nothing anywhere; 400, 404 and 409 only where documented."""
     for row in plan.plan():
         if row["kind"] not in plan.WRITE_KINDS:
             assert row["no_effect"] == []
             continue
-        assert set(map(str, row["no_effect"])) <= set(row["codes"]), row["operation_id"]
+        assert {401, 403} <= set(row["no_effect"]), row["operation_id"]
+        documented_only = set(row["no_effect"]) - {401, 403}
+        assert set(map(str, documented_only)) <= set(row["codes"]), row["operation_id"]
         if 400 in row["no_effect"]:
             assert row["objects"] == "one" and not row["danger"]
     table = {r["operation_id"]: r["no_effect"] for r in plan.plan()}
-    # POST /api/orders and /api/customer-returns document no 403.
-    assert table["orders_create"] == table["customer_returns_create"] == [401]
+    # A refused key changes nothing even where 403 is not documented (POST /api/orders,
+    # /api/customer-returns): the security filter answers before routing.
+    assert table["orders_create"] == table["customer_returns_create"] == [401, 403]
     assert table["products_update"] == [400, 401, 403, 404]
     assert table["products_price_update"] == [401, 403]
 

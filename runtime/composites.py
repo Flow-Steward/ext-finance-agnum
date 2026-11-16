@@ -1,7 +1,8 @@
 """Everyday steps: two documented operations in one step.
 
-Searches are strict: every value given must match exactly (Agnum compares text
-without regard to case, so this does too), every record Agnum returns is checked
+Searches are strict: every value given must match exactly — compared without regard
+to case, our choice so that "c1" and "C1" are never taken for two clients (whether Agnum
+itself compares that way is a live-checklist item) — every record Agnum returns is checked
 again here, and a record that does not match means the search was not applied as
 asked — the step then stops without writing anything. More than one match is a
 conflict. A record is created only when nothing matches.
@@ -171,11 +172,18 @@ def find_client(context: Context) -> dict[str, Any]:
     }
 
 
+DEFAULT_DATE_WARNING = "create_date was not given; today (UTC) was sent"
+
+
 def client_input(operation_input: Mapping[str, Any]) -> dict[str, Any]:
     given = {k: v for k, v in operation_input.items() if k != "connection_ref"}
     if given.get("create_date") in (None, ""):
         given["create_date"] = dt.datetime.now(dt.timezone.utc).date().isoformat()
     return given
+
+
+def _defaulted(operation_input: Mapping[str, Any]) -> list[str]:
+    return [DEFAULT_DATE_WARNING] if operation_input.get("create_date") in (None, "") else []
 
 
 def find_or_create_client(context: Context) -> dict[str, Any]:
@@ -192,7 +200,7 @@ def find_or_create_client(context: Context) -> dict[str, Any]:
         "client_id": result["id"],
         "created": True,
         "client": data if isinstance(data, Mapping) else None,
-        "warnings": result["warnings"],
+        "warnings": _defaulted(context.operation_input) + result["warnings"],
     }
 
 

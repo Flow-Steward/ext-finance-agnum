@@ -361,7 +361,8 @@
    "danger": "",
    "objects": "several",
    "no_effect": [
-    401
+    401,
+    403
    ],
    "rights": [
     "SAVE_VSK",
@@ -418,7 +419,8 @@
    "danger": "",
    "objects": "several",
    "no_effect": [
-    401
+    401,
+    403
    ],
    "rights": [
     "SAVE_GKS",

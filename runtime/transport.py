@@ -309,15 +309,28 @@ class AgnumTransport:
     # -- refusals ------------------------------------------------------------
 
     def problem_status(self, raw: bytes) -> int | None:
-        """The ``status`` of an RFC 7807 problem body, or None when it is not one."""
+        """The ``status`` of a refusal in the specification's ProblemDetail form, or None.
+
+        The form: an object with an integer ``status`` and a non-empty ``detail`` or
+        ``title`` (the NotFound example: title "Not Found", status 404, detail "product
+        ABC123 not found", instance, timestamp, message). Spring Boot's default error for
+        an unknown path ({"timestamp", "status", "error", "path"}) is not it: an object
+        holding both ``error`` and ``path`` is never read as Agnum's answer.
+        """
         try:
             data = parse_json(raw)
         except ValueError:
             return None
         if not isinstance(data, Mapping):
             return None
+        if "error" in data and "path" in data:
+            return None
         status = data.get("status")
-        return status if isinstance(status, int) and not isinstance(status, bool) else None
+        if isinstance(status, bool) or not isinstance(status, int):
+            return None
+        if not any(isinstance(data.get(k), str) and data[k].strip() for k in ("detail", "title")):
+            return None
+        return status
 
     def detail(self, raw: bytes) -> str:
         """Agnum's own words about a refusal; never the key."""
