@@ -9,9 +9,9 @@ release_stage: active
 billing_mode: free
 display_name: Agnum
 description: 'Connect workflows to Agnum, the Lithuanian business management and accounting
-  system, through its Agnum DB API. Everyday steps find clients and products, find or create
-  a client, create a sales document or a purchase receipt only when its number is new, and
-  save a sales document as PDF.
+  system, through its Agnum DB API. Everyday steps find clients and products, find
+  or create a client, create a sales document or a purchase receipt only when its
+  number is new, and save a sales document as PDF.
 
 
   Every one of the 39 documented operations has its own step: clients and their documents,
@@ -32,15 +32,15 @@ listing:
   - erp
   - invoices
   - inventory
-  summary: Read and write Agnum clients, products, prices, stock, sales documents, purchase
-    receipts, returns and production norms.
+  summary: Read and write Agnum clients, products, prices, stock, sales documents,
+    purchase receipts, returns and production norms.
   categories:
   - finance
   - inventory
   - sales
-  setup_summary: Get the Agnum DB API address and an API key with the rights the steps need
-    from your Agnum administrator or provider, add them to a project connection and run the
-    connection test.
+  setup_summary: Get the Agnum DB API address and an API key with the rights the steps
+    need from your Agnum administrator or provider, add them to a project connection
+    and run the connection test.
 features:
 - tool
 - action
@@ -56,8 +56,8 @@ machine_auth:
   - artifact:write
 account_scope:
   scope_type: project
-  description: Each Agnum API address and key is a project connection. A project may hold
-    several, for example one per company.
+  description: Each Agnum API address and key is a project connection. A project may
+    hold several, for example one per company.
 egress:
   connection_fields:
   - agnum.base_url
