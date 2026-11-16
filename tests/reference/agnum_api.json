@@ -1,0 +1,5734 @@
+{
+ "source": {
+  "url": "https://srv1.elit.lt/agnumAPIv2/v3/api-docs",
+  "sha256": "1d5c67dbfc3983624ec1932989d8adfdebb572f02c76e8497067b78aa4bbc527",
+  "bytes": 89054,
+  "downloaded": "2026-11-16",
+  "openapi": "3.1.0",
+  "title": "Agnum DB API",
+  "api_version": "1.47.2",
+  "servers": [
+   {
+    "url": "/"
+   }
+  ],
+  "auth": {
+   "ApiKeyAuth": {
+    "in": "header",
+    "name": "X-API-KEY"
+   }
+  }
+ },
+ "operations": [
+  {
+   "method": "POST",
+   "path": "/api/products",
+   "vendor_operation_id": "createProduct",
+   "tag": "Products",
+   "summary": "create a product",
+   "description": "",
+   "rights": [
+    "SAVE_PRK",
+    "SAVE_ALL"
+   ],
+   "parameters": [],
+   "body": {
+    "required": true,
+    "schema": {
+     "media": "application/json",
+     "ref": "Product"
+    }
+   },
+   "answers": {
+    "201": {
+     "description": "Created",
+     "schema": {
+      "media": "application/json",
+      "ref": "Product"
+     }
+    },
+    "400": {
+     "description": "Bad request",
+     "schema": {
+      "media": "application/json",
+      "ref": "Product"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "PUT",
+   "path": "/api/products",
+   "vendor_operation_id": "updateProduct",
+   "tag": "Products",
+   "summary": "update a product",
+   "description": "",
+   "rights": [
+    "EDIT_PRK",
+    "EDIT_ALL"
+   ],
+   "parameters": [],
+   "body": {
+    "required": true,
+    "schema": {
+     "media": "application/json",
+     "ref": "Product"
+    }
+   },
+   "answers": {
+    "200": {
+     "description": "Updated",
+     "schema": {
+      "media": "application/json",
+      "ref": "Product"
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "PUT",
+   "path": "/api/products/price",
+   "vendor_operation_id": "updatePrice",
+   "tag": "Products",
+   "summary": "Update product prices",
+   "description": "Updates product prices by product code. The request body must contain an array of price update objects. If `wh_all` is set to `true`, prices will be updated in all warehouses. If omitted or set to `false`, prices will be updated only in the default warehouse. All price fields (`kn0`, `kn1`, `kn2`, `kn3`, `kn4`, `kn5`, `knmin`, `knb`) may be included in the request. Only price levels enabled in the API configuration will be updated, all others will be ignored.",
+   "rights": [
+    "EDIT_PRK_PRICE",
+    "EDIT_ALL"
+   ],
+   "parameters": [],
+   "body": {
+    "required": true,
+    "schema": {
+     "media": "application/json",
+     "type": "array",
+     "items": {
+      "ref": "ProductPrices"
+     }
+    }
+   },
+   "answers": {
+    "200": {
+     "description": "Updated",
+     "schema": {
+      "media": "application/json",
+      "type": "boolean"
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/api/production/norms",
+   "vendor_operation_id": "create",
+   "tag": "Production",
+   "summary": "create a production norm",
+   "description": "",
+   "rights": [
+    "SAVE_PROD_NORMS",
+    "SAVE_ALL"
+   ],
+   "parameters": [],
+   "body": {
+    "required": true,
+    "schema": {
+     "media": "application/json",
+     "ref": "ProductionNorm"
+    }
+   },
+   "answers": {
+    "201": {
+     "description": "Created",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProductionNorm"
+     }
+    },
+    "400": {
+     "description": "Bad request",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProductionNorm"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "PUT",
+   "path": "/api/production/norms",
+   "vendor_operation_id": "replace",
+   "tag": "Production",
+   "summary": "replace a production norm (delete old, write new)",
+   "description": "",
+   "rights": [
+    "EDIT_PROD_NORMS",
+    "EDIT_ALL"
+   ],
+   "parameters": [],
+   "body": {
+    "required": true,
+    "schema": {
+     "media": "application/json",
+     "ref": "ProductionNorm"
+    }
+   },
+   "answers": {
+    "200": {
+     "description": "Replaced",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProductionNorm"
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "PATCH",
+   "path": "/api/production/norms",
+   "vendor_operation_id": "patch",
+   "tag": "Production",
+   "summary": "patch a production norm (update header, upsert/delete children by rec_id)",
+   "description": "Updates an existing production norm. Header fields are updated if provided. Child rows (raw_products, costs) support three operations based on `rec_id` and `delete` fields: - **Update**: `rec_id` is set, `delete` is absent/false — updates the existing row - **Delete**: `rec_id` is set, `delete` is `true` — deletes the row - **Insert**: `rec_id` is absent — inserts a new row Example: ```json { \"id\": 123, \"raw_products\": [ { \"rec_id\": 456, \"delete\": true }, { \"rec_id\": 789, \"product_id\": 10, \"formula_brutto\": \"updated\" }, { \"product_id\": 15, \"formula_brutto\": \"new row\" } ] } ```",
+   "rights": [
+    "EDIT_PROD_NORMS",
+    "EDIT_ALL"
+   ],
+   "parameters": [],
+   "body": {
+    "required": true,
+    "schema": {
+     "media": "application/json",
+     "ref": "ProductionNorm"
+    }
+   },
+   "answers": {
+    "200": {
+     "description": "Patched",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProductionNorm"
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/api/processing/norms",
+   "vendor_operation_id": "create_1",
+   "tag": "Processing",
+   "summary": "create a processing norm",
+   "description": "",
+   "rights": [
+    "SAVE_PROD_NORMS",
+    "SAVE_ALL"
+   ],
+   "parameters": [],
+   "body": {
+    "required": true,
+    "schema": {
+     "media": "application/json",
+     "ref": "ProcessingNorm"
+    }
+   },
+   "answers": {
+    "201": {
+     "description": "Created",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProcessingNorm"
+     }
+    },
+    "400": {
+     "description": "Bad request",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProcessingNorm"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "PUT",
+   "path": "/api/processing/norms",
+   "vendor_operation_id": "replace_1",
+   "tag": "Processing",
+   "summary": "replace a processing norm (delete old, write new)",
+   "description": "",
+   "rights": [
+    "EDIT_PROD_NORMS",
+    "EDIT_ALL"
+   ],
+   "parameters": [],
+   "body": {
+    "required": true,
+    "schema": {
+     "media": "application/json",
+     "ref": "ProcessingNorm"
+    }
+   },
+   "answers": {
+    "200": {
+     "description": "Replaced",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProcessingNorm"
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "PATCH",
+   "path": "/api/processing/norms",
+   "vendor_operation_id": "patch_1",
+   "tag": "Processing",
+   "summary": "patch a processing norm (update header, upsert/delete children by rec_id)",
+   "description": "Updates an existing processing norm. Header fields are updated if provided. Child rows (input_products, output_products, costs) support three operations based on `rec_id` and `delete` fields: - **Update**: `rec_id` is set, `delete` is absent/false — updates the existing row - **Delete**: `rec_id` is set, `delete` is `true` — deletes the row - **Insert**: `rec_id` is absent — inserts a new row",
+   "rights": [
+    "EDIT_PROD_NORMS",
+    "EDIT_ALL"
+   ],
+   "parameters": [],
+   "body": {
+    "required": true,
+    "schema": {
+     "media": "application/json",
+     "ref": "ProcessingNorm"
+    }
+   },
+   "answers": {
+    "200": {
+     "description": "Patched",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProcessingNorm"
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/api/clients",
+   "vendor_operation_id": "createClient",
+   "tag": "Clients",
+   "summary": "Create new client",
+   "description": "",
+   "rights": [
+    "SAVE_KL",
+    "SAVE_ALL"
+   ],
+   "parameters": [],
+   "body": {
+    "required": true,
+    "schema": {
+     "media": "application/json",
+     "ref": "NewClient"
+    }
+   },
+   "answers": {
+    "201": {
+     "description": "Created",
+     "schema": {
+      "media": "*/*",
+      "ref": "NewClient"
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "500": {
+     "description": "Internal Server Error - unexpected error with tracking ID",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "PUT",
+   "path": "/api/clients",
+   "vendor_operation_id": "updateClient",
+   "tag": "Clients",
+   "summary": "Update client",
+   "description": "",
+   "rights": [
+    "EDIT_KL",
+    "EDIT_ALL"
+   ],
+   "parameters": [],
+   "body": {
+    "required": true,
+    "schema": {
+     "media": "application/json",
+     "ref": "NewClient"
+    }
+   },
+   "answers": {
+    "200": {
+     "description": "OK",
+     "schema": {
+      "media": "*/*",
+      "type": "boolean"
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "500": {
+     "description": "Internal Server Error - unexpected error with tracking ID",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/api/receipts",
+   "vendor_operation_id": "createVks",
+   "tag": "Receipt",
+   "summary": "create receipt",
+   "description": "",
+   "rights": [
+    "SAVE_VKS",
+    "SAVE_ALL"
+   ],
+   "parameters": [],
+   "body": {
+    "required": true,
+    "schema": {
+     "media": "application/json",
+     "ref": "NewReceipt"
+    }
+   },
+   "answers": {
+    "201": {
+     "description": "Document created",
+     "schema": {
+      "media": "application/json",
+      "type": "object",
+      "example": {
+       "id": "created dok ID",
+       "doc_no": "dokumento numeris",
+       "reg_no": "dok. registracijos numeris",
+       "date": "YYYY-MM-DD"
+      }
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "500": {
+     "description": "Internal Server Error - unexpected error with tracking ID",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/api/orders",
+   "vendor_operation_id": "createOrder",
+   "tag": "Orders",
+   "summary": "create order",
+   "description": "",
+   "rights": [
+    "SAVE_VSK",
+    "SAVE_ALL"
+   ],
+   "parameters": [],
+   "body": {
+    "required": true,
+    "schema": {
+     "media": "application/json",
+     "ref": "NewOrder"
+    }
+   },
+   "answers": {
+    "201": {
+     "description": "Document created",
+     "schema": {
+      "media": "application/json",
+      "type": "object",
+      "example": {
+       "id": "created dok ID",
+       "order_no": "dokumento numeris",
+       "reg_no": "dok. registracijos numeris"
+      }
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "500": {
+     "description": "Internal Server Error - unexpected error with tracking ID",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/api/employee/timesheet",
+   "vendor_operation_id": "UpdateTimeSheet",
+   "tag": "Employee",
+   "summary": "update employee timesheet",
+   "description": "update employee timesheet",
+   "rights": [
+    "SAVE_TBL",
+    "SAVE_ALL"
+   ],
+   "parameters": [],
+   "body": {
+    "required": true,
+    "schema": {
+     "media": "application/json",
+     "type": "object",
+     "example": {
+      "date": "2024-12-31",
+      "driverID": "11",
+      "workTimeDay": 19800,
+      "workTimeNight": 12000
+     }
+    }
+   },
+   "answers": {
+    "201": {
+     "description": "Created",
+     "schema": {
+      "media": "application/json",
+      "type": "string"
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "500": {
+     "description": "Internal Server Error - unexpected error with tracking ID",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "POST",
+   "path": "/api/customer-returns",
+   "vendor_operation_id": "createReturn",
+   "tag": "Customer Returns",
+   "summary": "create customer return",
+   "description": "",
+   "rights": [
+    "SAVE_GKS",
+    "SAVE_ALL"
+   ],
+   "parameters": [],
+   "body": {
+    "required": true,
+    "schema": {
+     "media": "application/json",
+     "ref": "customer return doc."
+    }
+   },
+   "answers": {
+    "201": {
+     "description": "Document created",
+     "schema": {
+      "media": "application/json",
+      "type": "object",
+      "example": {
+       "id": "created dok ID",
+       "return_no": "dokumento numeris",
+       "reg_no": "dok. registracijos numeris"
+      }
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "500": {
+     "description": "Internal Server Error - unexpected error with tracking ID",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/api/receipts/{docNo}",
+   "vendor_operation_id": "getByNumber",
+   "tag": "Receipt",
+   "summary": "get a document by No",
+   "description": "",
+   "rights": [
+    "READ_VKS",
+    "READ_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "path",
+     "name": "docNo",
+     "required": true,
+     "style": null,
+     "explode": null,
+     "schema": {
+      "type": "string"
+     },
+     "description": "number of document to be searched"
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "Found the document",
+     "schema": {
+      "media": "application/json",
+      "ref": "Receipt"
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "500": {
+     "description": "Internal Server Error - unexpected error with tracking ID",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/api/receipts/search",
+   "vendor_operation_id": "searchReceipt",
+   "tag": "Receipt",
+   "summary": "search an receipt",
+   "description": "",
+   "rights": [
+    "READ_VKS",
+    "READ_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "query",
+     "name": "params",
+     "required": true,
+     "style": "form",
+     "explode": true,
+     "schema": {
+      "ref": "ReceiptSearch",
+      "type": "object"
+     },
+     "description": "Receipt search parameters"
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "Found",
+     "schema": {
+      "media": "application/json",
+      "type": "array",
+      "items": {
+       "ref": "Receipt"
+      }
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "500": {
+     "description": "Internal Server Error - unexpected error with tracking ID",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/api/products/{id}",
+   "vendor_operation_id": "getPrk",
+   "tag": "Products",
+   "summary": "get a product by ID",
+   "description": "",
+   "rights": [
+    "READ_PRK",
+    "READ_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "path",
+     "name": "id",
+     "required": true,
+     "style": null,
+     "explode": null,
+     "schema": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "description": "agnum product ID"
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "Found the product",
+     "schema": {
+      "media": "application/json",
+      "ref": "Product"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/api/products/search",
+   "vendor_operation_id": "searchPrk",
+   "tag": "Products",
+   "summary": "search a product",
+   "description": "",
+   "rights": [
+    "READ_PRK",
+    "READ_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "query",
+     "name": "params",
+     "required": true,
+     "style": "form",
+     "explode": true,
+     "schema": {
+      "ref": "ProductSearch",
+      "type": "object"
+     },
+     "description": "Product search parameters"
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "Found the product (-s)",
+     "schema": {
+      "media": "application/json",
+      "type": "array",
+      "items": {
+       "ref": "Product"
+      }
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/api/products/qty/search",
+   "vendor_operation_id": "searchQty",
+   "tag": "Products",
+   "summary": "Get stock quantities for products",
+   "description": "",
+   "rights": [
+    "READ_PRK_QTY",
+    "READ_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "query",
+     "name": "params",
+     "required": true,
+     "style": "form",
+     "explode": true,
+     "schema": {
+      "ref": "ProductQtySearch",
+      "type": "object"
+     },
+     "description": "Search parameters for product quantities"
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "Found",
+     "schema": {
+      "media": "application/json",
+      "type": "string"
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "500": {
+     "description": "Internal Server Error - unexpected error with tracking ID",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/api/products/price/search",
+   "vendor_operation_id": "searchPrices",
+   "tag": "Products",
+   "summary": "search a product price",
+   "description": "",
+   "rights": [
+    "READ_PRK_PRICE",
+    "READ_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "query",
+     "name": "params",
+     "required": true,
+     "style": "form",
+     "explode": true,
+     "schema": {
+      "ref": "ProductPriceSearch",
+      "type": "object"
+     },
+     "description": "Product price search parameters"
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "Found the price (-s)",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProductPrices"
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/api/production/norms/{id}",
+   "vendor_operation_id": "getById",
+   "tag": "Production",
+   "summary": "get a production norm by ID",
+   "description": "",
+   "rights": [
+    "READ_PROD_NORMS",
+    "READ_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "path",
+     "name": "id",
+     "required": true,
+     "style": null,
+     "explode": null,
+     "schema": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "description": "agnum production norm ID"
+    },
+    {
+     "in": "query",
+     "name": "wh",
+     "required": false,
+     "style": null,
+     "explode": null,
+     "schema": {
+      "type": "string"
+     },
+     "description": "warehouse code"
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "Found the production norm",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProductionNorm"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/production/norms/{id}",
+   "vendor_operation_id": "delete",
+   "tag": "Production",
+   "summary": "delete a production norm",
+   "description": "",
+   "rights": [
+    "DEL_PROD_NORMS",
+    "DEL_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "path",
+     "name": "id",
+     "required": true,
+     "style": null,
+     "explode": null,
+     "schema": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "description": "production norm ID"
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "Deleted",
+     "schema": {
+      "media": "*/*",
+      "type": "boolean"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "409": {
+     "description": "Conflict - norm is in use and cannot be deleted",
+     "schema": null
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/api/production/norms/search",
+   "vendor_operation_id": "search",
+   "tag": "Production",
+   "summary": "search production norms",
+   "description": "",
+   "rights": [
+    "READ_PROD_NORMS",
+    "READ_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "query",
+     "name": "params",
+     "required": true,
+     "style": "form",
+     "explode": true,
+     "schema": {
+      "ref": "ProductionNormSearch",
+      "type": "object"
+     },
+     "description": ""
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "Found production norm(s)",
+     "schema": {
+      "media": "application/json",
+      "type": "array",
+      "items": {
+       "ref": "ProductionNorm"
+      }
+     }
+    },
+    "400": {
+     "description": "Bad request",
+     "schema": {
+      "media": "application/json",
+      "type": "array",
+      "items": {
+       "ref": "ProductionNorm"
+      }
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/api/processing/norms/{id}",
+   "vendor_operation_id": "getById_1",
+   "tag": "Processing",
+   "summary": "get a processing norm by ID",
+   "description": "",
+   "rights": [
+    "READ_PROD_NORMS",
+    "READ_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "path",
+     "name": "id",
+     "required": true,
+     "style": null,
+     "explode": null,
+     "schema": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "description": "agnum processing norm ID"
+    },
+    {
+     "in": "query",
+     "name": "wh",
+     "required": false,
+     "style": null,
+     "explode": null,
+     "schema": {
+      "type": "string"
+     },
+     "description": "warehouse code"
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "Found the processing norm",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProcessingNorm"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/processing/norms/{id}",
+   "vendor_operation_id": "delete_1",
+   "tag": "Processing",
+   "summary": "delete a processing norm",
+   "description": "",
+   "rights": [
+    "DEL_PROD_NORMS",
+    "DEL_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "path",
+     "name": "id",
+     "required": true,
+     "style": null,
+     "explode": null,
+     "schema": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "description": "processing norm ID"
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "Deleted",
+     "schema": {
+      "media": "*/*",
+      "type": "boolean"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "409": {
+     "description": "Conflict - norm is in use and cannot be deleted",
+     "schema": null
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/api/processing/norms/search",
+   "vendor_operation_id": "search_1",
+   "tag": "Processing",
+   "summary": "search processing norms",
+   "description": "",
+   "rights": [
+    "READ_PROD_NORMS",
+    "READ_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "query",
+     "name": "params",
+     "required": true,
+     "style": "form",
+     "explode": true,
+     "schema": {
+      "ref": "ProcessingNormSearch",
+      "type": "object"
+     },
+     "description": ""
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "Found processing norm(s)",
+     "schema": {
+      "media": "application/json",
+      "type": "array",
+      "items": {
+       "ref": "ProcessingNorm"
+      }
+     }
+    },
+    "400": {
+     "description": "Bad request",
+     "schema": {
+      "media": "application/json",
+      "type": "array",
+      "items": {
+       "ref": "ProcessingNorm"
+      }
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/api/orders/{docNo}",
+   "vendor_operation_id": "getByNumber_1",
+   "tag": "Orders",
+   "summary": "get a document by No",
+   "description": "",
+   "rights": [
+    "READ_VSK",
+    "READ_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "path",
+     "name": "docNo",
+     "required": true,
+     "style": null,
+     "explode": null,
+     "schema": {
+      "type": "string"
+     },
+     "description": ""
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "Found the document",
+     "schema": {
+      "media": "application/json",
+      "ref": "Order"
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "500": {
+     "description": "Internal Server Error - unexpected error with tracking ID",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/api/orders/tracking/{docNo}",
+   "vendor_operation_id": "getTrackingByNo",
+   "tag": "Orders",
+   "summary": "get order tracking by document number",
+   "description": "",
+   "rights": [
+    "READ_VSK_TRACKING",
+    "READ_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "path",
+     "name": "docNo",
+     "required": true,
+     "style": null,
+     "explode": null,
+     "schema": {
+      "type": "string"
+     },
+     "description": "document number"
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "OK",
+     "schema": {
+      "media": "application/json",
+      "type": "string"
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "500": {
+     "description": "Internal Server Error - unexpected error with tracking ID",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/api/orders/tracking/search",
+   "vendor_operation_id": "searchTracking",
+   "tag": "Orders",
+   "summary": "search a doc tracking",
+   "description": "",
+   "rights": [
+    "READ_VSK_TRACKING",
+    "READ_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "query",
+     "name": "params",
+     "required": true,
+     "style": null,
+     "explode": null,
+     "schema": {
+      "type": "object",
+      "values": {
+       "type": "string"
+      }
+     },
+     "description": ""
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "Found",
+     "schema": {
+      "media": "application/json",
+      "type": "array",
+      "items": {
+       "ref": "Tracking"
+      }
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "500": {
+     "description": "Internal Server Error - unexpected error with tracking ID",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/api/orders/search",
+   "vendor_operation_id": "searchOrder",
+   "tag": "Orders",
+   "summary": "search an order",
+   "description": "",
+   "rights": [
+    "READ_VSK",
+    "READ_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "query",
+     "name": "params",
+     "required": true,
+     "style": "form",
+     "explode": true,
+     "schema": {
+      "ref": "OrderSearch",
+      "type": "object"
+     },
+     "description": "Order search parameters"
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "Found",
+     "schema": {
+      "media": "application/json",
+      "type": "array",
+      "items": {
+       "ref": "Order"
+      }
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "500": {
+     "description": "Internal Server Error - unexpected error with tracking ID",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/api/orders/pdf/{docNo}",
+   "vendor_operation_id": "getPdfByNo",
+   "tag": "Orders",
+   "summary": "get order PDF by document number",
+   "description": "",
+   "rights": [
+    "READ_VSK_PDF",
+    "READ_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "path",
+     "name": "docNo",
+     "required": true,
+     "style": null,
+     "explode": null,
+     "schema": {
+      "type": "string"
+     },
+     "description": "document number"
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "OK",
+     "schema": {
+      "media": "application/json",
+      "type": "object",
+      "example": {
+       "id": 123456,
+       "file_name": "ABC123456.pdf",
+       "doc_no": "ABC123456",
+       "file": "BASE64..."
+      }
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "500": {
+     "description": "Internal Server Error - unexpected error with tracking ID",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/api/employee/{id}",
+   "vendor_operation_id": "getEmployeeById",
+   "tag": "Employee",
+   "summary": "get employee by id",
+   "description": "",
+   "rights": [
+    "READ_DRB",
+    "READ_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "path",
+     "name": "id",
+     "required": true,
+     "style": null,
+     "explode": null,
+     "schema": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "description": "agnum employee ID"
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "Found the employee",
+     "schema": {
+      "media": "application/json",
+      "ref": "Employee"
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "500": {
+     "description": "Internal Server Error - unexpected error with tracking ID",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/api/customer-returns/{docNo}",
+   "vendor_operation_id": "getByNumber_2",
+   "tag": "Customer Returns",
+   "summary": "get a document by No",
+   "description": "",
+   "rights": [
+    "READ_GKS",
+    "READ_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "path",
+     "name": "docNo",
+     "required": true,
+     "style": null,
+     "explode": null,
+     "schema": {
+      "type": "string"
+     },
+     "description": ""
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "Found the document",
+     "schema": null
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "500": {
+     "description": "Internal Server Error - unexpected error with tracking ID",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/api/customer-returns/search",
+   "vendor_operation_id": "searchGks",
+   "tag": "Customer Returns",
+   "summary": "search a customer return document",
+   "description": "",
+   "rights": [
+    "READ_GKS",
+    "READ_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "query",
+     "name": "params",
+     "required": true,
+     "style": "form",
+     "explode": true,
+     "schema": {
+      "ref": "CustomerReturnSearch",
+      "type": "object"
+     },
+     "description": "Customer return search parameters"
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "Found",
+     "schema": {
+      "media": "application/json",
+      "type": "array",
+      "items": {
+       "ref": "customer_return"
+      }
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "500": {
+     "description": "Internal Server Error - unexpected error with tracking ID",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/api/clients/{id}",
+   "vendor_operation_id": "getByID",
+   "tag": "Clients",
+   "summary": "get client by ID",
+   "description": "",
+   "rights": [
+    "READ_KL",
+    "READ_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "path",
+     "name": "id",
+     "required": true,
+     "style": null,
+     "explode": null,
+     "schema": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "description": ""
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "Found the client",
+     "schema": {
+      "media": "application/json",
+      "ref": "Client"
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "500": {
+     "description": "Internal Server Error - unexpected error with tracking ID",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/api/clients/search",
+   "vendor_operation_id": "getSearch",
+   "tag": "Clients",
+   "summary": "search a client",
+   "description": "",
+   "rights": [
+    "READ_KL",
+    "READ_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "query",
+     "name": "params",
+     "required": true,
+     "style": "form",
+     "explode": true,
+     "schema": {
+      "ref": "ClientSearch",
+      "type": "object"
+     },
+     "description": "client searching parameters"
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "Found the clients",
+     "schema": {
+      "media": "application/json",
+      "type": "array",
+      "items": {
+       "ref": "Client"
+      }
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "404": {
+     "description": "Not Found - requested resource does not exist",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "500": {
+     "description": "Internal Server Error - unexpected error with tracking ID",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/api/clients/doc/search",
+   "vendor_operation_id": "getDocSearch",
+   "tag": "Clients",
+   "summary": "search a client doc",
+   "description": "",
+   "rights": [
+    "READ_KL_DOK",
+    "READ_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "query",
+     "name": "code",
+     "required": false,
+     "style": null,
+     "explode": null,
+     "schema": {
+      "type": "string"
+     },
+     "description": ""
+    },
+    {
+     "in": "query",
+     "name": "client_code",
+     "required": false,
+     "style": null,
+     "explode": null,
+     "schema": {
+      "type": "string"
+     },
+     "description": ""
+    },
+    {
+     "in": "query",
+     "name": "params",
+     "required": true,
+     "style": "form",
+     "explode": true,
+     "schema": {
+      "ref": "ClientOrdersSearch",
+      "type": "object"
+     },
+     "description": "client orders search options"
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "OK",
+     "schema": {
+      "media": "application/json",
+      "type": "array",
+      "items": {
+       "ref": "PaidDoc"
+      }
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "500": {
+     "description": "Internal Server Error - unexpected error with tracking ID",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  },
+  {
+   "method": "GET",
+   "path": "/api/clients/{id}/doc/search",
+   "vendor_operation_id": "getDocSearch_1",
+   "tag": "Clients",
+   "summary": "search a client doc",
+   "description": "",
+   "rights": [
+    "READ_KL_DOK",
+    "READ_ALL"
+   ],
+   "parameters": [
+    {
+     "in": "path",
+     "name": "id",
+     "required": true,
+     "style": null,
+     "explode": null,
+     "schema": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "description": ""
+    },
+    {
+     "in": "query",
+     "name": "code",
+     "required": false,
+     "style": null,
+     "explode": null,
+     "schema": {
+      "type": "string"
+     },
+     "description": ""
+    },
+    {
+     "in": "query",
+     "name": "client_code",
+     "required": false,
+     "style": null,
+     "explode": null,
+     "schema": {
+      "type": "string"
+     },
+     "description": ""
+    },
+    {
+     "in": "query",
+     "name": "params",
+     "required": true,
+     "style": "form",
+     "explode": true,
+     "schema": {
+      "ref": "ClientOrdersSearch",
+      "type": "object"
+     },
+     "description": "client orders search options"
+    }
+   ],
+   "body": null,
+   "answers": {
+    "200": {
+     "description": "OK",
+     "schema": {
+      "media": "application/json",
+      "type": "array",
+      "items": {
+       "ref": "PaidDoc"
+      }
+     }
+    },
+    "400": {
+     "description": "Bad Request - invalid parameters or validation failed",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "401": {
+     "description": "Unauthorized - invalid or missing API key",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "403": {
+     "description": "Forbidden - API key does not have required rights",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    },
+    "500": {
+     "description": "Internal Server Error - unexpected error with tracking ID",
+     "schema": {
+      "media": "application/json",
+      "ref": "ProblemDetail"
+     }
+    }
+   }
+  }
+ ],
+ "schemas": {
+  "ClientSearch": {
+   "description": "client search options",
+   "required": [],
+   "properties": {
+    "filter_type": {
+     "type": "string",
+     "enum": [
+      "eq",
+      "ne",
+      "co",
+      "gt",
+      "lt",
+      "le",
+      "ge"
+     ],
+     "description": "Data filter type: eq -> equals, ne -> not equals, co -> containing, gt -> greater, ge -> greater or equal, lt -> less, le -> less or equal",
+     "example": "filter_type=co"
+    },
+    "order": {
+     "type": "string",
+     "enum": [
+      "code",
+      "id",
+      "name",
+      "email",
+      "modify",
+      "debt"
+     ],
+     "description": "Ordering by column name",
+     "example": "id"
+    },
+    "id": {
+     "type": "string",
+     "description": "Client id",
+     "example": "123"
+    },
+    "code": {
+     "type": "string",
+     "description": "Client agnum code",
+     "example": "ABC123"
+    },
+    "name": {
+     "type": "string",
+     "description": "Client name",
+     "example": "UAB TEST"
+    },
+    "client_code": {
+     "type": "string",
+     "description": "Client company code",
+     "example": "123456789"
+    },
+    "email": {
+     "type": "string",
+     "description": "client email",
+     "example": "nosend@agnum.lt"
+    },
+    "debt": {
+     "type": "string",
+     "description": "Client debt amount",
+     "example": "100&filter_type=gt"
+    },
+    "modify": {
+     "type": "string",
+     "description": "client modify date time (format: yyyy-MM-dd HH:mm:ss)",
+     "example": "2025-12-01&filter_type=gt"
+    },
+    "agent_id": {
+     "type": "string",
+     "description": "Client agent id",
+     "example": "123"
+    },
+    "agent_code": {
+     "type": "string",
+     "description": "Client agent code",
+     "example": "kodas"
+    },
+    "agent_name": {
+     "type": "string",
+     "description": "Client agent name",
+     "example": "vardas&filter_type=co"
+    }
+   }
+  },
+  "ClientOrdersSearch": {
+   "description": "client order search options",
+   "required": [],
+   "properties": {
+    "filter_type": {
+     "type": "string",
+     "enum": [
+      "eq",
+      "ne",
+      "co",
+      "gt",
+      "lt",
+      "le",
+      "ge"
+     ],
+     "description": "Data filter type: eq -> equals, ne -> not equals, co -> containing, gt -> greater, ge -> greater or equal, lt -> less, le -> less or equal",
+     "example": "filter_type=co"
+    },
+    "order": {
+     "type": "string",
+     "enum": [
+      "order_no",
+      "id",
+      "dok_reg_nr",
+      "modify",
+      "date"
+     ],
+     "description": "Ordering by column name",
+     "example": "id"
+    },
+    "id": {
+     "type": "string",
+     "description": "Order id",
+     "example": "123"
+    },
+    "order_no": {
+     "type": "string",
+     "description": "Order number",
+     "example": "ABC123"
+    },
+    "dok_reg_nr": {
+     "type": "string",
+     "description": "Order registration number",
+     "example": "BCD456"
+    },
+    "paid": {
+     "type": "string",
+     "description": "y - paid, n - not paid, empty - all",
+     "example": "y"
+    },
+    "modify": {
+     "type": "string",
+     "description": "Order modify date time (format: yyyy-MM-dd HH:mm:ss)",
+     "example": "2025-12-01&filter_type=gt"
+    },
+    "min-date": {
+     "type": "string",
+     "description": "Order minimum date (format: yyyy-MM-dd)",
+     "example": "2024-01-01"
+    },
+    "max-date": {
+     "type": "string",
+     "description": "Order maximum date (format: yyyy-MM-dd)",
+     "example": "2026-01-01"
+    },
+    "wh": {
+     "type": "string",
+     "description": "Warehouse code. Multiple values can be comma-separated, e.g. `S001,S002`.",
+     "example": "S001,S002,S003"
+    },
+    "limit/offset": {
+     "type": "string",
+     "description": "limit and offset",
+     "example": "10"
+    }
+   }
+  },
+  "ProductSearch": {
+   "description": "product search options",
+   "required": [],
+   "properties": {
+    "filter_type": {
+     "type": "string",
+     "enum": [
+      "eq",
+      "ne",
+      "co",
+      "gt",
+      "lt",
+      "le",
+      "ge"
+     ],
+     "description": "Data filter type: eq -> equals, ne -> not equals, co -> containing, gt -> greater, ge -> greater or equal, lt -> less, le -> less or equal",
+     "example": "filter_type=co"
+    },
+    "order": {
+     "type": "string",
+     "enum": [
+      "code",
+      "id",
+      "name",
+      "quant",
+      "barcode"
+     ],
+     "description": "Ordering by column name",
+     "example": "id"
+    },
+    "id": {
+     "type": "string",
+     "description": "product id",
+     "example": "123"
+    },
+    "code": {
+     "type": "string",
+     "description": "product code",
+     "example": "ABC123"
+    },
+    "quant": {
+     "type": "string",
+     "description": "product quantity",
+     "example": "100"
+    },
+    "name": {
+     "type": "string",
+     "description": "product name",
+     "example": "best product"
+    },
+    "modify": {
+     "type": "string",
+     "description": "product modify date time (format: yyyy-MM-dd HH:mm:ss)",
+     "example": "2026-01-01&filter_type=gt"
+    },
+    "wh": {
+     "type": "string",
+     "description": "Warehouse code. Multiple values can be comma-separated, e.g. `S001,S002`.",
+     "example": "S001,S002,S003"
+    },
+    "barcode": {
+     "type": "string",
+     "description": "product barcode",
+     "example": "123456789012"
+    },
+    "limit/offset": {
+     "type": "string",
+     "description": "limit and offset",
+     "example": "10"
+    }
+   }
+  },
+  "ProductQtySearch": {
+   "description": "Get stock quantities for products",
+   "required": [],
+   "properties": {
+    "filter_type": {
+     "type": "string",
+     "enum": [
+      "eq",
+      "ne",
+      "co",
+      "gt",
+      "lt",
+      "le",
+      "ge"
+     ],
+     "description": "Data filter type: eq -> equals, ne -> not equals, co -> containing, gt -> greater, ge -> greater or equal, lt -> less, le -> less or equal",
+     "example": "filter_type=co"
+    },
+    "order": {
+     "type": "string",
+     "enum": [
+      "code",
+      "id",
+      "qty",
+      "barcode"
+     ],
+     "description": "Ordering by column name",
+     "example": "id"
+    },
+    "id": {
+     "type": "string",
+     "description": "product id",
+     "example": "123"
+    },
+    "code": {
+     "type": "string",
+     "description": "product code",
+     "example": "ABC123"
+    },
+    "name": {
+     "type": "string",
+     "description": "product name",
+     "example": "best product"
+    },
+    "modify": {
+     "type": "string",
+     "description": "product modify date time (format: yyyy-MM-dd HH:mm:ss)",
+     "example": "2026-01-01&filter_type=gt"
+    },
+    "wh": {
+     "type": "string",
+     "description": "Warehouse code. Multiple values can be comma-separated, e.g. `S001,S002`.",
+     "example": "S001,S002,S003"
+    },
+    "qty": {
+     "type": "string",
+     "description": "product quantity",
+     "example": "100"
+    },
+    "barcode": {
+     "type": "string",
+     "description": "product barcode",
+     "example": "123456789012"
+    },
+    "limit/offset": {
+     "type": "string",
+     "description": "limit and offset",
+     "example": "10"
+    }
+   }
+  },
+  "ProblemDetail": {
+   "description": "RFC 7807 error response (returned by all error handlers)",
+   "required": [],
+   "properties": {
+    "title": {
+     "type": "string",
+     "description": "HTTP status reason phrase",
+     "example": "Bad Request"
+    },
+    "status": {
+     "type": "integer",
+     "format": "int32",
+     "description": "HTTP status code",
+     "example": 400
+    },
+    "detail": {
+     "type": "string",
+     "description": "Human-readable error details",
+     "example": "validation failed: Price cannot be null"
+    },
+    "instance": {
+     "type": "string",
+     "description": "Request URI that caused the error",
+     "example": "/api/orders"
+    },
+    "timestamp": {
+     "type": "string",
+     "description": "ISO 8601 timestamp",
+     "example": "2026-01-15T14:30:00.000+00:00"
+    },
+    "message": {
+     "type": "string",
+     "description": "Same as detail",
+     "example": "validation failed: Price cannot be null"
+    },
+    "errorId": {
+     "type": "string",
+     "description": "UUID for 500 errors (for support reference)",
+     "example": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+    }
+   }
+  },
+  "ProductPriceSearch": {
+   "description": "product price search options",
+   "required": [],
+   "properties": {
+    "filter_type": {
+     "type": "string",
+     "enum": [
+      "eq",
+      "ne",
+      "co",
+      "gt",
+      "lt",
+      "le",
+      "ge"
+     ],
+     "description": "Data filter type: eq -> equals, ne -> not equals, co -> containing, gt -> greater, ge -> greater or equal, lt -> less, le -> less or equal",
+     "example": "filter_type=co"
+    },
+    "order": {
+     "type": "string",
+     "enum": [
+      "id",
+      "code",
+      "barcode"
+     ],
+     "description": "Ordering by column name",
+     "example": "id"
+    },
+    "id": {
+     "type": "string",
+     "description": "product id",
+     "example": "123"
+    },
+    "code": {
+     "type": "string",
+     "description": "product code",
+     "example": "ABC123"
+    },
+    "name": {
+     "type": "string",
+     "description": "product name",
+     "example": "best product"
+    },
+    "barcode": {
+     "type": "string",
+     "description": "product barcode",
+     "example": "123456789012"
+    },
+    "wh": {
+     "type": "string",
+     "description": "warehouse code",
+     "example": "S001"
+    },
+    "modify": {
+     "type": "string",
+     "description": "product modify date time (format: yyyy-MM-dd HH:mm:ss)",
+     "example": "2026-01-01&filter_type=gt"
+    },
+    "limit/offset": {
+     "type": "string",
+     "description": "limit and offset",
+     "example": "10"
+    }
+   }
+  },
+  "OrderSearch": {
+   "description": "Sales document (order/invoice) search parameters. All string filters respect `filter_type` (default: eq). At least one search parameter is required.",
+   "required": [],
+   "properties": {
+    "filter_type": {
+     "type": "string",
+     "enum": [
+      "eq",
+      "ne",
+      "co",
+      "gt",
+      "lt",
+      "le",
+      "ge"
+     ],
+     "description": "Data filter type: eq -> equals, ne -> not equals, co -> containing, gt -> greater, ge -> greater or equal, lt -> less, le -> less or equal",
+     "example": "filter_type=co"
+    },
+    "id": {
+     "type": "integer",
+     "format": "int32",
+     "description": "Document ID (numeric). Compared using filter_type.",
+     "example": 123
+    },
+    "order_no": {
+     "type": "string",
+     "description": "Document number. Case-insensitive. Compared using filter_type.",
+     "example": "ABC123456"
+    },
+    "reg_no": {
+     "type": "string",
+     "description": "Document registration number. Case-insensitive. Compared using filter_type.",
+     "example": "REG123456"
+    },
+    "date": {
+     "type": "string",
+     "format": "date-time",
+     "description": "Document date. Format: yyyy-MM-dd",
+     "example": "2026-01-01"
+    },
+    "modify": {
+     "type": "string",
+     "format": "date-time",
+     "description": "Last modification timestamp. Format: yyyy-MM-dd HH:mm:ss.",
+     "example": "2026-01-01 00:00:00"
+    },
+    "wh": {
+     "type": "string",
+     "description": "Warehouse code. Multiple values can be comma-separated, e.g. `S001,S002`.",
+     "example": "S001"
+    },
+    "order": {
+     "type": "string",
+     "enum": [
+      "order_no",
+      "reg_no",
+      "id",
+      "date"
+     ],
+     "description": "Sort results by the specified column.",
+     "example": "date"
+    },
+    "limit": {
+     "type": "integer",
+     "format": "int32",
+     "minimum": 1,
+     "maximum": 250,
+     "description": "Maximum number of results to return (1-250, default max 250).",
+     "example": 50
+    },
+    "offset": {
+     "type": "integer",
+     "format": "int32",
+     "description": "Number of results to skip (used together with limit for pagination).",
+     "example": 0
+    }
+   }
+  },
+  "ReceiptSearch": {
+   "description": "Receipt document search parameters. All string filters respect `filter_type` (default: eq). At least one search parameter is required.",
+   "required": [],
+   "properties": {
+    "filter_type": {
+     "type": "string",
+     "enum": [
+      "eq",
+      "ne",
+      "co",
+      "gt",
+      "lt",
+      "le",
+      "ge"
+     ],
+     "description": "Data filter type: eq -> equals, ne -> not equals, co -> containing, gt -> greater, ge -> greater or equal, lt -> less, le -> less or equal",
+     "example": "filter_type=co"
+    },
+    "id": {
+     "type": "integer",
+     "format": "int32",
+     "description": "Document ID (numeric). Compared using filter_type.",
+     "example": 123
+    },
+    "receipt_no": {
+     "type": "string",
+     "description": "Document number. Case-insensitive. Compared using filter_type.",
+     "example": "ABC123456"
+    },
+    "date": {
+     "type": "string",
+     "format": "date-time",
+     "description": "Document date. Format: yyyy-MM-dd",
+     "example": "2026-01-01"
+    },
+    "modify": {
+     "type": "string",
+     "format": "date-time",
+     "description": "Last modification timestamp. Format: yyyy-MM-dd HH:mm:ss.",
+     "example": "2026-01-01 00:00:00"
+    },
+    "wh": {
+     "type": "string",
+     "description": "Warehouse code. Multiple values can be comma-separated, e.g. `S001,S002`.",
+     "example": "S001"
+    },
+    "order": {
+     "type": "string",
+     "enum": [
+      "receipt_no",
+      "id",
+      "date"
+     ],
+     "description": "Sort results by the specified column.",
+     "example": "date"
+    },
+    "limit": {
+     "type": "integer",
+     "format": "int32",
+     "minimum": 1,
+     "maximum": 250,
+     "description": "Maximum number of results to return (1-250, default max 250).",
+     "example": 50
+    },
+    "offset": {
+     "type": "integer",
+     "format": "int32",
+     "description": "Number of results to skip (used together with limit for pagination).",
+     "example": 0
+    }
+   }
+  },
+  "CustomerReturnSearch": {
+   "description": "Return document search parameters. All string filters respect `filter_type` (default: eq). At least one search parameter is required.",
+   "required": [],
+   "properties": {
+    "filter_type": {
+     "type": "string",
+     "enum": [
+      "eq",
+      "ne",
+      "co",
+      "gt",
+      "lt",
+      "le",
+      "ge"
+     ],
+     "description": "Data filter type: eq -> equals, ne -> not equals, co -> containing, gt -> greater, ge -> greater or equal, lt -> less, le -> less or equal",
+     "example": "filter_type=co"
+    },
+    "id": {
+     "type": "integer",
+     "format": "int32",
+     "description": "Document ID (numeric). Compared using filter_type.",
+     "example": 123
+    },
+    "return_no": {
+     "type": "string",
+     "description": "Document number. Case-insensitive. Compared using filter_type.",
+     "example": "ABC123456"
+    },
+    "reg_no": {
+     "type": "string",
+     "description": "Document registration number. Case-insensitive. Compared using filter_type.",
+     "example": "REG123456"
+    },
+    "date": {
+     "type": "string",
+     "format": "date-time",
+     "description": "Document date. Format: yyyy-MM-dd",
+     "example": "2026-01-01"
+    },
+    "return_date": {
+     "type": "string",
+     "format": "date-time",
+     "description": "Document date. Format: yyyy-MM-dd",
+     "example": "2026-01-01"
+    },
+    "modify": {
+     "type": "string",
+     "format": "date-time",
+     "description": "Last modification timestamp. Format: yyyy-MM-dd HH:mm:ss.",
+     "example": "2026-01-01 00:00:00"
+    },
+    "wh": {
+     "type": "string",
+     "description": "Warehouse code. Multiple values can be comma-separated, e.g. `S001,S002`.",
+     "example": "S001"
+    },
+    "order": {
+     "type": "string",
+     "enum": [
+      "return_no",
+      "id",
+      "date"
+     ],
+     "description": "Sort results by the specified column.",
+     "example": "date"
+    },
+    "limit": {
+     "type": "integer",
+     "format": "int32",
+     "minimum": 1,
+     "maximum": 250,
+     "description": "Maximum number of results to return (1-250, default max 250).",
+     "example": 50
+    },
+    "offset": {
+     "type": "integer",
+     "format": "int32",
+     "description": "Number of results to skip (used together with limit for pagination).",
+     "example": 0
+    }
+   }
+  },
+  "ProductionNormSearch": {
+   "description": "Production norm search parameters. All string filters respect `filter_type` (default: eq). At least one search parameter is required.",
+   "required": [],
+   "properties": {
+    "filter_type": {
+     "type": "string",
+     "enum": [
+      "eq",
+      "ne",
+      "co",
+      "gt",
+      "lt",
+      "le",
+      "ge"
+     ],
+     "description": "Data filter type: eq -> equals, ne -> not equals, co -> containing, gt -> greater, ge -> greater or equal, lt -> less, le -> less or equal",
+     "example": "filter_type=co"
+    },
+    "id": {
+     "type": "integer",
+     "format": "int32",
+     "description": "Norm ID (numeric). Compared using filter_type.",
+     "example": 123
+    },
+    "code": {
+     "type": "string",
+     "description": "Norm code. Case-insensitive. Compared using filter_type.",
+     "example": "NRM001"
+    },
+    "product_code": {
+     "type": "string",
+     "description": "Product code. Case-insensitive. Compared using filter_type.",
+     "example": "PRK001"
+    },
+    "product_id": {
+     "type": "integer",
+     "format": "int32",
+     "description": "Product ID (numeric). Compared using filter_type.",
+     "example": 456
+    },
+    "modify": {
+     "type": "string",
+     "format": "date-time",
+     "description": "Last modification timestamp. Format: yyyy-MM-dd HH:mm:ss.",
+     "example": "2026-01-01 00:00:00"
+    },
+    "wh": {
+     "type": "string",
+     "description": "Warehouse code. Multiple values can be comma-separated, e.g. `S001,S002`.",
+     "example": "S001"
+    },
+    "order": {
+     "type": "string",
+     "enum": [
+      "id",
+      "code",
+      "product_code",
+      "modify_date"
+     ],
+     "description": "Sort results by the specified column.",
+     "example": "code"
+    },
+    "limit": {
+     "type": "integer",
+     "format": "int32",
+     "minimum": 1,
+     "maximum": 250,
+     "description": "Maximum number of results to return (1-250, default max 250).",
+     "example": 50
+    },
+    "offset": {
+     "type": "integer",
+     "format": "int32",
+     "description": "Number of results to skip (used together with limit for pagination).",
+     "example": 0
+    }
+   }
+  },
+  "ProcessingNormSearch": {
+   "description": "Processing norm search parameters. All string filters respect `filter_type` (default: eq). At least one search parameter is required.",
+   "required": [],
+   "properties": {
+    "filter_type": {
+     "type": "string",
+     "enum": [
+      "eq",
+      "ne",
+      "co",
+      "gt",
+      "lt",
+      "le",
+      "ge"
+     ],
+     "description": "Data filter type: eq -> equals, ne -> not equals, co -> containing, gt -> greater, ge -> greater or equal, lt -> less, le -> less or equal",
+     "example": "filter_type=co"
+    },
+    "id": {
+     "type": "integer",
+     "format": "int32",
+     "description": "Norm ID (numeric). Compared using filter_type.",
+     "example": 6
+    },
+    "norm_code": {
+     "type": "string",
+     "description": "Norm code. Case-insensitive. Compared using filter_type.",
+     "example": "PROC001"
+    },
+    "wh": {
+     "type": "string",
+     "description": "Warehouse code. Multiple values can be comma-separated, e.g. `S001,S002`.",
+     "example": "S001"
+    },
+    "order": {
+     "type": "string",
+     "enum": [
+      "id",
+      "norm_code",
+      "modify_date"
+     ],
+     "description": "Sort results by the specified column.",
+     "example": "norm_code"
+    },
+    "fields": {
+     "type": "string",
+     "description": "Comma-separated list of fields to return (sparse fieldset).",
+     "example": "id,norm_code,memo"
+    },
+    "limit": {
+     "type": "integer",
+     "format": "int32",
+     "minimum": 1,
+     "maximum": 250,
+     "description": "Maximum number of results to return (1-250, default max 250).",
+     "example": 50
+    },
+    "offset": {
+     "type": "integer",
+     "format": "int32",
+     "description": "Number of results to skip (used together with limit for pagination).",
+     "example": 0
+    }
+   }
+  },
+  "Product": {
+   "description": "product information",
+   "required": [
+    "id"
+   ],
+   "properties": {
+    "group": {
+     "type": "string",
+     "maxLength": 200,
+     "minLength": 0,
+     "description": "agnum laukas: Grupė"
+    },
+    "category": {
+     "type": "string",
+     "maxLength": 200,
+     "minLength": 0,
+     "description": "agnum laukas: Kategorija"
+    },
+    "subgroup": {
+     "type": "string",
+     "maxLength": 200,
+     "minLength": 0,
+     "description": "agnum laukas: Pogrupis"
+    },
+    "direction": {
+     "type": "string",
+     "maxLength": 200,
+     "minLength": 0,
+     "description": "agnum laukas: Kryptis"
+    },
+    "branch": {
+     "type": "string",
+     "maxLength": 200,
+     "minLength": 0,
+     "description": "agnum laukas: Pošakis"
+    },
+    "netto": {
+     "type": "number",
+     "format": "float",
+     "description": "agnum laukas: Neto svoris"
+    },
+    "brutto": {
+     "type": "number",
+     "format": "float",
+     "description": "agnum laukas: Bruto svoris"
+    },
+    "f1": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "agnum laukas: pirmas papildomas tekstinis"
+    },
+    "f2": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "agnum laukas: antras papildomas tekstinis"
+    },
+    "f3": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "agnum laukas: trecias papildomas tekstinis"
+    },
+    "f4": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "agnum laukas: ketvirtas papildomas tekstinis"
+    },
+    "f5": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "agnum laukas: penktas papildomas tekstinis"
+    },
+    "f6": {
+     "type": "number",
+     "format": "float",
+     "description": "agnum laukas: pirmas papildomas skaitmeninis"
+    },
+    "f7": {
+     "type": "number",
+     "format": "float",
+     "description": "agnum laukas: antras papildomas skaitmeninis"
+    },
+    "f8": {
+     "type": "number",
+     "format": "float",
+     "description": "agnum laukas: trečias papildomas skaitmeninis"
+    },
+    "f9": {
+     "type": "number",
+     "format": "float",
+     "description": "agnum laukas: ketvirtas papildomas skaitmeninis"
+    },
+    "f10": {
+     "type": "number",
+     "format": "float",
+     "description": "agnum laukas: penktas papildomas skaitmeninis"
+    },
+    "f11": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "agnum laukas: šeštas papildomas tekstinis"
+    },
+    "f12": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "agnum laukas: septyntas papildomas tekstinis"
+    },
+    "f13": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "agnum laukas: aštuntas papildomas tekstinis"
+    },
+    "f14": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0
+    },
+    "f15": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0
+    },
+    "f16": {
+     "type": "number",
+     "format": "float"
+    },
+    "f17": {
+     "type": "number",
+     "format": "float"
+    },
+    "f18": {
+     "type": "number",
+     "format": "float"
+    },
+    "f19": {
+     "type": "number",
+     "format": "float"
+    },
+    "f20": {
+     "type": "number",
+     "format": "float"
+    },
+    "name1": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "agnum laukas: pirmas vertimas"
+    },
+    "name3": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "agnum laukas: trečias vertimas"
+    },
+    "name4": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "agnum laukas: ketvirtas vertimas"
+    },
+    "name5": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "agnum laukas: penktas vertimas"
+    },
+    "name6": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "agnum laukas: šeštas vertimas"
+    },
+    "name7": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "agnum laukas: septintas vertimas"
+    },
+    "name8": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "agnum laukas: aštuntas vertimas"
+    },
+    "name2": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "agnum laukas: antras vertimas"
+    },
+    "id": {
+     "type": "integer",
+     "format": "int64",
+     "readOnly": true
+    },
+    "name": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0
+    },
+    "code": {
+     "type": "string",
+     "maxLength": 25,
+     "minLength": 0,
+     "description": "agnum laukas: Kodas"
+    },
+    "balance": {
+     "type": "number",
+     "format": "float",
+     "readOnly": true,
+     "description": "agnum laukas: Kiekis"
+    },
+    "modify_date": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "place": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "agnum laukas: Vieta"
+    },
+    "create_date": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "pcs": {
+     "type": "string",
+     "maxLength": 10,
+     "minLength": 0,
+     "description": "agnum laukas: Vnt"
+    },
+    "enabled": {
+     "type": "boolean",
+     "description": "agnum laukas: Aktyvumas"
+    },
+    "barcode": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "maxLength": 25,
+      "minLength": 0
+     }
+    },
+    "cls": {
+     "type": "integer",
+     "format": "int32",
+     "description": "Product class/type: 0 - prekė 1 - paslauga 2 - gaminys 3 - pusgaminis 4 - komplektas 5 - ilgalaikis turtas"
+    },
+    "country_code": {
+     "type": "string",
+     "maxLength": 3,
+     "minLength": 0,
+     "description": "agnum laukas: Kilmės šalis"
+    },
+    "pack_qty": {
+     "type": "number",
+     "description": "Quantity of items per package"
+    },
+    "supplier": {
+     "ref": "SupplierDto"
+    }
+   }
+  },
+  "SupplierDto": {
+   "description": "Supplier information",
+   "required": [],
+   "properties": {
+    "id": {
+     "type": "integer",
+     "format": "int64",
+     "description": "Supplier id"
+    },
+    "code": {
+     "type": "string",
+     "maxLength": 20,
+     "minLength": 1,
+     "description": "Supplier code",
+     "example": 123456
+    },
+    "name": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "Supplier name",
+     "example": "UAB TEST"
+    }
+   }
+  },
+  "ProductPrices": {
+   "description": "product prices",
+   "required": [],
+   "properties": {
+    "product_id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "product_code": {
+     "type": "string",
+     "maxLength": 25,
+     "minLength": 0,
+     "description": "agnum laukas: kodas"
+    },
+    "wh_all": {
+     "type": "boolean",
+     "description": "Update prices in all warehouses. Default value is false. When true, the specified prices are applied to all warehouses."
+    },
+    "kn0": {
+     "type": "number",
+     "description": "agnum laukas: pirkimo kaina"
+    },
+    "kn1": {
+     "type": "number",
+     "description": "agnum laukas: didmeninė kaina"
+    },
+    "kn2": {
+     "type": "number",
+     "description": "agnum laukas: mažmeninė kaina"
+    },
+    "kn3": {
+     "type": "number",
+     "description": "agnum laukas: pirma papildoma kaina"
+    },
+    "kn4": {
+     "type": "number",
+     "description": "agnum laukas: antra papildoma kaina"
+    },
+    "kn5": {
+     "type": "number",
+     "description": "agnum laukas: trečia papildoma kaina"
+    },
+    "knmin": {
+     "type": "number",
+     "description": "agnum laukas: minimali kaina"
+    },
+    "knb": {
+     "type": "number",
+     "description": "agnum laukas: bazinė kaina"
+    },
+    "sv_min": {
+     "type": "number",
+     "description": "minimali savikaina"
+    },
+    "sv_max": {
+     "type": "number",
+     "description": "maksimali savikaina"
+    },
+    "sv_avg": {
+     "type": "number",
+     "description": "vidutitė savikaina"
+    },
+    "sv_last": {
+     "type": "number",
+     "description": "naujausios partijos savikaina"
+    },
+    "sv_first": {
+     "type": "number",
+     "description": "seniausios partijos savikaina"
+    }
+   }
+  },
+  "ProductionNorm": {
+   "description": "Production norm",
+   "required": [],
+   "properties": {
+    "id": {
+     "type": "integer",
+     "format": "int64",
+     "description": "Norm ID. Ignored in POST (auto-generated), required in PUT/PATCH."
+    },
+    "wh": {
+     "type": "string",
+     "maxLength": 10,
+     "minLength": 1,
+     "readOnly": true
+    },
+    "product_id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "norm_code": {
+     "type": "string",
+     "maxLength": 25,
+     "minLength": 0
+    },
+    "product_code": {
+     "type": "string",
+     "maxLength": 25,
+     "minLength": 0,
+     "readOnly": true
+    },
+    "product_name": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "readOnly": true
+    },
+    "product_qty": {
+     "type": "number"
+    },
+    "memo": {
+     "type": "string",
+     "maxLength": 200,
+     "minLength": 0
+    },
+    "cost": {
+     "type": "number"
+    },
+    "raw_products": {
+     "type": "array",
+     "items": {
+      "ref": "ProductionRawProduct"
+     }
+    },
+    "costs": {
+     "type": "array",
+     "items": {
+      "ref": "ProductionNormCost"
+     }
+    },
+    "modify_date": {
+     "type": "string",
+     "format": "date-time"
+    }
+   }
+  },
+  "ProductionNormCost": {
+   "description": "Operation cost (production norm labor)",
+   "required": [],
+   "properties": {
+    "rec_id": {
+     "type": "integer",
+     "format": "int64",
+     "readOnly": true
+    },
+    "empl_id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "acc1": {
+     "type": "string",
+     "maxLength": 9,
+     "minLength": 0
+    },
+    "cost": {
+     "type": "number"
+    },
+    "code": {
+     "type": "string",
+     "maxLength": 25,
+     "minLength": 0,
+     "readOnly": true
+    },
+    "formula": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0
+    },
+    "delete": {
+     "type": "boolean",
+     "description": "Set to true in PATCH to delete this row by rec_id"
+    }
+   }
+  },
+  "ProductionRawProduct": {
+   "description": "Raw product (production norm component)",
+   "required": [],
+   "properties": {
+    "rec_id": {
+     "type": "integer",
+     "format": "int64",
+     "readOnly": true
+    },
+    "product_id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "code": {
+     "type": "string",
+     "maxLength": 25,
+     "minLength": 0,
+     "readOnly": true
+    },
+    "name": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "readOnly": true
+    },
+    "formula_brutto": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0
+    },
+    "formula_netto": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0
+    },
+    "cost": {
+     "type": "number"
+    },
+    "delete": {
+     "type": "boolean",
+     "description": "Set to true in PATCH to delete this row by rec_id"
+    }
+   }
+  },
+  "ProcessingInputProduct": {
+   "description": "Input product",
+   "required": [
+    "qty"
+   ],
+   "properties": {
+    "qty": {
+     "type": "number"
+    },
+    "rec_id": {
+     "type": "integer",
+     "format": "int64",
+     "readOnly": true
+    },
+    "product_id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "code": {
+     "type": "string",
+     "maxLength": 25,
+     "minLength": 0,
+     "readOnly": true
+    },
+    "name": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "readOnly": true
+    },
+    "delete": {
+     "type": "boolean",
+     "description": "Set to true in PATCH to delete this row by rec_id"
+    }
+   }
+  },
+  "ProcessingNorm": {
+   "description": "Processing norm",
+   "required": [],
+   "properties": {
+    "id": {
+     "type": "integer",
+     "format": "int64",
+     "description": "Norm ID. Ignored in POST (auto-generated), required in PUT/PATCH."
+    },
+    "wh": {
+     "type": "string",
+     "maxLength": 10,
+     "minLength": 1,
+     "readOnly": true
+    },
+    "norm_code": {
+     "type": "string",
+     "maxLength": 25,
+     "minLength": 0
+    },
+    "memo": {
+     "type": "string",
+     "maxLength": 200,
+     "minLength": 0
+    },
+    "input_products": {
+     "type": "array",
+     "items": {
+      "ref": "ProcessingInputProduct"
+     }
+    },
+    "output_products": {
+     "type": "array",
+     "items": {
+      "ref": "ProcessingOutputProduct"
+     }
+    },
+    "costs": {
+     "type": "array",
+     "items": {
+      "ref": "ProcessingNormCost"
+     }
+    },
+    "modify_date": {
+     "type": "string",
+     "format": "date-time"
+    }
+   }
+  },
+  "ProcessingNormCost": {
+   "description": "Processing cost (processing norm labor)",
+   "required": [],
+   "properties": {
+    "rec_id": {
+     "type": "integer",
+     "format": "int64",
+     "readOnly": true
+    },
+    "cost": {
+     "type": "number"
+    },
+    "memo": {
+     "type": "string",
+     "maxLength": 200,
+     "minLength": 0
+    },
+    "delete": {
+     "type": "boolean",
+     "description": "Set to true in PATCH to delete this row by rec_id"
+    }
+   }
+  },
+  "ProcessingOutputProduct": {
+   "description": "Output product",
+   "required": [
+    "qty"
+   ],
+   "properties": {
+    "qty": {
+     "type": "number"
+    },
+    "rec_id": {
+     "type": "integer",
+     "format": "int64",
+     "readOnly": true
+    },
+    "product_id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "code": {
+     "type": "string",
+     "maxLength": 25,
+     "minLength": 0,
+     "readOnly": true
+    },
+    "name": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "readOnly": true
+    },
+    "cost_percent": {
+     "type": "number",
+     "minimum": 1,
+     "maximum": 100,
+     "description": "Cost of this product in percent"
+    },
+    "delete": {
+     "type": "boolean",
+     "description": "Set to true in PATCH to delete this row by rec_id"
+    }
+   }
+  },
+  "Adr": {
+   "description": "address information",
+   "required": [],
+   "properties": {
+    "city": {
+     "type": "string",
+     "maxLength": 20,
+     "minLength": 0,
+     "description": "city",
+     "example": "Vilnius"
+    },
+    "street": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "street",
+     "example": "G. Vilnius g. 123"
+    },
+    "house": {
+     "type": "string",
+     "maxLength": 20,
+     "minLength": 0,
+     "description": "house number",
+     "example": 123
+    },
+    "floor": {
+     "type": "string",
+     "maxLength": 20,
+     "minLength": 0,
+     "description": "floor number",
+     "example": 1
+    },
+    "apartment": {
+     "type": "string",
+     "maxLength": 20,
+     "minLength": 0,
+     "description": "apartment number",
+     "example": 1
+    },
+    "municipality": {
+     "type": "string",
+     "maxLength": 10,
+     "minLength": 0,
+     "description": "municipality code",
+     "example": "V"
+    },
+    "post_code": {
+     "type": "string",
+     "maxLength": 10,
+     "minLength": 0,
+     "description": "postal code",
+     "example": 12345
+    },
+    "contact": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "contact",
+     "example": "Vardas"
+    },
+    "tlf": {
+     "type": "string",
+     "maxLength": 40,
+     "minLength": 0,
+     "description": "telephone number",
+     "example": "+37012345678"
+    },
+    "memo": {
+     "type": "string",
+     "maxLength": 255,
+     "minLength": 0,
+     "description": "memo",
+     "example": "text"
+    },
+    "country_code": {
+     "type": "string",
+     "maxLength": 10,
+     "minLength": 0,
+     "description": "country code",
+     "example": "LT"
+    }
+   }
+  },
+  "NewClient": {
+   "description": "new client information",
+   "required": [
+    "create_date"
+   ],
+   "properties": {
+    "code": {
+     "type": "string",
+     "maxLength": 20,
+     "minLength": 1,
+     "description": "Client code",
+     "example": 123456
+    },
+    "name": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "Client name",
+     "example": "UAB TEST"
+    },
+    "id": {
+     "type": "integer",
+     "format": "int64",
+     "readOnly": true,
+     "description": "ID",
+     "example": 123456
+    },
+    "company_code": {
+     "type": "string",
+     "maxLength": 15,
+     "minLength": 0,
+     "description": "Company code",
+     "example": 123456
+    },
+    "vat_code": {
+     "type": "string",
+     "maxLength": 20,
+     "minLength": 0,
+     "description": "VAT code",
+     "example": "LT1234567890"
+    },
+    "price_group": {
+     "type": "integer",
+     "format": "int32",
+     "description": "Client price group, default 4",
+     "example": 4
+    },
+    "email": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "Client email address"
+    },
+    "registeredAddress": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "Registered office address"
+    },
+    "officeAddress": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "Office address"
+    },
+    "client_role": {
+     "type": "array",
+     "uniqueItems": true,
+     "items": {
+      "type": "string",
+      "enum": [
+       "BUYER",
+       "SUPPLIER",
+       "CARRIER",
+       "B1",
+       "B2",
+       "B3",
+       "B4",
+       "B5",
+       "B6",
+       "B7",
+       "B8",
+       "B9",
+       "B10",
+       "INDIVIDUAL"
+      ],
+      "description": "Available client roles"
+     },
+     "description": "Agnum client type"
+    },
+    "f1": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "additional customer text field"
+    },
+    "f2": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "additional customer text field"
+    },
+    "f3": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "additional customer text field"
+    },
+    "f4": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "additional customer text field"
+    },
+    "f5": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "additional customer text field"
+    },
+    "f6": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "additional customer text field"
+    },
+    "f7": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "additional customer text field"
+    },
+    "f8": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "additional customer text field"
+    },
+    "f9": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "additional customer text field"
+    },
+    "f10": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "additional customer text field"
+    },
+    "f11": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "additional customer text field"
+    },
+    "f12": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "additional customer text field"
+    },
+    "f13": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "additional customer text field"
+    },
+    "f14": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "additional customer text field"
+    },
+    "f15": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "additional customer text field"
+    },
+    "fs1": {
+     "type": "number",
+     "description": "additional customer numeric field"
+    },
+    "fs2": {
+     "type": "number",
+     "description": "additional customer numeric field"
+    },
+    "fs3": {
+     "type": "number",
+     "description": "additional customer numeric field"
+    },
+    "fs4": {
+     "type": "number",
+     "description": "additional customer numeric field"
+    },
+    "fs5": {
+     "type": "number",
+     "description": "additional customer numeric field"
+    },
+    "modify_date": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "create_date": {
+     "type": "string",
+     "format": "date"
+    },
+    "adr": {
+     "ref": "Adr",
+     "description": "Client address"
+    },
+    "payment_term_receipt": {
+     "type": "integer",
+     "format": "int32",
+     "description": "Number of days allowed for payment of the receipt"
+    },
+    "payment_term_order": {
+     "type": "integer",
+     "format": "int32",
+     "description": "Number of days allowed for payment of the order"
+    },
+    "pozym_numbers": {
+     "type": "array",
+     "maxItems": 100,
+     "minItems": 0,
+     "items": {
+      "type": "integer",
+      "format": "int32",
+      "minimum": -100,
+      "maximum": 100
+     }
+    }
+   }
+  },
+  "NewReceipt": {
+   "description": "new receipt information",
+   "required": [
+    "client",
+    "date",
+    "doc_no",
+    "receipt_date",
+    "vat"
+   ],
+   "properties": {
+    "id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "date": {
+     "type": "string",
+     "format": "date"
+    },
+    "receipt_date": {
+     "type": "string",
+     "format": "date"
+    },
+    "tracking": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0
+    },
+    "doc_no": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0
+    },
+    "reg_no": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0
+    },
+    "total": {
+     "type": "number"
+    },
+    "sum": {
+     "type": "number"
+    },
+    "vat": {
+     "type": "number"
+    },
+    "paid_amount": {
+     "type": "number"
+    },
+    "transp_amount": {
+     "type": "number"
+    },
+    "wh": {
+     "type": "string",
+     "maxLength": 10,
+     "minLength": 0
+    },
+    "location": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0
+    },
+    "payment_term_days": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "memo": {
+     "type": "string",
+     "maxLength": 1024,
+     "minLength": 0
+    },
+    "client": {
+     "ref": "NewReceiptClient"
+    },
+    "products": {
+     "type": "array",
+     "items": {
+      "ref": "NewReceiptProduct"
+     }
+    },
+    "f1": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "additional receipt text field"
+    },
+    "f2": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "additional receipt text field"
+    },
+    "f3": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "additional receipt text field"
+    },
+    "f4": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "additional receipt text field"
+    },
+    "f5": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "additional receipt text field"
+    },
+    "include_in_vat_register": {
+     "type": "boolean",
+     "description": "Indicates whether the document should be included in the incoming VAT invoice register."
+    },
+    "include_goods": {
+     "type": "boolean",
+     "description": "Include goods amount in the receipt document total. Defaults to true if the amount is greater than 0."
+    },
+    "include_services": {
+     "type": "boolean",
+     "description": "Include services amount in the receipt document total. Defaults to true if the amount is greater than 0."
+    },
+    "include_consignment": {
+     "type": "boolean",
+     "description": "Include consignment amount in the receipt document total. Defaults to true if the amount is greater than 0."
+    },
+    "include_transp": {
+     "type": "boolean",
+     "description": "Include transport costs in the receipt document total. Defaults to true if the amount is greater than 0."
+    },
+    "include_vat": {
+     "type": "boolean",
+     "description": "Include VAT amount in the receipt document total. Defaults to true if the amount is greater than 0."
+    },
+    "include_custom": {
+     "type": "boolean",
+     "default": "false",
+     "description": "Include customs duty in the receipt document total."
+    },
+    "include_excise": {
+     "type": "boolean",
+     "default": "false",
+     "description": "Include excise duty in the receipt document total."
+    },
+    "include_deposit": {
+     "type": "boolean",
+     "description": "Include deposit packaging amount in the receipt document total. Defaults to true if the amount is greater than 0."
+    },
+    "include_other": {
+     "type": "boolean",
+     "default": "false",
+     "description": "Include other costs in the receipt document total."
+    },
+    "pozym_numbers": {
+     "type": "array",
+     "maxItems": 100,
+     "minItems": 0,
+     "items": {
+      "type": "integer",
+      "format": "int32",
+      "minimum": 1,
+      "maximum": 100
+     }
+    }
+   }
+  },
+  "NewReceiptClient": {
+   "description": "",
+   "required": [],
+   "properties": {
+    "id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "email": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0
+    },
+    "code": {
+     "type": "string",
+     "maxLength": 20,
+     "minLength": 0
+    },
+    "company_code": {
+     "type": "string",
+     "maxLength": 15,
+     "minLength": 0
+    }
+   }
+  },
+  "NewReceiptProduct": {
+   "description": "agnum new receipt product information",
+   "required": [
+    "price",
+    "qty",
+    "vat",
+    "vat_proc"
+   ],
+   "properties": {
+    "id": {
+     "type": "integer",
+     "format": "int64",
+     "description": "Product ID. Either `id` or `code` is required. If `id` is provided, product lookup is always by ID (takes priority over `code`)."
+    },
+    "code": {
+     "type": "string",
+     "description": "Product code. Either `id` or `code` is required. Ignored if `id` is provided."
+    },
+    "bk": {
+     "type": "string",
+     "description": "Product barcode"
+    },
+    "qty": {
+     "type": "number",
+     "description": "Quantity"
+    },
+    "vat": {
+     "type": "number",
+     "description": "VAT amount"
+    },
+    "mark": {
+     "type": "string",
+     "description": "Product mark / label"
+    },
+    "vat_proc": {
+     "type": "number",
+     "format": "double",
+     "description": "VAT rate (%)"
+    },
+    "vat_code": {
+     "type": "string",
+     "description": "VAT code (default: PVM1)"
+    },
+    "memo": {
+     "type": "string",
+     "description": "Memo / comment"
+    },
+    "pcs": {
+     "type": "string",
+     "description": "Unit of measure"
+    },
+    "price": {
+     "type": "number",
+     "description": "Unit price"
+    },
+    "part": {
+     "ref": "ProductPart",
+     "description": "Product part information"
+    },
+    "allocate_transp": {
+     "type": "boolean",
+     "description": "Indicates whether a share of the document's total transport costs can be allocated to this item."
+    }
+   }
+  },
+  "ProductPart": {
+   "description": "Product part information",
+   "required": [],
+   "properties": {
+    "f1": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0
+    },
+    "f2": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0
+    },
+    "f3": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0
+    },
+    "f4": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0
+    },
+    "f5": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0
+    },
+    "d1": {
+     "type": "string",
+     "format": "date"
+    },
+    "d2": {
+     "type": "string",
+     "format": "date"
+    },
+    "d3": {
+     "type": "string",
+     "format": "date"
+    }
+   }
+  },
+  "NewOrder": {
+   "description": "new order information",
+   "required": [
+    "client",
+    "date",
+    "doc_no",
+    "sum",
+    "total",
+    "vat_sum"
+   ],
+   "properties": {
+    "id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "date": {
+     "type": "string",
+     "format": "date"
+    },
+    "doc_no": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0
+    },
+    "reg_no": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0
+    },
+    "sum": {
+     "type": "number"
+    },
+    "vat_sum": {
+     "type": "number"
+    },
+    "total": {
+     "type": "number"
+    },
+    "memo": {
+     "type": "string",
+     "maxLength": 1024,
+     "minLength": 0
+    },
+    "delivery_code": {
+     "type": "string",
+     "maxLength": 10,
+     "minLength": 0
+    },
+    "tracking": {
+     "type": "string",
+     "maxLength": 255,
+     "minLength": 0
+    },
+    "pozym_numbers": {
+     "type": "array",
+     "maxItems": 100,
+     "minItems": 0,
+     "items": {
+      "type": "integer",
+      "format": "int32",
+      "minimum": 1,
+      "maximum": 100
+     }
+    },
+    "delivery": {
+     "ref": "delivery"
+    },
+    "client": {
+     "ref": "NewOrderClient"
+    },
+    "sf_type": {
+     "type": "string",
+     "maxLength": 10,
+     "minLength": 0,
+     "description": "SF, DS, KS, VS, VD, VK"
+    },
+    "location": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0
+    },
+    "wh": {
+     "type": "string",
+     "maxLength": 10,
+     "minLength": 0
+    },
+    "products": {
+     "type": "array",
+     "items": {
+      "ref": "NewOrderProduct"
+     }
+    },
+    "price_group": {
+     "type": "integer",
+     "format": "int32",
+     "minimum": 3,
+     "default": "4",
+     "description": "Price type: 3 – Wholesale, 4 – Retail, 5 – Additional price 1, 6 – Additional price 2, 7 – Additional price 3",
+     "example": 4
+    },
+    "doc_type": {
+     "type": "integer",
+     "format": "int32",
+     "description": "save doc to (1 - Atd, 2 - Uzs, 3 - Pas, default = 1)"
+    },
+    "paid_type": {
+     "type": "integer",
+     "format": "int32",
+     "description": "paid type (0 - Grynais, 1 - Skolon, 3 - Kasos čekis, 2 - K10, default = 1)"
+    },
+    "cash_receipt_no": {
+     "type": "string",
+     "description": "Cash receipt number"
+    },
+    "cash_register_no": {
+     "type": "string",
+     "description": "Cash register number"
+    },
+    "cash_receipt_datetime": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "cash_receipt_round": {
+     "type": "number"
+    },
+    "paid_term": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "f1": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "additional order text field"
+    },
+    "f2": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "additional order text field"
+    },
+    "f3": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "additional order text field"
+    },
+    "f4": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "additional order text field"
+    },
+    "f5": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "additional order text field"
+    }
+   }
+  },
+  "NewOrderClient": {
+   "description": "",
+   "required": [],
+   "properties": {
+    "id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "email": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0
+    },
+    "code": {
+     "type": "string",
+     "maxLength": 20,
+     "minLength": 0
+    },
+    "company_code": {
+     "type": "string",
+     "maxLength": 15,
+     "minLength": 0
+    }
+   }
+  },
+  "NewOrderProduct": {
+   "description": "agnum new order product information",
+   "required": [
+    "code",
+    "price",
+    "qty",
+    "vat",
+    "vat_proc"
+   ],
+   "properties": {
+    "id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "code": {
+     "type": "string",
+     "maxLength": 25,
+     "minLength": 0,
+     "description": "Product code"
+    },
+    "bk": {
+     "type": "string",
+     "maxLength": 25,
+     "minLength": 0
+    },
+    "qty": {
+     "type": "number"
+    },
+    "vat": {
+     "type": "number"
+    },
+    "mark": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "price": {
+     "type": "number"
+    },
+    "vat_proc": {
+     "type": "number",
+     "format": "double"
+    },
+    "vat_code": {
+     "type": "string",
+     "maxLength": 10,
+     "minLength": 0
+    },
+    "memo": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0
+    },
+    "pcs": {
+     "type": "string",
+     "maxLength": 10,
+     "minLength": 0
+    },
+    "part": {
+     "ref": "ProductPart",
+     "description": "Product part"
+    }
+   }
+  },
+  "delivery": {
+   "description": "new order delivery info",
+   "required": [],
+   "properties": {
+    "dep_code": {
+     "type": "string",
+     "maxLength": 20,
+     "minLength": 0,
+     "description": "department code",
+     "example": 123456789
+    },
+    "dep_name": {
+     "type": "string",
+     "maxLength": 200,
+     "minLength": 0,
+     "description": "department name",
+     "example": "Company name"
+    },
+    "dep_full_adr": {
+     "type": "string",
+     "maxLength": 200,
+     "minLength": 0,
+     "description": "department full address",
+     "example": "Teatro 1, Vilnius 04117, Lietuva"
+    },
+    "adr": {
+     "ref": "Adr",
+     "description": "department address"
+    },
+    "f1": {
+     "type": "string",
+     "maxLength": 25,
+     "minLength": 0,
+     "description": "additional department text field"
+    },
+    "f2": {
+     "type": "string",
+     "maxLength": 25,
+     "minLength": 0,
+     "description": "additional department text field"
+    },
+    "f3": {
+     "type": "string",
+     "maxLength": 25,
+     "minLength": 0,
+     "description": "additional department text field"
+    }
+   }
+  },
+  "OrderProduct": {
+   "description": "agnum order product information",
+   "required": [
+    "code",
+    "id",
+    "name",
+    "price",
+    "qty",
+    "vat",
+    "vat_proc"
+   ],
+   "properties": {
+    "id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "code": {
+     "type": "string",
+     "maxLength": 25,
+     "minLength": 0,
+     "description": "Product code"
+    },
+    "qty": {
+     "type": "number"
+    },
+    "vat": {
+     "type": "number"
+    },
+    "mark": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "price": {
+     "type": "number"
+    },
+    "name": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "Product name"
+    },
+    "barcode": {
+     "type": "string",
+     "maxLength": 25,
+     "minLength": 0
+    },
+    "vat_proc": {
+     "type": "number",
+     "format": "double"
+    },
+    "vat_code": {
+     "type": "string",
+     "maxLength": 10,
+     "minLength": 0
+    },
+    "memo": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0
+    },
+    "pcs": {
+     "type": "string",
+     "maxLength": 10,
+     "minLength": 0
+    }
+   }
+  },
+  "customer return doc.": {
+   "description": "customer return doc. information",
+   "required": [
+    "client",
+    "doc_date",
+    "return_date",
+    "return_no",
+    "sum",
+    "total",
+    "vat_sum"
+   ],
+   "properties": {
+    "id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "doc_date": {
+     "type": "string",
+     "format": "date"
+    },
+    "return_date": {
+     "type": "string",
+     "format": "date"
+    },
+    "return_no": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0
+    },
+    "reg_no": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0
+    },
+    "order_date": {
+     "type": "string",
+     "format": "date"
+    },
+    "order_no": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0
+    },
+    "sum": {
+     "type": "number"
+    },
+    "vat_sum": {
+     "type": "number"
+    },
+    "total": {
+     "type": "number"
+    },
+    "memo": {
+     "type": "string",
+     "maxLength": 1024,
+     "minLength": 0
+    },
+    "wh": {
+     "type": "string",
+     "maxLength": 10,
+     "minLength": 0
+    },
+    "client": {
+     "ref": "NewOrderClient"
+    },
+    "products": {
+     "type": "array",
+     "items": {
+      "ref": "OrderProduct"
+     }
+    },
+    "sf_type": {
+     "type": "string",
+     "maxLength": 10,
+     "minLength": 0,
+     "description": "SF, DS, KS, VS, VD, VK"
+    },
+    "f1": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "additional return text field"
+    },
+    "f2": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "additional return text field"
+    },
+    "f3": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "additional return text field"
+    },
+    "f4": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "additional return text field"
+    },
+    "f5": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "additional return text field"
+    },
+    "pozym_numbers": {
+     "type": "array",
+     "maxItems": 100,
+     "minItems": 0,
+     "items": {
+      "type": "integer",
+      "format": "int32",
+      "minimum": 1,
+      "maximum": 100
+     }
+    }
+   }
+  },
+  "Agent": {
+   "description": "agent information",
+   "required": [],
+   "properties": {
+    "id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "first_name": {
+     "type": "string",
+     "maxLength": 50,
+     "minLength": 0
+    },
+    "last_name": {
+     "type": "string",
+     "maxLength": 50,
+     "minLength": 0
+    },
+    "code": {
+     "type": "string",
+     "maxLength": 10,
+     "minLength": 0
+    }
+   }
+  },
+  "Client": {
+   "description": "client information",
+   "required": [
+    "code",
+    "create_date",
+    "debt",
+    "modify_date",
+    "name",
+    "price_group"
+   ],
+   "properties": {
+    "code": {
+     "type": "string",
+     "maxLength": 20,
+     "minLength": 1,
+     "description": "Client code",
+     "example": 123456
+    },
+    "name": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "Client name",
+     "example": "UAB TEST"
+    },
+    "id": {
+     "type": "integer",
+     "format": "int64",
+     "readOnly": true,
+     "description": "ID",
+     "example": 123456
+    },
+    "company_code": {
+     "type": "string",
+     "maxLength": 15,
+     "minLength": 0,
+     "description": "Company code",
+     "example": 123456
+    },
+    "vat_code": {
+     "type": "string",
+     "maxLength": 20,
+     "minLength": 0,
+     "description": "VAT code",
+     "example": "LT1234567890"
+    },
+    "debt": {
+     "type": "number",
+     "readOnly": true,
+     "description": "Client debt",
+     "example": 0.0
+    },
+    "price_group": {
+     "type": "integer",
+     "format": "int32",
+     "description": "Client price group, default 4",
+     "example": 4
+    },
+    "email": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "Client email address"
+    },
+    "registeredAddress": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "Registered office address"
+    },
+    "officeAddress": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0,
+     "description": "Office address"
+    },
+    "client_role": {
+     "type": "array",
+     "uniqueItems": true,
+     "items": {
+      "type": "string",
+      "enum": [
+       "BUYER",
+       "SUPPLIER",
+       "CARRIER",
+       "B1",
+       "B2",
+       "B3",
+       "B4",
+       "B5",
+       "B6",
+       "B7",
+       "B8",
+       "B9",
+       "B10",
+       "INDIVIDUAL"
+      ],
+      "description": "Available client roles"
+     },
+     "description": "Agnum client type"
+    },
+    "modify_date": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "create_date": {
+     "type": "string",
+     "format": "date"
+    },
+    "adr": {
+     "ref": "Adr",
+     "description": "Client address"
+    },
+    "agent": {
+     "ref": "Agent",
+     "description": "Client agent"
+    },
+    "creditLimit": {
+     "type": "number",
+     "description": "Customer's credit limit."
+    },
+    "payment_term_receipt": {
+     "type": "integer",
+     "format": "int32",
+     "description": "Number of days allowed for payment of the receipt"
+    },
+    "payment_term_order": {
+     "type": "integer",
+     "format": "int32",
+     "description": "Number of days allowed for payment of the order"
+    },
+    "pozym_numbers": {
+     "type": "array",
+     "items": {
+      "type": "integer",
+      "format": "int32"
+     }
+    }
+   }
+  },
+  "Receipt": {
+   "description": "receipt information",
+   "required": [
+    "client",
+    "date",
+    "doc_no",
+    "receipt_date",
+    "vat"
+   ],
+   "properties": {
+    "id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "date": {
+     "type": "string",
+     "format": "date"
+    },
+    "receipt_date": {
+     "type": "string",
+     "format": "date"
+    },
+    "tracking": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0
+    },
+    "doc_no": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0
+    },
+    "reg_no": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0
+    },
+    "total": {
+     "type": "number"
+    },
+    "freight_amount": {
+     "type": "number",
+     "deprecated": true,
+     "description": "Total transportation cost associated with the purchase document."
+    },
+    "transp_amount": {
+     "type": "number",
+     "description": "Total transportation cost associated with the purchase document."
+    },
+    "vat": {
+     "type": "number"
+    },
+    "location": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0
+    },
+    "payment_term_days": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "wh": {
+     "type": "string",
+     "maxLength": 10,
+     "minLength": 1
+    },
+    "draft": {
+     "type": "boolean"
+    },
+    "client": {
+     "ref": "Client"
+    },
+    "products": {
+     "type": "array",
+     "items": {
+      "ref": "ReceiptProduct"
+     }
+    },
+    "pozym_numbers": {
+     "type": "array",
+     "maxItems": 100,
+     "minItems": 0,
+     "items": {
+      "type": "integer",
+      "format": "int32",
+      "minimum": 1,
+      "maximum": 100
+     }
+    },
+    "memo": {
+     "type": "string",
+     "maxLength": 1024,
+     "minLength": 0
+    }
+   }
+  },
+  "ReceiptProduct": {
+   "description": "agnum receipt product information",
+   "required": [
+    "code",
+    "id",
+    "name",
+    "price",
+    "qty",
+    "vat",
+    "vat_proc"
+   ],
+   "properties": {
+    "id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "code": {
+     "type": "string",
+     "description": "Product code"
+    },
+    "bk": {
+     "type": "string"
+    },
+    "qty": {
+     "type": "number"
+    },
+    "vat": {
+     "type": "number"
+    },
+    "mark": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string",
+     "description": "Product name"
+    },
+    "vat_proc": {
+     "type": "number",
+     "format": "double"
+    },
+    "vat_code": {
+     "type": "string"
+    },
+    "memo": {
+     "type": "string"
+    },
+    "pcs": {
+     "type": "string"
+    },
+    "price": {
+     "type": "number"
+    },
+    "part": {
+     "ref": "ProductPart"
+    }
+   }
+  },
+  "Order": {
+   "description": "order information",
+   "required": [
+    "client",
+    "date",
+    "doc_no",
+    "paid_sum",
+    "reg_no",
+    "sum",
+    "total",
+    "vat_sum"
+   ],
+   "properties": {
+    "date": {
+     "type": "string",
+     "format": "date"
+    },
+    "doc_no": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 1
+    },
+    "reg_no": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 1
+    },
+    "sum": {
+     "type": "number"
+    },
+    "vat_sum": {
+     "type": "number"
+    },
+    "total": {
+     "type": "number"
+    },
+    "paid_sum": {
+     "type": "number"
+    },
+    "delivery_code": {
+     "type": "string",
+     "maxLength": 10,
+     "minLength": 0
+    },
+    "tracking": {
+     "type": "string",
+     "maxLength": 255,
+     "minLength": 0
+    },
+    "delivery": {
+     "ref": "Adr"
+    },
+    "client": {
+     "ref": "Client"
+    },
+    "products": {
+     "type": "array",
+     "items": {
+      "ref": "OrderProduct"
+     }
+    },
+    "draft": {
+     "type": "boolean"
+    },
+    "id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "location": {
+     "type": "string",
+     "maxLength": 250,
+     "minLength": 0
+    },
+    "payment_term_days": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "wh": {
+     "type": "string",
+     "maxLength": 10,
+     "minLength": 1
+    },
+    "modify_date": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "memo": {
+     "type": "string",
+     "maxLength": 1024,
+     "minLength": 0
+    },
+    "pozym_numbers": {
+     "type": "array",
+     "items": {
+      "type": "integer",
+      "format": "int32"
+     }
+    }
+   }
+  },
+  "Tracking": {
+   "description": "tracking responce",
+   "required": [
+    "id"
+   ],
+   "properties": {
+    "id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "track_no": {
+     "type": "string",
+     "maxLength": 255,
+     "minLength": 0
+    },
+    "doc_no": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0
+    },
+    "draft": {
+     "type": "boolean"
+    }
+   }
+  },
+  "Employee": {
+   "description": "Employee",
+   "required": [
+    "code"
+   ],
+   "properties": {
+    "id": {
+     "type": "integer",
+     "format": "int64",
+     "description": "ID",
+     "example": 1
+    },
+    "code": {
+     "type": "string",
+     "maxLength": 10,
+     "minLength": 1,
+     "description": "agnum code",
+     "example": 123456789
+    },
+    "firstName": {
+     "type": "string",
+     "maxLength": 50,
+     "minLength": 0,
+     "description": "first name",
+     "example": "John"
+    },
+    "lastName": {
+     "type": "string",
+     "maxLength": 50,
+     "minLength": 0,
+     "description": "last name",
+     "example": "Doe"
+    },
+    "pDate": {
+     "type": "string",
+     "format": "date",
+     "description": "date of employment",
+     "example": "2024-01-01"
+    },
+    "aDate": {
+     "type": "string",
+     "format": "date",
+     "description": "date of termination",
+     "example": "2025-12-31"
+    },
+    "gDate": {
+     "type": "string",
+     "format": "date",
+     "description": "date of birth",
+     "example": "2000-01-01"
+    }
+   }
+  },
+  "customer_return": {
+   "description": "customer return doc information",
+   "required": [
+    "client",
+    "doc_date",
+    "reg_no",
+    "return_date",
+    "return_no"
+   ],
+   "properties": {
+    "return_date": {
+     "type": "string",
+     "format": "date"
+    },
+    "doc_date": {
+     "type": "string",
+     "format": "date"
+    },
+    "return_no": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0
+    },
+    "reg_no": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0
+    },
+    "draft": {
+     "type": "boolean"
+    },
+    "id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "products": {
+     "type": "array",
+     "items": {
+      "ref": "OrderProduct"
+     }
+    },
+    "client": {
+     "ref": "Client"
+    },
+    "wh": {
+     "type": "string",
+     "maxLength": 10,
+     "minLength": 1
+    },
+    "memo": {
+     "type": "string",
+     "maxLength": 1024,
+     "minLength": 0
+    },
+    "pozym_numbers": {
+     "type": "array",
+     "items": {
+      "type": "integer",
+      "format": "int32"
+     }
+    }
+   }
+  },
+  "PaidDoc": {
+   "description": "Paid doc information",
+   "required": [],
+   "properties": {
+    "id": {
+     "type": "integer",
+     "format": "int64",
+     "description": "Paid doc ID",
+     "example": 123456
+    },
+    "order_no": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "Order number",
+     "example": "ABC123456"
+    },
+    "dok_reg_nr": {
+     "type": "string",
+     "maxLength": 100,
+     "minLength": 0,
+     "description": "Order registration number",
+     "example": "REG111111"
+    },
+    "charged": {
+     "type": "number",
+     "format": "float",
+     "description": "Charged amount",
+     "example": 123.45
+    },
+    "paid": {
+     "type": "number",
+     "format": "float",
+     "description": "Paid amount",
+     "example": 123.45
+    },
+    "date": {
+     "type": "string",
+     "format": "date",
+     "deprecated": true,
+     "description": "Date of order",
+     "example": "2026-01-01"
+    },
+    "order_date": {
+     "type": "string",
+     "format": "date",
+     "description": "Date of order",
+     "example": "2026-01-01"
+    },
+    "paid_date": {
+     "type": "string",
+     "format": "date",
+     "description": "Date of paid",
+     "example": "2026-01-01"
+    },
+    "tracking": {
+     "type": "string",
+     "maxLength": 255,
+     "minLength": 0,
+     "description": "tracking"
+    },
+    "client_id": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "client_code": {
+     "type": "string",
+     "maxLength": 20,
+     "minLength": 0
+    }
+   }
+  }
+ }
+}

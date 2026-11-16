@@ -1,0 +1,45 @@
+page_id: connection
+title: Connection
+description: Add and test the Agnum DB API of a project.
+components:
+  - component_id: agnum_connections
+    type: connection_form
+    title: Agnum connections
+    description: Add one connection per Agnum API address and key, then test it. The key is stored encrypted and never shown again.
+    data:
+      connection_kind: extension
+      connection_type: agnum
+      config_fields: [label, base_url]
+      secret_fields: [api_key]
+      test_action: test_connection
+    defaults:
+      label: ''
+      base_url: ''
+    fields:
+      - path: label
+        widget: text
+        label: Label
+        placeholder: UAB X
+      - path: base_url
+        widget: text
+        label: Agnum API address
+        required: true
+        placeholder: https://server.example.lt/agnumAPIv2
+        help: The API's root, without /swagger-ui/… (see Setup Guide).
+      - path: api_key
+        widget: secret
+        label: API key
+        required: true
+        help: The Agnum DB API key, with the rights the steps need (see Setup Guide).
+    ui_schema:
+      actions:
+        test_label: Test connection
+  - component_id: connection_help
+    type: markdown
+    title: If the test fails
+    body: |
+      The test runs one client search that finds nothing, so the key needs the right **READ_KL** (or **READ_ALL**).
+
+      - **Authentication failed (401 or 403)** — the key is missing or wrong, or it lacks READ_KL. Copy the key again or ask for the right.
+      - **Not found (404)** or **not the Agnum API** — the address is not the API's root. Use the address of the Swagger page without `/swagger-ui/index.html`.
+      - **Could not be resolved** or **not reachable** — the server must have a public host name and a valid https certificate; private and local addresses are refused.

@@ -1,0 +1,27 @@
+page_id: setup-guide
+title: Setup Guide
+description: Connect Agnum in a few minutes.
+components:
+  - component_id: setup_steps
+    type: markdown
+    title: Connect Agnum
+    body: |
+      1. **Get the API address.** The Agnum DB API runs on your Agnum server or at your Agnum provider (Agnum is made by Elit sistema). Ask your Agnum administrator or provider for its Swagger page, for example `https://server.example.lt/agnumAPIv2/swagger-ui/index.html`. The address for the connection is that page without `/swagger-ui/index.html`: `https://server.example.lt/agnumAPIv2`. The server must answer over https, under a public host name, with a valid certificate.
+      2. **Get an API key** from the same place, with only the rights your workflows need (see below).
+      3. In Flow Steward open **Connection**, add the address and the key, and press **Test connection**.
+      4. Add Agnum steps to a workflow. Start with **Test connection**, **Find client** or **Search products** to see the data, then add the writing steps.
+      5. **Steps that delete data** — replacing or changing a production or processing norm, and deleting a norm — cannot be undone. Try them on a test database first.
+  - component_id: setup_rights
+    type: markdown
+    title: Key rights
+    body: |
+      Each step says which right its key needs; a step whose right is missing is refused and changes nothing. **READ_ALL**, **SAVE_ALL**, **EDIT_ALL** and **DEL_ALL** cover everything; or give only these:
+
+      - **Clients:** READ_KL to read, SAVE_KL to create, EDIT_KL to change; READ_KL_DOK for clients' documents and payments.
+      - **Products:** READ_PRK, SAVE_PRK, EDIT_PRK; READ_PRK_QTY for stock; READ_PRK_PRICE and EDIT_PRK_PRICE for prices.
+      - **Sales documents:** READ_VSK and SAVE_VSK; READ_VSK_TRACKING for tracking; READ_VSK_PDF for the PDF.
+      - **Purchase receipts:** READ_VKS and SAVE_VKS. **Customer returns:** READ_GKS and SAVE_GKS.
+      - **Production and processing norms:** READ_PROD_NORMS, SAVE_PROD_NORMS, EDIT_PROD_NORMS, DEL_PROD_NORMS.
+      - **Employees:** READ_DRB to read, SAVE_TBL for working time.
+
+      **Prices:** Agnum changes only the price levels enabled in its API settings and ignores the others without saying so; the Update product prices step reminds you of this in its warnings.

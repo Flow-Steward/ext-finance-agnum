@@ -1,0 +1,1033 @@
+{
+ "source": {
+  "url": "https://srv1.elit.lt/agnumAPIv2/v3/api-docs",
+  "sha256": "1d5c67dbfc3983624ec1932989d8adfdebb572f02c76e8497067b78aa4bbc527",
+  "bytes": 89054,
+  "downloaded": "2026-11-16",
+  "openapi": "3.1.0",
+  "title": "Agnum DB API",
+  "api_version": "1.47.2",
+  "servers": [
+   {
+    "url": "/"
+   }
+  ],
+  "auth": {
+   "ApiKeyAuth": {
+    "in": "header",
+    "name": "X-API-KEY"
+   }
+  }
+ },
+ "endpoints": [
+  {
+   "method": "POST",
+   "path": "/api/products",
+   "operation_id": "products_create",
+   "title": "Create product",
+   "kind": "create",
+   "status": "step",
+   "danger": "",
+   "objects": "one",
+   "no_effect": [
+    400,
+    401,
+    403
+   ],
+   "rights": [
+    "SAVE_PRK",
+    "SAVE_ALL"
+   ],
+   "codes": [
+    "201",
+    "400",
+    "401",
+    "403",
+    "404"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "PUT",
+   "path": "/api/products",
+   "operation_id": "products_update",
+   "title": "Update product",
+   "kind": "update",
+   "status": "step",
+   "danger": "",
+   "objects": "one",
+   "no_effect": [
+    400,
+    401,
+    403,
+    404
+   ],
+   "rights": [
+    "EDIT_PRK",
+    "EDIT_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "404"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "PUT",
+   "path": "/api/products/price",
+   "operation_id": "products_price_update",
+   "title": "Update product prices",
+   "kind": "update",
+   "status": "step",
+   "danger": "",
+   "objects": "several",
+   "no_effect": [
+    401,
+    403
+   ],
+   "rights": [
+    "EDIT_PRK_PRICE",
+    "EDIT_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "404"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "POST",
+   "path": "/api/production/norms",
+   "operation_id": "production_norms_create",
+   "title": "Create production norm",
+   "kind": "create",
+   "status": "step",
+   "danger": "",
+   "objects": "several",
+   "no_effect": [
+    401,
+    403
+   ],
+   "rights": [
+    "SAVE_PROD_NORMS",
+    "SAVE_ALL"
+   ],
+   "codes": [
+    "201",
+    "400",
+    "401",
+    "403"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "PUT",
+   "path": "/api/production/norms",
+   "operation_id": "production_norms_update",
+   "title": "Replace production norm",
+   "kind": "update",
+   "status": "step",
+   "danger": "irreversible",
+   "objects": "several",
+   "no_effect": [
+    401,
+    403
+   ],
+   "rights": [
+    "EDIT_PROD_NORMS",
+    "EDIT_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "404"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "PATCH",
+   "path": "/api/production/norms",
+   "operation_id": "production_norms_patch",
+   "title": "Change production norm and its rows",
+   "kind": "patch",
+   "status": "step",
+   "danger": "irreversible",
+   "objects": "several",
+   "no_effect": [
+    401,
+    403
+   ],
+   "rights": [
+    "EDIT_PROD_NORMS",
+    "EDIT_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "404"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "POST",
+   "path": "/api/processing/norms",
+   "operation_id": "processing_norms_create",
+   "title": "Create processing norm",
+   "kind": "create",
+   "status": "step",
+   "danger": "",
+   "objects": "several",
+   "no_effect": [
+    401,
+    403
+   ],
+   "rights": [
+    "SAVE_PROD_NORMS",
+    "SAVE_ALL"
+   ],
+   "codes": [
+    "201",
+    "400",
+    "401",
+    "403"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "PUT",
+   "path": "/api/processing/norms",
+   "operation_id": "processing_norms_update",
+   "title": "Replace processing norm",
+   "kind": "update",
+   "status": "step",
+   "danger": "irreversible",
+   "objects": "several",
+   "no_effect": [
+    401,
+    403
+   ],
+   "rights": [
+    "EDIT_PROD_NORMS",
+    "EDIT_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "404"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "PATCH",
+   "path": "/api/processing/norms",
+   "operation_id": "processing_norms_patch",
+   "title": "Change processing norm and its rows",
+   "kind": "patch",
+   "status": "step",
+   "danger": "irreversible",
+   "objects": "several",
+   "no_effect": [
+    401,
+    403
+   ],
+   "rights": [
+    "EDIT_PROD_NORMS",
+    "EDIT_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "404"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "POST",
+   "path": "/api/clients",
+   "operation_id": "clients_create",
+   "title": "Create client",
+   "kind": "create",
+   "status": "step",
+   "danger": "",
+   "objects": "one",
+   "no_effect": [
+    400,
+    401,
+    403
+   ],
+   "rights": [
+    "SAVE_KL",
+    "SAVE_ALL"
+   ],
+   "codes": [
+    "201",
+    "400",
+    "401",
+    "403",
+    "500"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": [
+    "find_or_create_client"
+   ]
+  },
+  {
+   "method": "PUT",
+   "path": "/api/clients",
+   "operation_id": "clients_update",
+   "title": "Update client",
+   "kind": "update",
+   "status": "step",
+   "danger": "",
+   "objects": "one",
+   "no_effect": [
+    400,
+    401,
+    403
+   ],
+   "rights": [
+    "EDIT_KL",
+    "EDIT_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "500"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "POST",
+   "path": "/api/receipts",
+   "operation_id": "receipts_create",
+   "title": "Create purchase receipt",
+   "kind": "create",
+   "status": "step",
+   "danger": "",
+   "objects": "several",
+   "no_effect": [
+    401,
+    403
+   ],
+   "rights": [
+    "SAVE_VKS",
+    "SAVE_ALL"
+   ],
+   "codes": [
+    "201",
+    "400",
+    "401",
+    "403",
+    "500"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": [
+    "create_purchase_receipt_if_new"
+   ]
+  },
+  {
+   "method": "POST",
+   "path": "/api/orders",
+   "operation_id": "orders_create",
+   "title": "Create sales document",
+   "kind": "create",
+   "status": "step",
+   "danger": "",
+   "objects": "several",
+   "no_effect": [
+    401
+   ],
+   "rights": [
+    "SAVE_VSK",
+    "SAVE_ALL"
+   ],
+   "codes": [
+    "201",
+    "400",
+    "401",
+    "404",
+    "500"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": [
+    "create_sales_document_if_new"
+   ]
+  },
+  {
+   "method": "POST",
+   "path": "/api/employee/timesheet",
+   "operation_id": "employee_timesheet_create",
+   "title": "Record employee working time",
+   "kind": "create",
+   "status": "step",
+   "danger": "",
+   "objects": "one",
+   "no_effect": [
+    400,
+    401,
+    403
+   ],
+   "rights": [
+    "SAVE_TBL",
+    "SAVE_ALL"
+   ],
+   "codes": [
+    "201",
+    "400",
+    "401",
+    "403",
+    "404",
+    "500"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "POST",
+   "path": "/api/customer-returns",
+   "operation_id": "customer_returns_create",
+   "title": "Create customer return",
+   "kind": "create",
+   "status": "step",
+   "danger": "",
+   "objects": "several",
+   "no_effect": [
+    401
+   ],
+   "rights": [
+    "SAVE_GKS",
+    "SAVE_ALL"
+   ],
+   "codes": [
+    "201",
+    "400",
+    "401",
+    "404",
+    "500"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "GET",
+   "path": "/api/receipts/{docNo}",
+   "operation_id": "receipts_get",
+   "title": "Get purchase receipt",
+   "kind": "get",
+   "status": "step",
+   "danger": "",
+   "objects": "",
+   "no_effect": [],
+   "rights": [
+    "READ_VKS",
+    "READ_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "404",
+    "500"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "GET",
+   "path": "/api/receipts/search",
+   "operation_id": "receipts_search",
+   "title": "Search purchase receipts",
+   "kind": "search",
+   "status": "step",
+   "danger": "",
+   "objects": "",
+   "no_effect": [],
+   "rights": [
+    "READ_VKS",
+    "READ_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "404",
+    "500"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": [
+    "create_purchase_receipt_if_new"
+   ]
+  },
+  {
+   "method": "GET",
+   "path": "/api/products/{id}",
+   "operation_id": "products_get",
+   "title": "Get product",
+   "kind": "get",
+   "status": "step",
+   "danger": "",
+   "objects": "",
+   "no_effect": [],
+   "rights": [
+    "READ_PRK",
+    "READ_ALL"
+   ],
+   "codes": [
+    "200",
+    "401",
+    "403",
+    "404"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "GET",
+   "path": "/api/products/search",
+   "operation_id": "products_search",
+   "title": "Search products",
+   "kind": "search",
+   "status": "step",
+   "danger": "",
+   "objects": "",
+   "no_effect": [],
+   "rights": [
+    "READ_PRK",
+    "READ_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "404"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": [
+    "find_product"
+   ]
+  },
+  {
+   "method": "GET",
+   "path": "/api/products/qty/search",
+   "operation_id": "products_qty_search",
+   "title": "Get stock quantities",
+   "kind": "search",
+   "status": "step",
+   "danger": "",
+   "objects": "",
+   "no_effect": [],
+   "rights": [
+    "READ_PRK_QTY",
+    "READ_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "404",
+    "500"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "GET",
+   "path": "/api/products/price/search",
+   "operation_id": "products_price_search",
+   "title": "Search product prices",
+   "kind": "search",
+   "status": "step",
+   "danger": "",
+   "objects": "",
+   "no_effect": [],
+   "rights": [
+    "READ_PRK_PRICE",
+    "READ_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "404"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "GET",
+   "path": "/api/production/norms/{id}",
+   "operation_id": "production_norms_get",
+   "title": "Get production norm",
+   "kind": "get",
+   "status": "step",
+   "danger": "",
+   "objects": "",
+   "no_effect": [],
+   "rights": [
+    "READ_PROD_NORMS",
+    "READ_ALL"
+   ],
+   "codes": [
+    "200",
+    "401",
+    "403",
+    "404"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/production/norms/{id}",
+   "operation_id": "production_norms_delete",
+   "title": "Delete production norm",
+   "kind": "delete",
+   "status": "step",
+   "danger": "delete",
+   "objects": "one",
+   "no_effect": [
+    401,
+    403,
+    409
+   ],
+   "rights": [
+    "DEL_PROD_NORMS",
+    "DEL_ALL"
+   ],
+   "codes": [
+    "200",
+    "401",
+    "403",
+    "404",
+    "409"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "GET",
+   "path": "/api/production/norms/search",
+   "operation_id": "production_norms_search",
+   "title": "Search production norms",
+   "kind": "search",
+   "status": "step",
+   "danger": "",
+   "objects": "",
+   "no_effect": [],
+   "rights": [
+    "READ_PROD_NORMS",
+    "READ_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "404"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "GET",
+   "path": "/api/processing/norms/{id}",
+   "operation_id": "processing_norms_get",
+   "title": "Get processing norm",
+   "kind": "get",
+   "status": "step",
+   "danger": "",
+   "objects": "",
+   "no_effect": [],
+   "rights": [
+    "READ_PROD_NORMS",
+    "READ_ALL"
+   ],
+   "codes": [
+    "200",
+    "401",
+    "403",
+    "404"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "DELETE",
+   "path": "/api/processing/norms/{id}",
+   "operation_id": "processing_norms_delete",
+   "title": "Delete processing norm",
+   "kind": "delete",
+   "status": "step",
+   "danger": "delete",
+   "objects": "one",
+   "no_effect": [
+    401,
+    403,
+    409
+   ],
+   "rights": [
+    "DEL_PROD_NORMS",
+    "DEL_ALL"
+   ],
+   "codes": [
+    "200",
+    "401",
+    "403",
+    "404",
+    "409"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "GET",
+   "path": "/api/processing/norms/search",
+   "operation_id": "processing_norms_search",
+   "title": "Search processing norms",
+   "kind": "search",
+   "status": "step",
+   "danger": "",
+   "objects": "",
+   "no_effect": [],
+   "rights": [
+    "READ_PROD_NORMS",
+    "READ_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "404"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "GET",
+   "path": "/api/orders/{docNo}",
+   "operation_id": "orders_get",
+   "title": "Get sales document",
+   "kind": "get",
+   "status": "step",
+   "danger": "",
+   "objects": "",
+   "no_effect": [],
+   "rights": [
+    "READ_VSK",
+    "READ_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "404",
+    "500"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "GET",
+   "path": "/api/orders/tracking/{docNo}",
+   "operation_id": "orders_tracking_get",
+   "title": "Get sales document tracking",
+   "kind": "get",
+   "status": "step",
+   "danger": "",
+   "objects": "",
+   "no_effect": [],
+   "rights": [
+    "READ_VSK_TRACKING",
+    "READ_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "500"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "GET",
+   "path": "/api/orders/tracking/search",
+   "operation_id": "orders_tracking_search",
+   "title": "Search sales document tracking",
+   "kind": "search",
+   "status": "step",
+   "danger": "",
+   "objects": "",
+   "no_effect": [],
+   "rights": [
+    "READ_VSK_TRACKING",
+    "READ_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "404",
+    "500"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "GET",
+   "path": "/api/orders/search",
+   "operation_id": "orders_search",
+   "title": "Search sales documents",
+   "kind": "search",
+   "status": "step",
+   "danger": "",
+   "objects": "",
+   "no_effect": [],
+   "rights": [
+    "READ_VSK",
+    "READ_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "404",
+    "500"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": [
+    "create_sales_document_if_new"
+   ]
+  },
+  {
+   "method": "GET",
+   "path": "/api/orders/pdf/{docNo}",
+   "operation_id": "orders_pdf_get",
+   "title": "Save sales document PDF",
+   "kind": "pdf",
+   "status": "step",
+   "danger": "",
+   "objects": "",
+   "no_effect": [],
+   "rights": [
+    "READ_VSK_PDF",
+    "READ_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "500"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "GET",
+   "path": "/api/employee/{id}",
+   "operation_id": "employee_get",
+   "title": "Get employee",
+   "kind": "get",
+   "status": "step",
+   "danger": "",
+   "objects": "",
+   "no_effect": [],
+   "rights": [
+    "READ_DRB",
+    "READ_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "404",
+    "500"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "GET",
+   "path": "/api/customer-returns/{docNo}",
+   "operation_id": "customer_returns_get",
+   "title": "Get customer return",
+   "kind": "get",
+   "status": "step",
+   "danger": "",
+   "objects": "",
+   "no_effect": [],
+   "rights": [
+    "READ_GKS",
+    "READ_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "404",
+    "500"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "GET",
+   "path": "/api/customer-returns/search",
+   "operation_id": "customer_returns_search",
+   "title": "Search customer returns",
+   "kind": "search",
+   "status": "step",
+   "danger": "",
+   "objects": "",
+   "no_effect": [],
+   "rights": [
+    "READ_GKS",
+    "READ_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "404",
+    "500"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "GET",
+   "path": "/api/clients/{id}",
+   "operation_id": "clients_get",
+   "title": "Get client",
+   "kind": "get",
+   "status": "step",
+   "danger": "",
+   "objects": "",
+   "no_effect": [],
+   "rights": [
+    "READ_KL",
+    "READ_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "404",
+    "500"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "GET",
+   "path": "/api/clients/search",
+   "operation_id": "clients_search",
+   "title": "Search clients",
+   "kind": "search",
+   "status": "step",
+   "danger": "",
+   "objects": "",
+   "no_effect": [],
+   "rights": [
+    "READ_KL",
+    "READ_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "404",
+    "500"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": [
+    "test_connection",
+    "find_client",
+    "find_or_create_client"
+   ]
+  },
+  {
+   "method": "GET",
+   "path": "/api/clients/doc/search",
+   "operation_id": "clients_doc_search",
+   "title": "Search client payment documents",
+   "kind": "search",
+   "status": "step",
+   "danger": "",
+   "objects": "",
+   "no_effect": [],
+   "rights": [
+    "READ_KL_DOK",
+    "READ_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "500"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  },
+  {
+   "method": "GET",
+   "path": "/api/clients/{id}/doc/search",
+   "operation_id": "clients_id_doc_search",
+   "title": "Search one client's payment documents",
+   "kind": "search",
+   "status": "step",
+   "danger": "",
+   "objects": "",
+   "no_effect": [],
+   "rights": [
+    "READ_KL_DOK",
+    "READ_ALL"
+   ],
+   "codes": [
+    "200",
+    "400",
+    "401",
+    "403",
+    "500"
+   ],
+   "release": "0.1.0",
+   "everyday_steps": []
+  }
+ ]
+}

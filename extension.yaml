@@ -1,0 +1,185 @@
+manifest_version: 2
+lifecycle:
+  data_schema_version: 1
+  data_migrations: []
+extension_id: flowsteward.agnum
+kind: tool_provider
+version: 0.1.0
+release_stage: active
+billing_mode: free
+display_name: Agnum
+description: 'Connect workflows to Agnum, the Lithuanian business management and accounting
+  system, through its Agnum DB API. Everyday steps find clients and products, find or create
+  a client, create a sales document or a purchase receipt only when its number is new, and
+  save a sales document as PDF.
+
+
+  Every one of the 39 documented operations has its own step: clients and their documents,
+  products, prices and stock, sales documents and tracking, purchase receipts, customer
+  returns, production and processing norms, and employees. Amounts are sent as exact
+  decimals. Steps that replace, change or delete norms take an explicit ID. Each connection
+  is one Agnum API address and its API key.'
+vendor:
+  name: Flow Steward
+  support_url: https://github.com/Flow-Steward/ext-finance-agnum/issues
+  website_url: https://github.com/Flow-Steward/ext-finance-agnum
+listing:
+  category: finance
+  tags:
+  - agnum
+  - accounting
+  - lithuania
+  - erp
+  - invoices
+  - inventory
+  summary: Read and write Agnum clients, products, prices, stock, sales documents, purchase
+    receipts, returns and production norms.
+  categories:
+  - finance
+  - inventory
+  - sales
+  setup_summary: Get the Agnum DB API address and an API key with the rights the steps need
+    from your Agnum administrator or provider, add them to a project connection and run the
+    connection test.
+features:
+- tool
+- action
+required_scopes:
+- extension:invoke
+- artifact:read
+- artifact:write
+machine_auth:
+  service_account_key: svc_ext_agnum
+  required_scopes:
+  - extension:invoke
+  - artifact:read
+  - artifact:write
+account_scope:
+  scope_type: project
+  description: Each Agnum API address and key is a project connection. A project may hold
+    several, for example one per company.
+egress:
+  connection_fields:
+  - agnum.base_url
+external_effects:
+- operation_id: find_or_create_client
+  effect_kind: agnum_find_or_create_client
+  channel: agnum_api
+  idempotency: required
+  test_mode_behavior: suppress
+- operation_id: create_sales_document_if_new
+  effect_kind: agnum_create_sales_document_if_new
+  channel: agnum_api
+  idempotency: required
+  test_mode_behavior: suppress
+- operation_id: create_purchase_receipt_if_new
+  effect_kind: agnum_create_purchase_receipt_if_new
+  channel: agnum_api
+  idempotency: required
+  test_mode_behavior: suppress
+- operation_id: clients_create
+  effect_kind: agnum_clients_create
+  channel: agnum_api
+  idempotency: required
+  test_mode_behavior: suppress
+- operation_id: clients_update
+  effect_kind: agnum_clients_update
+  channel: agnum_api
+  idempotency: required
+  test_mode_behavior: suppress
+- operation_id: products_create
+  effect_kind: agnum_products_create
+  channel: agnum_api
+  idempotency: required
+  test_mode_behavior: suppress
+- operation_id: products_update
+  effect_kind: agnum_products_update
+  channel: agnum_api
+  idempotency: required
+  test_mode_behavior: suppress
+- operation_id: products_price_update
+  effect_kind: agnum_products_price_update
+  channel: agnum_api
+  idempotency: required
+  test_mode_behavior: suppress
+- operation_id: orders_create
+  effect_kind: agnum_orders_create
+  channel: agnum_api
+  idempotency: required
+  test_mode_behavior: suppress
+- operation_id: receipts_create
+  effect_kind: agnum_receipts_create
+  channel: agnum_api
+  idempotency: required
+  test_mode_behavior: suppress
+- operation_id: customer_returns_create
+  effect_kind: agnum_customer_returns_create
+  channel: agnum_api
+  idempotency: required
+  test_mode_behavior: suppress
+- operation_id: production_norms_create
+  effect_kind: agnum_production_norms_create
+  channel: agnum_api
+  idempotency: required
+  test_mode_behavior: suppress
+- operation_id: production_norms_patch
+  effect_kind: agnum_production_norms_patch
+  channel: agnum_api
+  idempotency: required
+  test_mode_behavior: suppress
+- operation_id: production_norms_update
+  effect_kind: agnum_production_norms_update
+  channel: agnum_api
+  idempotency: required
+  test_mode_behavior: suppress
+- operation_id: production_norms_delete
+  effect_kind: agnum_production_norms_delete
+  channel: agnum_api
+  idempotency: required
+  test_mode_behavior: suppress
+- operation_id: processing_norms_create
+  effect_kind: agnum_processing_norms_create
+  channel: agnum_api
+  idempotency: required
+  test_mode_behavior: suppress
+- operation_id: processing_norms_patch
+  effect_kind: agnum_processing_norms_patch
+  channel: agnum_api
+  idempotency: required
+  test_mode_behavior: suppress
+- operation_id: processing_norms_update
+  effect_kind: agnum_processing_norms_update
+  channel: agnum_api
+  idempotency: required
+  test_mode_behavior: suppress
+- operation_id: processing_norms_delete
+  effect_kind: agnum_processing_norms_delete
+  channel: agnum_api
+  idempotency: required
+  test_mode_behavior: suppress
+- operation_id: employee_timesheet_create
+  effect_kind: agnum_employee_timesheet_create
+  channel: agnum_api
+  idempotency: required
+  test_mode_behavior: suppress
+runtime:
+  contract_version: extension_host_v2
+  extension_contract_v2:
+    connection_types: contracts/connection_types.yaml
+    operation_manifest: contracts/operation_manifest.yaml
+    step_ui_manifest: contracts/step_ui_manifest.yaml
+    artifact_policies: contracts/artifact_policies.yaml
+entrypoint:
+  mode: subprocess
+  command:
+  - python3
+  - main.py
+  timeout_seconds: 600
+health:
+  command:
+  - python3
+  - health.py
+  timeout_seconds: 5
+ui_manifest: ui/ui_manifest.yaml
+action_manifest: ui/actions/actions.yaml
+python_requirements: []

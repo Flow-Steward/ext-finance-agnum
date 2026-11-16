@@ -1,0 +1,5565 @@
+{
+ "source": {
+  "url": "https://srv1.elit.lt/agnumAPIv2/v3/api-docs",
+  "sha256": "1d5c67dbfc3983624ec1932989d8adfdebb572f02c76e8497067b78aa4bbc527",
+  "bytes": 89054,
+  "downloaded": "2026-11-16",
+  "openapi": "3.1.0",
+  "title": "Agnum DB API",
+  "api_version": "1.47.2",
+  "servers": [
+   {
+    "url": "/"
+   }
+  ],
+  "auth": {
+   "ApiKeyAuth": {
+    "in": "header",
+    "name": "X-API-KEY"
+   }
+  }
+ },
+ "operations": {
+  "products_create": {
+   "method": "POST",
+   "path": "/api/products",
+   "kind": "create",
+   "answer": "record",
+   "path_params": [],
+   "query": [],
+   "search": null,
+   "body": {
+    "name": "",
+    "input": "",
+    "kind": "object",
+    "required": true,
+    "children": [
+     {
+      "name": "group",
+      "input": "group",
+      "required": false,
+      "description": "agnum laukas: Grupė",
+      "kind": "text",
+      "max_length": 200
+     },
+     {
+      "name": "category",
+      "input": "category",
+      "required": false,
+      "description": "agnum laukas: Kategorija",
+      "kind": "text",
+      "max_length": 200
+     },
+     {
+      "name": "subgroup",
+      "input": "subgroup",
+      "required": false,
+      "description": "agnum laukas: Pogrupis",
+      "kind": "text",
+      "max_length": 200
+     },
+     {
+      "name": "direction",
+      "input": "direction",
+      "required": false,
+      "description": "agnum laukas: Kryptis",
+      "kind": "text",
+      "max_length": 200
+     },
+     {
+      "name": "branch",
+      "input": "branch",
+      "required": false,
+      "description": "agnum laukas: Pošakis",
+      "kind": "text",
+      "max_length": 200
+     },
+     {
+      "name": "netto",
+      "input": "netto",
+      "required": false,
+      "description": "agnum laukas: Neto svoris",
+      "kind": "decimal"
+     },
+     {
+      "name": "brutto",
+      "input": "brutto",
+      "required": false,
+      "description": "agnum laukas: Bruto svoris",
+      "kind": "decimal"
+     },
+     {
+      "name": "f1",
+      "input": "f1",
+      "required": false,
+      "description": "agnum laukas: pirmas papildomas tekstinis",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f2",
+      "input": "f2",
+      "required": false,
+      "description": "agnum laukas: antras papildomas tekstinis",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f3",
+      "input": "f3",
+      "required": false,
+      "description": "agnum laukas: trecias papildomas tekstinis",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f4",
+      "input": "f4",
+      "required": false,
+      "description": "agnum laukas: ketvirtas papildomas tekstinis",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f5",
+      "input": "f5",
+      "required": false,
+      "description": "agnum laukas: penktas papildomas tekstinis",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f6",
+      "input": "f6",
+      "required": false,
+      "description": "agnum laukas: pirmas papildomas skaitmeninis",
+      "kind": "decimal"
+     },
+     {
+      "name": "f7",
+      "input": "f7",
+      "required": false,
+      "description": "agnum laukas: antras papildomas skaitmeninis",
+      "kind": "decimal"
+     },
+     {
+      "name": "f8",
+      "input": "f8",
+      "required": false,
+      "description": "agnum laukas: trečias papildomas skaitmeninis",
+      "kind": "decimal"
+     },
+     {
+      "name": "f9",
+      "input": "f9",
+      "required": false,
+      "description": "agnum laukas: ketvirtas papildomas skaitmeninis",
+      "kind": "decimal"
+     },
+     {
+      "name": "f10",
+      "input": "f10",
+      "required": false,
+      "description": "agnum laukas: penktas papildomas skaitmeninis",
+      "kind": "decimal"
+     },
+     {
+      "name": "f11",
+      "input": "f11",
+      "required": false,
+      "description": "agnum laukas: šeštas papildomas tekstinis",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f12",
+      "input": "f12",
+      "required": false,
+      "description": "agnum laukas: septyntas papildomas tekstinis",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f13",
+      "input": "f13",
+      "required": false,
+      "description": "agnum laukas: aštuntas papildomas tekstinis",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f14",
+      "input": "f14",
+      "required": false,
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f15",
+      "input": "f15",
+      "required": false,
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f16",
+      "input": "f16",
+      "required": false,
+      "kind": "decimal"
+     },
+     {
+      "name": "f17",
+      "input": "f17",
+      "required": false,
+      "kind": "decimal"
+     },
+     {
+      "name": "f18",
+      "input": "f18",
+      "required": false,
+      "kind": "decimal"
+     },
+     {
+      "name": "f19",
+      "input": "f19",
+      "required": false,
+      "kind": "decimal"
+     },
+     {
+      "name": "f20",
+      "input": "f20",
+      "required": false,
+      "kind": "decimal"
+     },
+     {
+      "name": "name1",
+      "input": "name1",
+      "required": false,
+      "description": "agnum laukas: pirmas vertimas",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "name3",
+      "input": "name3",
+      "required": false,
+      "description": "agnum laukas: trečias vertimas",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "name4",
+      "input": "name4",
+      "required": false,
+      "description": "agnum laukas: ketvirtas vertimas",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "name5",
+      "input": "name5",
+      "required": false,
+      "description": "agnum laukas: penktas vertimas",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "name6",
+      "input": "name6",
+      "required": false,
+      "description": "agnum laukas: šeštas vertimas",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "name7",
+      "input": "name7",
+      "required": false,
+      "description": "agnum laukas: septintas vertimas",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "name8",
+      "input": "name8",
+      "required": false,
+      "description": "agnum laukas: aštuntas vertimas",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "name2",
+      "input": "name2",
+      "required": false,
+      "description": "agnum laukas: antras vertimas",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "name",
+      "input": "name",
+      "required": false,
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "code",
+      "input": "code",
+      "required": false,
+      "description": "agnum laukas: Kodas",
+      "kind": "text",
+      "max_length": 25
+     },
+     {
+      "name": "modify_date",
+      "input": "modify_date",
+      "required": false,
+      "kind": "datetime"
+     },
+     {
+      "name": "place",
+      "input": "place",
+      "required": false,
+      "description": "agnum laukas: Vieta",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "create_date",
+      "input": "create_date",
+      "required": false,
+      "kind": "datetime"
+     },
+     {
+      "name": "pcs",
+      "input": "pcs",
+      "required": false,
+      "description": "agnum laukas: Vnt",
+      "kind": "text",
+      "max_length": 10
+     },
+     {
+      "name": "enabled",
+      "input": "enabled",
+      "required": false,
+      "description": "agnum laukas: Aktyvumas",
+      "kind": "boolean"
+     },
+     {
+      "name": "barcode",
+      "input": "barcode",
+      "required": false,
+      "max_items": 500,
+      "kind": "text_list",
+      "item": {
+       "kind": "text",
+       "max_length": 25
+      }
+     },
+     {
+      "name": "cls",
+      "input": "cls",
+      "required": false,
+      "description": "Product class/type: 0 - prekė 1 - paslauga 2 - gaminys 3 - pusgaminis 4 - komplektas 5 - ilgalaikis turtas",
+      "kind": "integer",
+      "minimum": -2147483647,
+      "maximum": 2147483647
+     },
+     {
+      "name": "country_code",
+      "input": "country_code",
+      "required": false,
+      "description": "agnum laukas: Kilmės šalis",
+      "kind": "text",
+      "max_length": 3
+     },
+     {
+      "name": "pack_qty",
+      "input": "pack_qty",
+      "required": false,
+      "description": "Quantity of items per package",
+      "kind": "decimal"
+     },
+     {
+      "name": "supplier",
+      "input": "supplier",
+      "required": false,
+      "kind": "object",
+      "children": [
+       {
+        "name": "id",
+        "input": "id",
+        "required": false,
+        "description": "Supplier id",
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "code",
+        "input": "code",
+        "required": false,
+        "description": "Supplier code",
+        "kind": "text",
+        "max_length": 20,
+        "min_length": 1
+       },
+       {
+        "name": "name",
+        "input": "name",
+        "required": false,
+        "description": "Supplier name",
+        "kind": "text",
+        "max_length": 250
+       }
+      ]
+     }
+    ]
+   },
+   "danger": "",
+   "objects": "one",
+   "single_object": true,
+   "strict": false,
+   "no_effect": [
+    400,
+    401,
+    403
+   ],
+   "price_note": false
+  },
+  "products_update": {
+   "method": "PUT",
+   "path": "/api/products",
+   "kind": "update",
+   "answer": "record",
+   "path_params": [],
+   "query": [],
+   "search": null,
+   "body": {
+    "name": "",
+    "input": "",
+    "kind": "object",
+    "required": true,
+    "children": [
+     {
+      "name": "group",
+      "input": "group",
+      "required": false,
+      "description": "agnum laukas: Grupė",
+      "kind": "text",
+      "max_length": 200
+     },
+     {
+      "name": "category",
+      "input": "category",
+      "required": false,
+      "description": "agnum laukas: Kategorija",
+      "kind": "text",
+      "max_length": 200
+     },
+     {
+      "name": "subgroup",
+      "input": "subgroup",
+      "required": false,
+      "description": "agnum laukas: Pogrupis",
+      "kind": "text",
+      "max_length": 200
+     },
+     {
+      "name": "direction",
+      "input": "direction",
+      "required": false,
+      "description": "agnum laukas: Kryptis",
+      "kind": "text",
+      "max_length": 200
+     },
+     {
+      "name": "branch",
+      "input": "branch",
+      "required": false,
+      "description": "agnum laukas: Pošakis",
+      "kind": "text",
+      "max_length": 200
+     },
+     {
+      "name": "netto",
+      "input": "netto",
+      "required": false,
+      "description": "agnum laukas: Neto svoris",
+      "kind": "decimal"
+     },
+     {
+      "name": "brutto",
+      "input": "brutto",
+      "required": false,
+      "description": "agnum laukas: Bruto svoris",
+      "kind": "decimal"
+     },
+     {
+      "name": "f1",
+      "input": "f1",
+      "required": false,
+      "description": "agnum laukas: pirmas papildomas tekstinis",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f2",
+      "input": "f2",
+      "required": false,
+      "description": "agnum laukas: antras papildomas tekstinis",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f3",
+      "input": "f3",
+      "required": false,
+      "description": "agnum laukas: trecias papildomas tekstinis",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f4",
+      "input": "f4",
+      "required": false,
+      "description": "agnum laukas: ketvirtas papildomas tekstinis",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f5",
+      "input": "f5",
+      "required": false,
+      "description": "agnum laukas: penktas papildomas tekstinis",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f6",
+      "input": "f6",
+      "required": false,
+      "description": "agnum laukas: pirmas papildomas skaitmeninis",
+      "kind": "decimal"
+     },
+     {
+      "name": "f7",
+      "input": "f7",
+      "required": false,
+      "description": "agnum laukas: antras papildomas skaitmeninis",
+      "kind": "decimal"
+     },
+     {
+      "name": "f8",
+      "input": "f8",
+      "required": false,
+      "description": "agnum laukas: trečias papildomas skaitmeninis",
+      "kind": "decimal"
+     },
+     {
+      "name": "f9",
+      "input": "f9",
+      "required": false,
+      "description": "agnum laukas: ketvirtas papildomas skaitmeninis",
+      "kind": "decimal"
+     },
+     {
+      "name": "f10",
+      "input": "f10",
+      "required": false,
+      "description": "agnum laukas: penktas papildomas skaitmeninis",
+      "kind": "decimal"
+     },
+     {
+      "name": "f11",
+      "input": "f11",
+      "required": false,
+      "description": "agnum laukas: šeštas papildomas tekstinis",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f12",
+      "input": "f12",
+      "required": false,
+      "description": "agnum laukas: septyntas papildomas tekstinis",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f13",
+      "input": "f13",
+      "required": false,
+      "description": "agnum laukas: aštuntas papildomas tekstinis",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f14",
+      "input": "f14",
+      "required": false,
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f15",
+      "input": "f15",
+      "required": false,
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f16",
+      "input": "f16",
+      "required": false,
+      "kind": "decimal"
+     },
+     {
+      "name": "f17",
+      "input": "f17",
+      "required": false,
+      "kind": "decimal"
+     },
+     {
+      "name": "f18",
+      "input": "f18",
+      "required": false,
+      "kind": "decimal"
+     },
+     {
+      "name": "f19",
+      "input": "f19",
+      "required": false,
+      "kind": "decimal"
+     },
+     {
+      "name": "f20",
+      "input": "f20",
+      "required": false,
+      "kind": "decimal"
+     },
+     {
+      "name": "name1",
+      "input": "name1",
+      "required": false,
+      "description": "agnum laukas: pirmas vertimas",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "name3",
+      "input": "name3",
+      "required": false,
+      "description": "agnum laukas: trečias vertimas",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "name4",
+      "input": "name4",
+      "required": false,
+      "description": "agnum laukas: ketvirtas vertimas",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "name5",
+      "input": "name5",
+      "required": false,
+      "description": "agnum laukas: penktas vertimas",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "name6",
+      "input": "name6",
+      "required": false,
+      "description": "agnum laukas: šeštas vertimas",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "name7",
+      "input": "name7",
+      "required": false,
+      "description": "agnum laukas: septintas vertimas",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "name8",
+      "input": "name8",
+      "required": false,
+      "description": "agnum laukas: aštuntas vertimas",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "name2",
+      "input": "name2",
+      "required": false,
+      "description": "agnum laukas: antras vertimas",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "id",
+      "input": "id",
+      "required": true,
+      "kind": "integer",
+      "minimum": 1,
+      "maximum": 1000000000000000
+     },
+     {
+      "name": "name",
+      "input": "name",
+      "required": false,
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "code",
+      "input": "code",
+      "required": false,
+      "description": "agnum laukas: Kodas",
+      "kind": "text",
+      "max_length": 25
+     },
+     {
+      "name": "modify_date",
+      "input": "modify_date",
+      "required": false,
+      "kind": "datetime"
+     },
+     {
+      "name": "place",
+      "input": "place",
+      "required": false,
+      "description": "agnum laukas: Vieta",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "create_date",
+      "input": "create_date",
+      "required": false,
+      "kind": "datetime"
+     },
+     {
+      "name": "pcs",
+      "input": "pcs",
+      "required": false,
+      "description": "agnum laukas: Vnt",
+      "kind": "text",
+      "max_length": 10
+     },
+     {
+      "name": "enabled",
+      "input": "enabled",
+      "required": false,
+      "description": "agnum laukas: Aktyvumas",
+      "kind": "boolean"
+     },
+     {
+      "name": "barcode",
+      "input": "barcode",
+      "required": false,
+      "max_items": 500,
+      "kind": "text_list",
+      "item": {
+       "kind": "text",
+       "max_length": 25
+      }
+     },
+     {
+      "name": "cls",
+      "input": "cls",
+      "required": false,
+      "description": "Product class/type: 0 - prekė 1 - paslauga 2 - gaminys 3 - pusgaminis 4 - komplektas 5 - ilgalaikis turtas",
+      "kind": "integer",
+      "minimum": -2147483647,
+      "maximum": 2147483647
+     },
+     {
+      "name": "country_code",
+      "input": "country_code",
+      "required": false,
+      "description": "agnum laukas: Kilmės šalis",
+      "kind": "text",
+      "max_length": 3
+     },
+     {
+      "name": "pack_qty",
+      "input": "pack_qty",
+      "required": false,
+      "description": "Quantity of items per package",
+      "kind": "decimal"
+     },
+     {
+      "name": "supplier",
+      "input": "supplier",
+      "required": false,
+      "kind": "object",
+      "children": [
+       {
+        "name": "id",
+        "input": "id",
+        "required": false,
+        "description": "Supplier id",
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "code",
+        "input": "code",
+        "required": false,
+        "description": "Supplier code",
+        "kind": "text",
+        "max_length": 20,
+        "min_length": 1
+       },
+       {
+        "name": "name",
+        "input": "name",
+        "required": false,
+        "description": "Supplier name",
+        "kind": "text",
+        "max_length": 250
+       }
+      ]
+     }
+    ]
+   },
+   "danger": "",
+   "objects": "one",
+   "single_object": true,
+   "strict": false,
+   "no_effect": [
+    400,
+    401,
+    403,
+    404
+   ],
+   "price_note": false
+  },
+  "products_price_update": {
+   "method": "PUT",
+   "path": "/api/products/price",
+   "kind": "update",
+   "answer": "boolean",
+   "path_params": [],
+   "query": [],
+   "search": null,
+   "body": {
+    "name": "prices",
+    "input": "prices",
+    "kind": "object_list",
+    "required": true,
+    "max_items": 500,
+    "min_items": 1,
+    "children": [
+     {
+      "name": "product_id",
+      "input": "product_id",
+      "required": false,
+      "kind": "integer",
+      "minimum": 1,
+      "maximum": 1000000000000000
+     },
+     {
+      "name": "product_code",
+      "input": "product_code",
+      "required": false,
+      "description": "agnum laukas: kodas",
+      "kind": "text",
+      "max_length": 25
+     },
+     {
+      "name": "wh_all",
+      "input": "wh_all",
+      "required": false,
+      "description": "Update prices in all warehouses. Default value is false. When true, the specified prices are applied to all warehouses.",
+      "kind": "boolean"
+     },
+     {
+      "name": "kn0",
+      "input": "kn0",
+      "required": false,
+      "description": "agnum laukas: pirkimo kaina",
+      "kind": "decimal"
+     },
+     {
+      "name": "kn1",
+      "input": "kn1",
+      "required": false,
+      "description": "agnum laukas: didmeninė kaina",
+      "kind": "decimal"
+     },
+     {
+      "name": "kn2",
+      "input": "kn2",
+      "required": false,
+      "description": "agnum laukas: mažmeninė kaina",
+      "kind": "decimal"
+     },
+     {
+      "name": "kn3",
+      "input": "kn3",
+      "required": false,
+      "description": "agnum laukas: pirma papildoma kaina",
+      "kind": "decimal"
+     },
+     {
+      "name": "kn4",
+      "input": "kn4",
+      "required": false,
+      "description": "agnum laukas: antra papildoma kaina",
+      "kind": "decimal"
+     },
+     {
+      "name": "kn5",
+      "input": "kn5",
+      "required": false,
+      "description": "agnum laukas: trečia papildoma kaina",
+      "kind": "decimal"
+     },
+     {
+      "name": "knmin",
+      "input": "knmin",
+      "required": false,
+      "description": "agnum laukas: minimali kaina",
+      "kind": "decimal"
+     },
+     {
+      "name": "knb",
+      "input": "knb",
+      "required": false,
+      "description": "agnum laukas: bazinė kaina",
+      "kind": "decimal"
+     }
+    ],
+    "one_of": [
+     "product_id",
+     "product_code"
+    ],
+    "description": "One row per product: the product (product_id or product_code) and the prices to set."
+   },
+   "danger": "",
+   "objects": "several",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [
+    401,
+    403
+   ],
+   "price_note": true
+  },
+  "production_norms_create": {
+   "method": "POST",
+   "path": "/api/production/norms",
+   "kind": "create",
+   "answer": "record",
+   "path_params": [],
+   "query": [],
+   "search": null,
+   "body": {
+    "name": "",
+    "input": "",
+    "kind": "object",
+    "required": true,
+    "children": [
+     {
+      "name": "product_id",
+      "input": "product_id",
+      "required": false,
+      "kind": "integer",
+      "minimum": 1,
+      "maximum": 1000000000000000
+     },
+     {
+      "name": "norm_code",
+      "input": "norm_code",
+      "required": false,
+      "kind": "text",
+      "max_length": 25
+     },
+     {
+      "name": "product_qty",
+      "input": "product_qty",
+      "required": false,
+      "kind": "decimal"
+     },
+     {
+      "name": "memo",
+      "input": "memo",
+      "required": false,
+      "kind": "text",
+      "max_length": 200
+     },
+     {
+      "name": "cost",
+      "input": "cost",
+      "required": false,
+      "kind": "decimal"
+     },
+     {
+      "name": "raw_products",
+      "input": "raw_products",
+      "required": false,
+      "max_items": 500,
+      "kind": "object_list",
+      "children": [
+       {
+        "name": "product_id",
+        "input": "product_id",
+        "required": false,
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "formula_brutto",
+        "input": "formula_brutto",
+        "required": false,
+        "kind": "text",
+        "max_length": 250
+       },
+       {
+        "name": "formula_netto",
+        "input": "formula_netto",
+        "required": false,
+        "kind": "text",
+        "max_length": 250
+       },
+       {
+        "name": "cost",
+        "input": "cost",
+        "required": false,
+        "kind": "decimal"
+       }
+      ]
+     },
+     {
+      "name": "costs",
+      "input": "costs",
+      "required": false,
+      "max_items": 500,
+      "kind": "object_list",
+      "children": [
+       {
+        "name": "empl_id",
+        "input": "empl_id",
+        "required": false,
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "acc1",
+        "input": "acc1",
+        "required": false,
+        "kind": "text",
+        "max_length": 9
+       },
+       {
+        "name": "cost",
+        "input": "cost",
+        "required": false,
+        "kind": "decimal"
+       },
+       {
+        "name": "formula",
+        "input": "formula",
+        "required": false,
+        "kind": "text",
+        "max_length": 250
+       }
+      ]
+     },
+     {
+      "name": "modify_date",
+      "input": "modify_date",
+      "required": false,
+      "kind": "datetime"
+     }
+    ]
+   },
+   "danger": "",
+   "objects": "several",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [
+    401,
+    403
+   ],
+   "price_note": false
+  },
+  "production_norms_update": {
+   "method": "PUT",
+   "path": "/api/production/norms",
+   "kind": "update",
+   "answer": "record",
+   "path_params": [],
+   "query": [],
+   "search": null,
+   "body": {
+    "name": "",
+    "input": "",
+    "kind": "object",
+    "required": true,
+    "children": [
+     {
+      "name": "id",
+      "input": "id",
+      "required": true,
+      "description": "Norm ID. Ignored in POST (auto-generated), required in PUT/PATCH.",
+      "kind": "integer",
+      "minimum": 1,
+      "maximum": 1000000000000000
+     },
+     {
+      "name": "product_id",
+      "input": "product_id",
+      "required": false,
+      "kind": "integer",
+      "minimum": 1,
+      "maximum": 1000000000000000
+     },
+     {
+      "name": "norm_code",
+      "input": "norm_code",
+      "required": false,
+      "kind": "text",
+      "max_length": 25
+     },
+     {
+      "name": "product_qty",
+      "input": "product_qty",
+      "required": false,
+      "kind": "decimal"
+     },
+     {
+      "name": "memo",
+      "input": "memo",
+      "required": false,
+      "kind": "text",
+      "max_length": 200
+     },
+     {
+      "name": "cost",
+      "input": "cost",
+      "required": false,
+      "kind": "decimal"
+     },
+     {
+      "name": "raw_products",
+      "input": "raw_products",
+      "required": false,
+      "max_items": 500,
+      "kind": "object_list",
+      "children": [
+       {
+        "name": "product_id",
+        "input": "product_id",
+        "required": false,
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "formula_brutto",
+        "input": "formula_brutto",
+        "required": false,
+        "kind": "text",
+        "max_length": 250
+       },
+       {
+        "name": "formula_netto",
+        "input": "formula_netto",
+        "required": false,
+        "kind": "text",
+        "max_length": 250
+       },
+       {
+        "name": "cost",
+        "input": "cost",
+        "required": false,
+        "kind": "decimal"
+       }
+      ]
+     },
+     {
+      "name": "costs",
+      "input": "costs",
+      "required": false,
+      "max_items": 500,
+      "kind": "object_list",
+      "children": [
+       {
+        "name": "empl_id",
+        "input": "empl_id",
+        "required": false,
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "acc1",
+        "input": "acc1",
+        "required": false,
+        "kind": "text",
+        "max_length": 9
+       },
+       {
+        "name": "cost",
+        "input": "cost",
+        "required": false,
+        "kind": "decimal"
+       },
+       {
+        "name": "formula",
+        "input": "formula",
+        "required": false,
+        "kind": "text",
+        "max_length": 250
+       }
+      ]
+     },
+     {
+      "name": "modify_date",
+      "input": "modify_date",
+      "required": false,
+      "kind": "datetime"
+     }
+    ]
+   },
+   "danger": "irreversible",
+   "objects": "several",
+   "single_object": false,
+   "strict": true,
+   "no_effect": [
+    401,
+    403
+   ],
+   "price_note": false
+  },
+  "production_norms_patch": {
+   "method": "PATCH",
+   "path": "/api/production/norms",
+   "kind": "patch",
+   "answer": "record",
+   "path_params": [],
+   "query": [],
+   "search": null,
+   "body": {
+    "name": "",
+    "input": "",
+    "kind": "object",
+    "required": true,
+    "children": [
+     {
+      "name": "id",
+      "input": "id",
+      "required": true,
+      "description": "Norm ID. Ignored in POST (auto-generated), required in PUT/PATCH.",
+      "kind": "integer",
+      "minimum": 1,
+      "maximum": 1000000000000000
+     },
+     {
+      "name": "product_id",
+      "input": "product_id",
+      "required": false,
+      "kind": "integer",
+      "minimum": 1,
+      "maximum": 1000000000000000
+     },
+     {
+      "name": "norm_code",
+      "input": "norm_code",
+      "required": false,
+      "kind": "text",
+      "max_length": 25
+     },
+     {
+      "name": "product_qty",
+      "input": "product_qty",
+      "required": false,
+      "kind": "decimal"
+     },
+     {
+      "name": "memo",
+      "input": "memo",
+      "required": false,
+      "kind": "text",
+      "max_length": 200
+     },
+     {
+      "name": "cost",
+      "input": "cost",
+      "required": false,
+      "kind": "decimal"
+     },
+     {
+      "name": "raw_products",
+      "input": "raw_products",
+      "required": false,
+      "max_items": 500,
+      "kind": "object_list",
+      "children": [
+       {
+        "name": "rec_id",
+        "input": "rec_id",
+        "required": false,
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "product_id",
+        "input": "product_id",
+        "required": false,
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "formula_brutto",
+        "input": "formula_brutto",
+        "required": false,
+        "kind": "text",
+        "max_length": 250
+       },
+       {
+        "name": "formula_netto",
+        "input": "formula_netto",
+        "required": false,
+        "kind": "text",
+        "max_length": 250
+       },
+       {
+        "name": "cost",
+        "input": "cost",
+        "required": false,
+        "kind": "decimal"
+       },
+       {
+        "name": "delete",
+        "input": "delete",
+        "required": false,
+        "description": "Set to true in PATCH to delete this row by rec_id",
+        "kind": "boolean"
+       }
+      ]
+     },
+     {
+      "name": "costs",
+      "input": "costs",
+      "required": false,
+      "max_items": 500,
+      "kind": "object_list",
+      "children": [
+       {
+        "name": "rec_id",
+        "input": "rec_id",
+        "required": false,
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "empl_id",
+        "input": "empl_id",
+        "required": false,
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "acc1",
+        "input": "acc1",
+        "required": false,
+        "kind": "text",
+        "max_length": 9
+       },
+       {
+        "name": "cost",
+        "input": "cost",
+        "required": false,
+        "kind": "decimal"
+       },
+       {
+        "name": "formula",
+        "input": "formula",
+        "required": false,
+        "kind": "text",
+        "max_length": 250
+       },
+       {
+        "name": "delete",
+        "input": "delete",
+        "required": false,
+        "description": "Set to true in PATCH to delete this row by rec_id",
+        "kind": "boolean"
+       }
+      ]
+     },
+     {
+      "name": "modify_date",
+      "input": "modify_date",
+      "required": false,
+      "kind": "datetime"
+     }
+    ]
+   },
+   "danger": "irreversible",
+   "objects": "several",
+   "single_object": false,
+   "strict": true,
+   "no_effect": [
+    401,
+    403
+   ],
+   "price_note": false
+  },
+  "processing_norms_create": {
+   "method": "POST",
+   "path": "/api/processing/norms",
+   "kind": "create",
+   "answer": "record",
+   "path_params": [],
+   "query": [],
+   "search": null,
+   "body": {
+    "name": "",
+    "input": "",
+    "kind": "object",
+    "required": true,
+    "children": [
+     {
+      "name": "norm_code",
+      "input": "norm_code",
+      "required": false,
+      "kind": "text",
+      "max_length": 25
+     },
+     {
+      "name": "memo",
+      "input": "memo",
+      "required": false,
+      "kind": "text",
+      "max_length": 200
+     },
+     {
+      "name": "input_products",
+      "input": "input_products",
+      "required": false,
+      "max_items": 500,
+      "kind": "object_list",
+      "children": [
+       {
+        "name": "qty",
+        "input": "qty",
+        "required": true,
+        "kind": "decimal"
+       },
+       {
+        "name": "product_id",
+        "input": "product_id",
+        "required": false,
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       }
+      ]
+     },
+     {
+      "name": "output_products",
+      "input": "output_products",
+      "required": false,
+      "max_items": 500,
+      "kind": "object_list",
+      "children": [
+       {
+        "name": "qty",
+        "input": "qty",
+        "required": true,
+        "kind": "decimal"
+       },
+       {
+        "name": "product_id",
+        "input": "product_id",
+        "required": false,
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "cost_percent",
+        "input": "cost_percent",
+        "required": false,
+        "description": "Cost of this product in percent",
+        "kind": "decimal",
+        "minimum": 1,
+        "maximum": 100
+       }
+      ]
+     },
+     {
+      "name": "costs",
+      "input": "costs",
+      "required": false,
+      "max_items": 500,
+      "kind": "object_list",
+      "children": [
+       {
+        "name": "cost",
+        "input": "cost",
+        "required": false,
+        "kind": "decimal"
+       },
+       {
+        "name": "memo",
+        "input": "memo",
+        "required": false,
+        "kind": "text",
+        "max_length": 200
+       }
+      ]
+     },
+     {
+      "name": "modify_date",
+      "input": "modify_date",
+      "required": false,
+      "kind": "datetime"
+     }
+    ]
+   },
+   "danger": "",
+   "objects": "several",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [
+    401,
+    403
+   ],
+   "price_note": false
+  },
+  "processing_norms_update": {
+   "method": "PUT",
+   "path": "/api/processing/norms",
+   "kind": "update",
+   "answer": "record",
+   "path_params": [],
+   "query": [],
+   "search": null,
+   "body": {
+    "name": "",
+    "input": "",
+    "kind": "object",
+    "required": true,
+    "children": [
+     {
+      "name": "id",
+      "input": "id",
+      "required": true,
+      "description": "Norm ID. Ignored in POST (auto-generated), required in PUT/PATCH.",
+      "kind": "integer",
+      "minimum": 1,
+      "maximum": 1000000000000000
+     },
+     {
+      "name": "norm_code",
+      "input": "norm_code",
+      "required": false,
+      "kind": "text",
+      "max_length": 25
+     },
+     {
+      "name": "memo",
+      "input": "memo",
+      "required": false,
+      "kind": "text",
+      "max_length": 200
+     },
+     {
+      "name": "input_products",
+      "input": "input_products",
+      "required": false,
+      "max_items": 500,
+      "kind": "object_list",
+      "children": [
+       {
+        "name": "qty",
+        "input": "qty",
+        "required": true,
+        "kind": "decimal"
+       },
+       {
+        "name": "product_id",
+        "input": "product_id",
+        "required": false,
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       }
+      ]
+     },
+     {
+      "name": "output_products",
+      "input": "output_products",
+      "required": false,
+      "max_items": 500,
+      "kind": "object_list",
+      "children": [
+       {
+        "name": "qty",
+        "input": "qty",
+        "required": true,
+        "kind": "decimal"
+       },
+       {
+        "name": "product_id",
+        "input": "product_id",
+        "required": false,
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "cost_percent",
+        "input": "cost_percent",
+        "required": false,
+        "description": "Cost of this product in percent",
+        "kind": "decimal",
+        "minimum": 1,
+        "maximum": 100
+       }
+      ]
+     },
+     {
+      "name": "costs",
+      "input": "costs",
+      "required": false,
+      "max_items": 500,
+      "kind": "object_list",
+      "children": [
+       {
+        "name": "cost",
+        "input": "cost",
+        "required": false,
+        "kind": "decimal"
+       },
+       {
+        "name": "memo",
+        "input": "memo",
+        "required": false,
+        "kind": "text",
+        "max_length": 200
+       }
+      ]
+     },
+     {
+      "name": "modify_date",
+      "input": "modify_date",
+      "required": false,
+      "kind": "datetime"
+     }
+    ]
+   },
+   "danger": "irreversible",
+   "objects": "several",
+   "single_object": false,
+   "strict": true,
+   "no_effect": [
+    401,
+    403
+   ],
+   "price_note": false
+  },
+  "processing_norms_patch": {
+   "method": "PATCH",
+   "path": "/api/processing/norms",
+   "kind": "patch",
+   "answer": "record",
+   "path_params": [],
+   "query": [],
+   "search": null,
+   "body": {
+    "name": "",
+    "input": "",
+    "kind": "object",
+    "required": true,
+    "children": [
+     {
+      "name": "id",
+      "input": "id",
+      "required": true,
+      "description": "Norm ID. Ignored in POST (auto-generated), required in PUT/PATCH.",
+      "kind": "integer",
+      "minimum": 1,
+      "maximum": 1000000000000000
+     },
+     {
+      "name": "norm_code",
+      "input": "norm_code",
+      "required": false,
+      "kind": "text",
+      "max_length": 25
+     },
+     {
+      "name": "memo",
+      "input": "memo",
+      "required": false,
+      "kind": "text",
+      "max_length": 200
+     },
+     {
+      "name": "input_products",
+      "input": "input_products",
+      "required": false,
+      "max_items": 500,
+      "kind": "object_list",
+      "children": [
+       {
+        "name": "qty",
+        "input": "qty",
+        "required": false,
+        "kind": "decimal"
+       },
+       {
+        "name": "rec_id",
+        "input": "rec_id",
+        "required": false,
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "product_id",
+        "input": "product_id",
+        "required": false,
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "delete",
+        "input": "delete",
+        "required": false,
+        "description": "Set to true in PATCH to delete this row by rec_id",
+        "kind": "boolean"
+       }
+      ]
+     },
+     {
+      "name": "output_products",
+      "input": "output_products",
+      "required": false,
+      "max_items": 500,
+      "kind": "object_list",
+      "children": [
+       {
+        "name": "qty",
+        "input": "qty",
+        "required": false,
+        "kind": "decimal"
+       },
+       {
+        "name": "rec_id",
+        "input": "rec_id",
+        "required": false,
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "product_id",
+        "input": "product_id",
+        "required": false,
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "cost_percent",
+        "input": "cost_percent",
+        "required": false,
+        "description": "Cost of this product in percent",
+        "kind": "decimal",
+        "minimum": 1,
+        "maximum": 100
+       },
+       {
+        "name": "delete",
+        "input": "delete",
+        "required": false,
+        "description": "Set to true in PATCH to delete this row by rec_id",
+        "kind": "boolean"
+       }
+      ]
+     },
+     {
+      "name": "costs",
+      "input": "costs",
+      "required": false,
+      "max_items": 500,
+      "kind": "object_list",
+      "children": [
+       {
+        "name": "rec_id",
+        "input": "rec_id",
+        "required": false,
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "cost",
+        "input": "cost",
+        "required": false,
+        "kind": "decimal"
+       },
+       {
+        "name": "memo",
+        "input": "memo",
+        "required": false,
+        "kind": "text",
+        "max_length": 200
+       },
+       {
+        "name": "delete",
+        "input": "delete",
+        "required": false,
+        "description": "Set to true in PATCH to delete this row by rec_id",
+        "kind": "boolean"
+       }
+      ]
+     },
+     {
+      "name": "modify_date",
+      "input": "modify_date",
+      "required": false,
+      "kind": "datetime"
+     }
+    ]
+   },
+   "danger": "irreversible",
+   "objects": "several",
+   "single_object": false,
+   "strict": true,
+   "no_effect": [
+    401,
+    403
+   ],
+   "price_note": false
+  },
+  "clients_create": {
+   "method": "POST",
+   "path": "/api/clients",
+   "kind": "create",
+   "answer": "record",
+   "path_params": [],
+   "query": [],
+   "search": null,
+   "body": {
+    "name": "",
+    "input": "",
+    "kind": "object",
+    "required": true,
+    "children": [
+     {
+      "name": "code",
+      "input": "code",
+      "required": false,
+      "description": "Client code",
+      "kind": "text",
+      "max_length": 20,
+      "min_length": 1
+     },
+     {
+      "name": "name",
+      "input": "name",
+      "required": false,
+      "description": "Client name",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "company_code",
+      "input": "company_code",
+      "required": false,
+      "description": "Company code",
+      "kind": "text",
+      "max_length": 15
+     },
+     {
+      "name": "vat_code",
+      "input": "vat_code",
+      "required": false,
+      "description": "VAT code",
+      "kind": "text",
+      "max_length": 20
+     },
+     {
+      "name": "price_group",
+      "input": "price_group",
+      "required": false,
+      "description": "Client price group, default 4",
+      "kind": "integer",
+      "minimum": -2147483647,
+      "maximum": 2147483647
+     },
+     {
+      "name": "email",
+      "input": "email",
+      "required": false,
+      "description": "Client email address",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "registeredAddress",
+      "input": "registeredAddress",
+      "required": false,
+      "description": "Registered office address",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "officeAddress",
+      "input": "officeAddress",
+      "required": false,
+      "description": "Office address",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "client_role",
+      "input": "client_role",
+      "required": false,
+      "description": "Agnum client type",
+      "max_items": 500,
+      "kind": "text_list",
+      "item": {
+       "kind": "text",
+       "max_length": 1000,
+       "allowed": [
+        "BUYER",
+        "SUPPLIER",
+        "CARRIER",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7",
+        "B8",
+        "B9",
+        "B10",
+        "INDIVIDUAL"
+       ]
+      },
+      "unique": true
+     },
+     {
+      "name": "f1",
+      "input": "f1",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f2",
+      "input": "f2",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f3",
+      "input": "f3",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f4",
+      "input": "f4",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f5",
+      "input": "f5",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f6",
+      "input": "f6",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f7",
+      "input": "f7",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f8",
+      "input": "f8",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f9",
+      "input": "f9",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f10",
+      "input": "f10",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f11",
+      "input": "f11",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f12",
+      "input": "f12",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f13",
+      "input": "f13",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f14",
+      "input": "f14",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f15",
+      "input": "f15",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "fs1",
+      "input": "fs1",
+      "required": false,
+      "description": "additional customer numeric field",
+      "kind": "decimal"
+     },
+     {
+      "name": "fs2",
+      "input": "fs2",
+      "required": false,
+      "description": "additional customer numeric field",
+      "kind": "decimal"
+     },
+     {
+      "name": "fs3",
+      "input": "fs3",
+      "required": false,
+      "description": "additional customer numeric field",
+      "kind": "decimal"
+     },
+     {
+      "name": "fs4",
+      "input": "fs4",
+      "required": false,
+      "description": "additional customer numeric field",
+      "kind": "decimal"
+     },
+     {
+      "name": "fs5",
+      "input": "fs5",
+      "required": false,
+      "description": "additional customer numeric field",
+      "kind": "decimal"
+     },
+     {
+      "name": "modify_date",
+      "input": "modify_date",
+      "required": false,
+      "kind": "datetime"
+     },
+     {
+      "name": "create_date",
+      "input": "create_date",
+      "required": true,
+      "kind": "date"
+     },
+     {
+      "name": "adr",
+      "input": "adr",
+      "required": false,
+      "description": "Client address",
+      "kind": "object",
+      "children": [
+       {
+        "name": "city",
+        "input": "city",
+        "required": false,
+        "description": "city",
+        "kind": "text",
+        "max_length": 20
+       },
+       {
+        "name": "street",
+        "input": "street",
+        "required": false,
+        "description": "street",
+        "kind": "text",
+        "max_length": 100
+       },
+       {
+        "name": "house",
+        "input": "house",
+        "required": false,
+        "description": "house number",
+        "kind": "text",
+        "max_length": 20
+       },
+       {
+        "name": "floor",
+        "input": "floor",
+        "required": false,
+        "description": "floor number",
+        "kind": "text",
+        "max_length": 20
+       },
+       {
+        "name": "apartment",
+        "input": "apartment",
+        "required": false,
+        "description": "apartment number",
+        "kind": "text",
+        "max_length": 20
+       },
+       {
+        "name": "municipality",
+        "input": "municipality",
+        "required": false,
+        "description": "municipality code",
+        "kind": "text",
+        "max_length": 10
+       },
+       {
+        "name": "post_code",
+        "input": "post_code",
+        "required": false,
+        "description": "postal code",
+        "kind": "text",
+        "max_length": 10
+       },
+       {
+        "name": "contact",
+        "input": "contact",
+        "required": false,
+        "description": "contact",
+        "kind": "text",
+        "max_length": 250
+       },
+       {
+        "name": "tlf",
+        "input": "tlf",
+        "required": false,
+        "description": "telephone number",
+        "kind": "text",
+        "max_length": 40
+       },
+       {
+        "name": "memo",
+        "input": "memo",
+        "required": false,
+        "description": "memo",
+        "kind": "text",
+        "max_length": 255
+       },
+       {
+        "name": "country_code",
+        "input": "country_code",
+        "required": false,
+        "description": "country code",
+        "kind": "text",
+        "max_length": 10
+       }
+      ]
+     },
+     {
+      "name": "payment_term_receipt",
+      "input": "payment_term_receipt",
+      "required": false,
+      "description": "Number of days allowed for payment of the receipt",
+      "kind": "integer",
+      "minimum": -2147483647,
+      "maximum": 2147483647
+     },
+     {
+      "name": "payment_term_order",
+      "input": "payment_term_order",
+      "required": false,
+      "description": "Number of days allowed for payment of the order",
+      "kind": "integer",
+      "minimum": -2147483647,
+      "maximum": 2147483647
+     },
+     {
+      "name": "pozym_numbers",
+      "input": "pozym_numbers",
+      "required": false,
+      "max_items": 100,
+      "kind": "integer_list",
+      "item": {
+       "kind": "integer",
+       "minimum": -100,
+       "maximum": 100
+      }
+     }
+    ]
+   },
+   "danger": "",
+   "objects": "one",
+   "single_object": true,
+   "strict": false,
+   "no_effect": [
+    400,
+    401,
+    403
+   ],
+   "price_note": false
+  },
+  "clients_update": {
+   "method": "PUT",
+   "path": "/api/clients",
+   "kind": "update",
+   "answer": "boolean",
+   "path_params": [],
+   "query": [],
+   "search": null,
+   "body": {
+    "name": "",
+    "input": "",
+    "kind": "object",
+    "required": true,
+    "children": [
+     {
+      "name": "code",
+      "input": "code",
+      "required": false,
+      "description": "Client code",
+      "kind": "text",
+      "max_length": 20,
+      "min_length": 1
+     },
+     {
+      "name": "name",
+      "input": "name",
+      "required": false,
+      "description": "Client name",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "id",
+      "input": "id",
+      "required": false,
+      "description": "ID",
+      "kind": "integer",
+      "minimum": 1,
+      "maximum": 1000000000000000
+     },
+     {
+      "name": "company_code",
+      "input": "company_code",
+      "required": false,
+      "description": "Company code",
+      "kind": "text",
+      "max_length": 15
+     },
+     {
+      "name": "vat_code",
+      "input": "vat_code",
+      "required": false,
+      "description": "VAT code",
+      "kind": "text",
+      "max_length": 20
+     },
+     {
+      "name": "price_group",
+      "input": "price_group",
+      "required": false,
+      "description": "Client price group, default 4",
+      "kind": "integer",
+      "minimum": -2147483647,
+      "maximum": 2147483647
+     },
+     {
+      "name": "email",
+      "input": "email",
+      "required": false,
+      "description": "Client email address",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "registeredAddress",
+      "input": "registeredAddress",
+      "required": false,
+      "description": "Registered office address",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "officeAddress",
+      "input": "officeAddress",
+      "required": false,
+      "description": "Office address",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "client_role",
+      "input": "client_role",
+      "required": false,
+      "description": "Agnum client type",
+      "max_items": 500,
+      "kind": "text_list",
+      "item": {
+       "kind": "text",
+       "max_length": 1000,
+       "allowed": [
+        "BUYER",
+        "SUPPLIER",
+        "CARRIER",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7",
+        "B8",
+        "B9",
+        "B10",
+        "INDIVIDUAL"
+       ]
+      },
+      "unique": true
+     },
+     {
+      "name": "f1",
+      "input": "f1",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f2",
+      "input": "f2",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f3",
+      "input": "f3",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f4",
+      "input": "f4",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f5",
+      "input": "f5",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f6",
+      "input": "f6",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f7",
+      "input": "f7",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f8",
+      "input": "f8",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f9",
+      "input": "f9",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f10",
+      "input": "f10",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f11",
+      "input": "f11",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f12",
+      "input": "f12",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f13",
+      "input": "f13",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f14",
+      "input": "f14",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "f15",
+      "input": "f15",
+      "required": false,
+      "description": "additional customer text field",
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "fs1",
+      "input": "fs1",
+      "required": false,
+      "description": "additional customer numeric field",
+      "kind": "decimal"
+     },
+     {
+      "name": "fs2",
+      "input": "fs2",
+      "required": false,
+      "description": "additional customer numeric field",
+      "kind": "decimal"
+     },
+     {
+      "name": "fs3",
+      "input": "fs3",
+      "required": false,
+      "description": "additional customer numeric field",
+      "kind": "decimal"
+     },
+     {
+      "name": "fs4",
+      "input": "fs4",
+      "required": false,
+      "description": "additional customer numeric field",
+      "kind": "decimal"
+     },
+     {
+      "name": "fs5",
+      "input": "fs5",
+      "required": false,
+      "description": "additional customer numeric field",
+      "kind": "decimal"
+     },
+     {
+      "name": "modify_date",
+      "input": "modify_date",
+      "required": false,
+      "kind": "datetime"
+     },
+     {
+      "name": "create_date",
+      "input": "create_date",
+      "required": true,
+      "kind": "date"
+     },
+     {
+      "name": "adr",
+      "input": "adr",
+      "required": false,
+      "description": "Client address",
+      "kind": "object",
+      "children": [
+       {
+        "name": "city",
+        "input": "city",
+        "required": false,
+        "description": "city",
+        "kind": "text",
+        "max_length": 20
+       },
+       {
+        "name": "street",
+        "input": "street",
+        "required": false,
+        "description": "street",
+        "kind": "text",
+        "max_length": 100
+       },
+       {
+        "name": "house",
+        "input": "house",
+        "required": false,
+        "description": "house number",
+        "kind": "text",
+        "max_length": 20
+       },
+       {
+        "name": "floor",
+        "input": "floor",
+        "required": false,
+        "description": "floor number",
+        "kind": "text",
+        "max_length": 20
+       },
+       {
+        "name": "apartment",
+        "input": "apartment",
+        "required": false,
+        "description": "apartment number",
+        "kind": "text",
+        "max_length": 20
+       },
+       {
+        "name": "municipality",
+        "input": "municipality",
+        "required": false,
+        "description": "municipality code",
+        "kind": "text",
+        "max_length": 10
+       },
+       {
+        "name": "post_code",
+        "input": "post_code",
+        "required": false,
+        "description": "postal code",
+        "kind": "text",
+        "max_length": 10
+       },
+       {
+        "name": "contact",
+        "input": "contact",
+        "required": false,
+        "description": "contact",
+        "kind": "text",
+        "max_length": 250
+       },
+       {
+        "name": "tlf",
+        "input": "tlf",
+        "required": false,
+        "description": "telephone number",
+        "kind": "text",
+        "max_length": 40
+       },
+       {
+        "name": "memo",
+        "input": "memo",
+        "required": false,
+        "description": "memo",
+        "kind": "text",
+        "max_length": 255
+       },
+       {
+        "name": "country_code",
+        "input": "country_code",
+        "required": false,
+        "description": "country code",
+        "kind": "text",
+        "max_length": 10
+       }
+      ]
+     },
+     {
+      "name": "payment_term_receipt",
+      "input": "payment_term_receipt",
+      "required": false,
+      "description": "Number of days allowed for payment of the receipt",
+      "kind": "integer",
+      "minimum": -2147483647,
+      "maximum": 2147483647
+     },
+     {
+      "name": "payment_term_order",
+      "input": "payment_term_order",
+      "required": false,
+      "description": "Number of days allowed for payment of the order",
+      "kind": "integer",
+      "minimum": -2147483647,
+      "maximum": 2147483647
+     },
+     {
+      "name": "pozym_numbers",
+      "input": "pozym_numbers",
+      "required": false,
+      "max_items": 100,
+      "kind": "integer_list",
+      "item": {
+       "kind": "integer",
+       "minimum": -100,
+       "maximum": 100
+      }
+     }
+    ],
+    "one_of": [
+     "id",
+     "code"
+    ]
+   },
+   "danger": "",
+   "objects": "one",
+   "single_object": true,
+   "strict": false,
+   "no_effect": [
+    400,
+    401,
+    403
+   ],
+   "price_note": false
+  },
+  "receipts_create": {
+   "method": "POST",
+   "path": "/api/receipts",
+   "kind": "create",
+   "answer": "object",
+   "path_params": [],
+   "query": [],
+   "search": null,
+   "body": {
+    "name": "",
+    "input": "",
+    "kind": "object",
+    "required": true,
+    "children": [
+     {
+      "name": "date",
+      "input": "date",
+      "required": true,
+      "kind": "date"
+     },
+     {
+      "name": "receipt_date",
+      "input": "receipt_date",
+      "required": true,
+      "kind": "date"
+     },
+     {
+      "name": "tracking",
+      "input": "tracking",
+      "required": false,
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "doc_no",
+      "input": "doc_no",
+      "required": true,
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "reg_no",
+      "input": "reg_no",
+      "required": false,
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "total",
+      "input": "total",
+      "required": false,
+      "kind": "decimal"
+     },
+     {
+      "name": "sum",
+      "input": "sum",
+      "required": false,
+      "kind": "decimal"
+     },
+     {
+      "name": "vat",
+      "input": "vat",
+      "required": true,
+      "kind": "decimal"
+     },
+     {
+      "name": "paid_amount",
+      "input": "paid_amount",
+      "required": false,
+      "kind": "decimal"
+     },
+     {
+      "name": "transp_amount",
+      "input": "transp_amount",
+      "required": false,
+      "kind": "decimal"
+     },
+     {
+      "name": "wh",
+      "input": "wh",
+      "required": false,
+      "kind": "text",
+      "max_length": 10
+     },
+     {
+      "name": "location",
+      "input": "location",
+      "required": false,
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "payment_term_days",
+      "input": "payment_term_days",
+      "required": false,
+      "kind": "integer",
+      "minimum": -2147483647,
+      "maximum": 2147483647
+     },
+     {
+      "name": "memo",
+      "input": "memo",
+      "required": false,
+      "kind": "text",
+      "max_length": 1024
+     },
+     {
+      "name": "client",
+      "input": "client",
+      "required": true,
+      "kind": "object",
+      "children": [
+       {
+        "name": "id",
+        "input": "id",
+        "required": false,
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "email",
+        "input": "email",
+        "required": false,
+        "kind": "text",
+        "max_length": 100
+       },
+       {
+        "name": "code",
+        "input": "code",
+        "required": false,
+        "kind": "text",
+        "max_length": 20
+       },
+       {
+        "name": "company_code",
+        "input": "company_code",
+        "required": false,
+        "kind": "text",
+        "max_length": 15
+       }
+      ]
+     },
+     {
+      "name": "products",
+      "input": "products",
+      "required": false,
+      "max_items": 500,
+      "kind": "object_list",
+      "children": [
+       {
+        "name": "id",
+        "input": "id",
+        "required": false,
+        "description": "Product ID. Either `id` or `code` is required. If `id` is provided, product lookup is always by ID (takes priority over `code`).",
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "code",
+        "input": "code",
+        "required": false,
+        "description": "Product code. Either `id` or `code` is required. Ignored if `id` is provided.",
+        "kind": "text",
+        "max_length": 1000
+       },
+       {
+        "name": "bk",
+        "input": "bk",
+        "required": false,
+        "description": "Product barcode",
+        "kind": "text",
+        "max_length": 1000
+       },
+       {
+        "name": "qty",
+        "input": "qty",
+        "required": true,
+        "description": "Quantity",
+        "kind": "decimal"
+       },
+       {
+        "name": "vat",
+        "input": "vat",
+        "required": true,
+        "description": "VAT amount",
+        "kind": "decimal"
+       },
+       {
+        "name": "mark",
+        "input": "mark",
+        "required": false,
+        "description": "Product mark / label",
+        "kind": "text",
+        "max_length": 1000
+       },
+       {
+        "name": "vat_proc",
+        "input": "vat_proc",
+        "required": true,
+        "description": "VAT rate (%)",
+        "kind": "decimal"
+       },
+       {
+        "name": "vat_code",
+        "input": "vat_code",
+        "required": false,
+        "description": "VAT code (default: PVM1)",
+        "kind": "text",
+        "max_length": 1000
+       },
+       {
+        "name": "memo",
+        "input": "memo",
+        "required": false,
+        "description": "Memo / comment",
+        "kind": "text",
+        "max_length": 1000
+       },
+       {
+        "name": "pcs",
+        "input": "pcs",
+        "required": false,
+        "description": "Unit of measure",
+        "kind": "text",
+        "max_length": 1000
+       },
+       {
+        "name": "price",
+        "input": "price",
+        "required": true,
+        "description": "Unit price",
+        "kind": "decimal"
+       },
+       {
+        "name": "part",
+        "input": "part",
+        "required": false,
+        "description": "Product part information",
+        "kind": "object",
+        "children": [
+         {
+          "name": "f1",
+          "input": "f1",
+          "required": false,
+          "kind": "text",
+          "max_length": 250
+         },
+         {
+          "name": "f2",
+          "input": "f2",
+          "required": false,
+          "kind": "text",
+          "max_length": 250
+         },
+         {
+          "name": "f3",
+          "input": "f3",
+          "required": false,
+          "kind": "text",
+          "max_length": 250
+         },
+         {
+          "name": "f4",
+          "input": "f4",
+          "required": false,
+          "kind": "text",
+          "max_length": 250
+         },
+         {
+          "name": "f5",
+          "input": "f5",
+          "required": false,
+          "kind": "text",
+          "max_length": 250
+         },
+         {
+          "name": "d1",
+          "input": "d1",
+          "required": false,
+          "kind": "date"
+         },
+         {
+          "name": "d2",
+          "input": "d2",
+          "required": false,
+          "kind": "date"
+         },
+         {
+          "name": "d3",
+          "input": "d3",
+          "required": false,
+          "kind": "date"
+         }
+        ]
+       },
+       {
+        "name": "allocate_transp",
+        "input": "allocate_transp",
+        "required": false,
+        "description": "Indicates whether a share of the document's total transport costs can be allocated to this item.",
+        "kind": "boolean"
+       }
+      ],
+      "one_of": [
+       "id",
+       "code"
+      ]
+     },
+     {
+      "name": "f1",
+      "input": "f1",
+      "required": false,
+      "description": "additional receipt text field",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "f2",
+      "input": "f2",
+      "required": false,
+      "description": "additional receipt text field",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "f3",
+      "input": "f3",
+      "required": false,
+      "description": "additional receipt text field",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "f4",
+      "input": "f4",
+      "required": false,
+      "description": "additional receipt text field",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "f5",
+      "input": "f5",
+      "required": false,
+      "description": "additional receipt text field",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "include_in_vat_register",
+      "input": "include_in_vat_register",
+      "required": false,
+      "description": "Indicates whether the document should be included in the incoming VAT invoice register.",
+      "kind": "boolean"
+     },
+     {
+      "name": "include_goods",
+      "input": "include_goods",
+      "required": false,
+      "description": "Include goods amount in the receipt document total. Defaults to true if the amount is greater than 0.",
+      "kind": "boolean"
+     },
+     {
+      "name": "include_services",
+      "input": "include_services",
+      "required": false,
+      "description": "Include services amount in the receipt document total. Defaults to true if the amount is greater than 0.",
+      "kind": "boolean"
+     },
+     {
+      "name": "include_consignment",
+      "input": "include_consignment",
+      "required": false,
+      "description": "Include consignment amount in the receipt document total. Defaults to true if the amount is greater than 0.",
+      "kind": "boolean"
+     },
+     {
+      "name": "include_transp",
+      "input": "include_transp",
+      "required": false,
+      "description": "Include transport costs in the receipt document total. Defaults to true if the amount is greater than 0.",
+      "kind": "boolean"
+     },
+     {
+      "name": "include_vat",
+      "input": "include_vat",
+      "required": false,
+      "description": "Include VAT amount in the receipt document total. Defaults to true if the amount is greater than 0.",
+      "kind": "boolean"
+     },
+     {
+      "name": "include_custom",
+      "input": "include_custom",
+      "required": false,
+      "description": "Include customs duty in the receipt document total.",
+      "kind": "boolean"
+     },
+     {
+      "name": "include_excise",
+      "input": "include_excise",
+      "required": false,
+      "description": "Include excise duty in the receipt document total.",
+      "kind": "boolean"
+     },
+     {
+      "name": "include_deposit",
+      "input": "include_deposit",
+      "required": false,
+      "description": "Include deposit packaging amount in the receipt document total. Defaults to true if the amount is greater than 0.",
+      "kind": "boolean"
+     },
+     {
+      "name": "include_other",
+      "input": "include_other",
+      "required": false,
+      "description": "Include other costs in the receipt document total.",
+      "kind": "boolean"
+     },
+     {
+      "name": "pozym_numbers",
+      "input": "pozym_numbers",
+      "required": false,
+      "max_items": 100,
+      "kind": "integer_list",
+      "item": {
+       "kind": "integer",
+       "minimum": 1,
+       "maximum": 100
+      }
+     }
+    ]
+   },
+   "danger": "",
+   "objects": "several",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [
+    401,
+    403
+   ],
+   "price_note": false
+  },
+  "orders_create": {
+   "method": "POST",
+   "path": "/api/orders",
+   "kind": "create",
+   "answer": "object",
+   "path_params": [],
+   "query": [],
+   "search": null,
+   "body": {
+    "name": "",
+    "input": "",
+    "kind": "object",
+    "required": true,
+    "children": [
+     {
+      "name": "date",
+      "input": "date",
+      "required": true,
+      "kind": "date"
+     },
+     {
+      "name": "doc_no",
+      "input": "doc_no",
+      "required": true,
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "reg_no",
+      "input": "reg_no",
+      "required": false,
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "sum",
+      "input": "sum",
+      "required": true,
+      "kind": "decimal"
+     },
+     {
+      "name": "vat_sum",
+      "input": "vat_sum",
+      "required": true,
+      "kind": "decimal"
+     },
+     {
+      "name": "total",
+      "input": "total",
+      "required": true,
+      "kind": "decimal"
+     },
+     {
+      "name": "memo",
+      "input": "memo",
+      "required": false,
+      "kind": "text",
+      "max_length": 1024
+     },
+     {
+      "name": "delivery_code",
+      "input": "delivery_code",
+      "required": false,
+      "kind": "text",
+      "max_length": 10
+     },
+     {
+      "name": "tracking",
+      "input": "tracking",
+      "required": false,
+      "kind": "text",
+      "max_length": 255
+     },
+     {
+      "name": "pozym_numbers",
+      "input": "pozym_numbers",
+      "required": false,
+      "max_items": 100,
+      "kind": "integer_list",
+      "item": {
+       "kind": "integer",
+       "minimum": 1,
+       "maximum": 100
+      }
+     },
+     {
+      "name": "delivery",
+      "input": "delivery",
+      "required": false,
+      "kind": "object",
+      "children": [
+       {
+        "name": "dep_code",
+        "input": "dep_code",
+        "required": false,
+        "description": "department code",
+        "kind": "text",
+        "max_length": 20
+       },
+       {
+        "name": "dep_name",
+        "input": "dep_name",
+        "required": false,
+        "description": "department name",
+        "kind": "text",
+        "max_length": 200
+       },
+       {
+        "name": "dep_full_adr",
+        "input": "dep_full_adr",
+        "required": false,
+        "description": "department full address",
+        "kind": "text",
+        "max_length": 200
+       },
+       {
+        "name": "adr",
+        "input": "adr",
+        "required": false,
+        "description": "department address",
+        "kind": "object",
+        "children": [
+         {
+          "name": "city",
+          "input": "city",
+          "required": false,
+          "description": "city",
+          "kind": "text",
+          "max_length": 20
+         },
+         {
+          "name": "street",
+          "input": "street",
+          "required": false,
+          "description": "street",
+          "kind": "text",
+          "max_length": 100
+         },
+         {
+          "name": "house",
+          "input": "house",
+          "required": false,
+          "description": "house number",
+          "kind": "text",
+          "max_length": 20
+         },
+         {
+          "name": "floor",
+          "input": "floor",
+          "required": false,
+          "description": "floor number",
+          "kind": "text",
+          "max_length": 20
+         },
+         {
+          "name": "apartment",
+          "input": "apartment",
+          "required": false,
+          "description": "apartment number",
+          "kind": "text",
+          "max_length": 20
+         },
+         {
+          "name": "municipality",
+          "input": "municipality",
+          "required": false,
+          "description": "municipality code",
+          "kind": "text",
+          "max_length": 10
+         },
+         {
+          "name": "post_code",
+          "input": "post_code",
+          "required": false,
+          "description": "postal code",
+          "kind": "text",
+          "max_length": 10
+         },
+         {
+          "name": "contact",
+          "input": "contact",
+          "required": false,
+          "description": "contact",
+          "kind": "text",
+          "max_length": 250
+         },
+         {
+          "name": "tlf",
+          "input": "tlf",
+          "required": false,
+          "description": "telephone number",
+          "kind": "text",
+          "max_length": 40
+         },
+         {
+          "name": "memo",
+          "input": "memo",
+          "required": false,
+          "description": "memo",
+          "kind": "text",
+          "max_length": 255
+         },
+         {
+          "name": "country_code",
+          "input": "country_code",
+          "required": false,
+          "description": "country code",
+          "kind": "text",
+          "max_length": 10
+         }
+        ]
+       },
+       {
+        "name": "f1",
+        "input": "f1",
+        "required": false,
+        "description": "additional department text field",
+        "kind": "text",
+        "max_length": 25
+       },
+       {
+        "name": "f2",
+        "input": "f2",
+        "required": false,
+        "description": "additional department text field",
+        "kind": "text",
+        "max_length": 25
+       },
+       {
+        "name": "f3",
+        "input": "f3",
+        "required": false,
+        "description": "additional department text field",
+        "kind": "text",
+        "max_length": 25
+       }
+      ]
+     },
+     {
+      "name": "client",
+      "input": "client",
+      "required": true,
+      "kind": "object",
+      "children": [
+       {
+        "name": "id",
+        "input": "id",
+        "required": false,
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "email",
+        "input": "email",
+        "required": false,
+        "kind": "text",
+        "max_length": 100
+       },
+       {
+        "name": "code",
+        "input": "code",
+        "required": false,
+        "kind": "text",
+        "max_length": 20
+       },
+       {
+        "name": "company_code",
+        "input": "company_code",
+        "required": false,
+        "kind": "text",
+        "max_length": 15
+       }
+      ]
+     },
+     {
+      "name": "sf_type",
+      "input": "sf_type",
+      "required": false,
+      "description": "SF, DS, KS, VS, VD, VK",
+      "kind": "text",
+      "max_length": 10
+     },
+     {
+      "name": "location",
+      "input": "location",
+      "required": false,
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "wh",
+      "input": "wh",
+      "required": false,
+      "kind": "text",
+      "max_length": 10
+     },
+     {
+      "name": "products",
+      "input": "products",
+      "required": false,
+      "max_items": 500,
+      "kind": "object_list",
+      "children": [
+       {
+        "name": "id",
+        "input": "id",
+        "required": false,
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "code",
+        "input": "code",
+        "required": true,
+        "description": "Product code",
+        "kind": "text",
+        "max_length": 25
+       },
+       {
+        "name": "bk",
+        "input": "bk",
+        "required": false,
+        "kind": "text",
+        "max_length": 25
+       },
+       {
+        "name": "qty",
+        "input": "qty",
+        "required": true,
+        "kind": "decimal"
+       },
+       {
+        "name": "vat",
+        "input": "vat",
+        "required": true,
+        "kind": "decimal"
+       },
+       {
+        "name": "mark",
+        "input": "mark",
+        "required": false,
+        "kind": "integer",
+        "minimum": -2147483647,
+        "maximum": 2147483647
+       },
+       {
+        "name": "price",
+        "input": "price",
+        "required": true,
+        "kind": "decimal"
+       },
+       {
+        "name": "vat_proc",
+        "input": "vat_proc",
+        "required": true,
+        "kind": "decimal"
+       },
+       {
+        "name": "vat_code",
+        "input": "vat_code",
+        "required": false,
+        "kind": "text",
+        "max_length": 10
+       },
+       {
+        "name": "memo",
+        "input": "memo",
+        "required": false,
+        "kind": "text",
+        "max_length": 250
+       },
+       {
+        "name": "pcs",
+        "input": "pcs",
+        "required": false,
+        "kind": "text",
+        "max_length": 10
+       },
+       {
+        "name": "part",
+        "input": "part",
+        "required": false,
+        "description": "Product part",
+        "kind": "object",
+        "children": [
+         {
+          "name": "f1",
+          "input": "f1",
+          "required": false,
+          "kind": "text",
+          "max_length": 250
+         },
+         {
+          "name": "f2",
+          "input": "f2",
+          "required": false,
+          "kind": "text",
+          "max_length": 250
+         },
+         {
+          "name": "f3",
+          "input": "f3",
+          "required": false,
+          "kind": "text",
+          "max_length": 250
+         },
+         {
+          "name": "f4",
+          "input": "f4",
+          "required": false,
+          "kind": "text",
+          "max_length": 250
+         },
+         {
+          "name": "f5",
+          "input": "f5",
+          "required": false,
+          "kind": "text",
+          "max_length": 250
+         },
+         {
+          "name": "d1",
+          "input": "d1",
+          "required": false,
+          "kind": "date"
+         },
+         {
+          "name": "d2",
+          "input": "d2",
+          "required": false,
+          "kind": "date"
+         },
+         {
+          "name": "d3",
+          "input": "d3",
+          "required": false,
+          "kind": "date"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "name": "price_group",
+      "input": "price_group",
+      "required": false,
+      "description": "Price type: 3 – Wholesale, 4 – Retail, 5 – Additional price 1, 6 – Additional price 2, 7 – Additional price 3",
+      "kind": "integer",
+      "minimum": 3,
+      "maximum": 2147483647
+     },
+     {
+      "name": "doc_type",
+      "input": "doc_type",
+      "required": false,
+      "description": "save doc to (1 - Atd, 2 - Uzs, 3 - Pas, default = 1)",
+      "kind": "integer",
+      "minimum": -2147483647,
+      "maximum": 2147483647
+     },
+     {
+      "name": "paid_type",
+      "input": "paid_type",
+      "required": false,
+      "description": "paid type (0 - Grynais, 1 - Skolon, 3 - Kasos čekis, 2 - K10, default = 1)",
+      "kind": "integer",
+      "minimum": -2147483647,
+      "maximum": 2147483647
+     },
+     {
+      "name": "cash_receipt_no",
+      "input": "cash_receipt_no",
+      "required": false,
+      "description": "Cash receipt number",
+      "kind": "text",
+      "max_length": 1000
+     },
+     {
+      "name": "cash_register_no",
+      "input": "cash_register_no",
+      "required": false,
+      "description": "Cash register number",
+      "kind": "text",
+      "max_length": 1000
+     },
+     {
+      "name": "cash_receipt_datetime",
+      "input": "cash_receipt_datetime",
+      "required": false,
+      "kind": "datetime"
+     },
+     {
+      "name": "cash_receipt_round",
+      "input": "cash_receipt_round",
+      "required": false,
+      "kind": "decimal"
+     },
+     {
+      "name": "paid_term",
+      "input": "paid_term",
+      "required": false,
+      "kind": "integer",
+      "minimum": -2147483647,
+      "maximum": 2147483647
+     },
+     {
+      "name": "f1",
+      "input": "f1",
+      "required": false,
+      "description": "additional order text field",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "f2",
+      "input": "f2",
+      "required": false,
+      "description": "additional order text field",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "f3",
+      "input": "f3",
+      "required": false,
+      "description": "additional order text field",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "f4",
+      "input": "f4",
+      "required": false,
+      "description": "additional order text field",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "f5",
+      "input": "f5",
+      "required": false,
+      "description": "additional order text field",
+      "kind": "text",
+      "max_length": 250
+     }
+    ]
+   },
+   "danger": "",
+   "objects": "several",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [
+    401
+   ],
+   "price_note": false
+  },
+  "employee_timesheet_create": {
+   "method": "POST",
+   "path": "/api/employee/timesheet",
+   "kind": "create",
+   "answer": "any",
+   "path_params": [],
+   "query": [],
+   "search": null,
+   "body": {
+    "name": "",
+    "input": "",
+    "kind": "object",
+    "required": true,
+    "children": [
+     {
+      "name": "date",
+      "input": "date",
+      "required": true,
+      "kind": "date",
+      "description": "As in the documentation's example (2024-12-31)."
+     },
+     {
+      "name": "driverID",
+      "input": "driverID",
+      "required": true,
+      "kind": "text",
+      "max_length": 100,
+      "min_length": 1,
+      "description": "As in the documentation's example (11)."
+     },
+     {
+      "name": "workTimeDay",
+      "input": "workTimeDay",
+      "required": true,
+      "kind": "integer",
+      "minimum": 0,
+      "maximum": 2147483647,
+      "description": "As in the documentation's example (19800)."
+     },
+     {
+      "name": "workTimeNight",
+      "input": "workTimeNight",
+      "required": true,
+      "kind": "integer",
+      "minimum": 0,
+      "maximum": 2147483647,
+      "description": "As in the documentation's example (12000)."
+     }
+    ]
+   },
+   "danger": "",
+   "objects": "one",
+   "single_object": true,
+   "strict": false,
+   "no_effect": [
+    400,
+    401,
+    403
+   ],
+   "price_note": false
+  },
+  "customer_returns_create": {
+   "method": "POST",
+   "path": "/api/customer-returns",
+   "kind": "create",
+   "answer": "object",
+   "path_params": [],
+   "query": [],
+   "search": null,
+   "body": {
+    "name": "",
+    "input": "",
+    "kind": "object",
+    "required": true,
+    "children": [
+     {
+      "name": "doc_date",
+      "input": "doc_date",
+      "required": true,
+      "kind": "date"
+     },
+     {
+      "name": "return_date",
+      "input": "return_date",
+      "required": true,
+      "kind": "date"
+     },
+     {
+      "name": "return_no",
+      "input": "return_no",
+      "required": true,
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "reg_no",
+      "input": "reg_no",
+      "required": false,
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "order_date",
+      "input": "order_date",
+      "required": false,
+      "kind": "date"
+     },
+     {
+      "name": "order_no",
+      "input": "order_no",
+      "required": false,
+      "kind": "text",
+      "max_length": 100
+     },
+     {
+      "name": "sum",
+      "input": "sum",
+      "required": true,
+      "kind": "decimal"
+     },
+     {
+      "name": "vat_sum",
+      "input": "vat_sum",
+      "required": true,
+      "kind": "decimal"
+     },
+     {
+      "name": "total",
+      "input": "total",
+      "required": true,
+      "kind": "decimal"
+     },
+     {
+      "name": "memo",
+      "input": "memo",
+      "required": false,
+      "kind": "text",
+      "max_length": 1024
+     },
+     {
+      "name": "wh",
+      "input": "wh",
+      "required": false,
+      "kind": "text",
+      "max_length": 10
+     },
+     {
+      "name": "client",
+      "input": "client",
+      "required": true,
+      "kind": "object",
+      "children": [
+       {
+        "name": "id",
+        "input": "id",
+        "required": false,
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "email",
+        "input": "email",
+        "required": false,
+        "kind": "text",
+        "max_length": 100
+       },
+       {
+        "name": "code",
+        "input": "code",
+        "required": false,
+        "kind": "text",
+        "max_length": 20
+       },
+       {
+        "name": "company_code",
+        "input": "company_code",
+        "required": false,
+        "kind": "text",
+        "max_length": 15
+       }
+      ]
+     },
+     {
+      "name": "products",
+      "input": "products",
+      "required": false,
+      "max_items": 500,
+      "kind": "object_list",
+      "children": [
+       {
+        "name": "id",
+        "input": "id",
+        "required": true,
+        "kind": "integer",
+        "minimum": 1,
+        "maximum": 1000000000000000
+       },
+       {
+        "name": "code",
+        "input": "code",
+        "required": true,
+        "description": "Product code",
+        "kind": "text",
+        "max_length": 25
+       },
+       {
+        "name": "qty",
+        "input": "qty",
+        "required": true,
+        "kind": "decimal"
+       },
+       {
+        "name": "vat",
+        "input": "vat",
+        "required": true,
+        "kind": "decimal"
+       },
+       {
+        "name": "mark",
+        "input": "mark",
+        "required": false,
+        "kind": "integer",
+        "minimum": -2147483647,
+        "maximum": 2147483647
+       },
+       {
+        "name": "price",
+        "input": "price",
+        "required": true,
+        "kind": "decimal"
+       },
+       {
+        "name": "name",
+        "input": "name",
+        "required": true,
+        "description": "Product name",
+        "kind": "text",
+        "max_length": 250
+       },
+       {
+        "name": "barcode",
+        "input": "barcode",
+        "required": false,
+        "kind": "text",
+        "max_length": 25
+       },
+       {
+        "name": "vat_proc",
+        "input": "vat_proc",
+        "required": true,
+        "kind": "decimal"
+       },
+       {
+        "name": "vat_code",
+        "input": "vat_code",
+        "required": false,
+        "kind": "text",
+        "max_length": 10
+       },
+       {
+        "name": "memo",
+        "input": "memo",
+        "required": false,
+        "kind": "text",
+        "max_length": 250
+       },
+       {
+        "name": "pcs",
+        "input": "pcs",
+        "required": false,
+        "kind": "text",
+        "max_length": 10
+       }
+      ]
+     },
+     {
+      "name": "sf_type",
+      "input": "sf_type",
+      "required": false,
+      "description": "SF, DS, KS, VS, VD, VK",
+      "kind": "text",
+      "max_length": 10
+     },
+     {
+      "name": "f1",
+      "input": "f1",
+      "required": false,
+      "description": "additional return text field",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "f2",
+      "input": "f2",
+      "required": false,
+      "description": "additional return text field",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "f3",
+      "input": "f3",
+      "required": false,
+      "description": "additional return text field",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "f4",
+      "input": "f4",
+      "required": false,
+      "description": "additional return text field",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "f5",
+      "input": "f5",
+      "required": false,
+      "description": "additional return text field",
+      "kind": "text",
+      "max_length": 250
+     },
+     {
+      "name": "pozym_numbers",
+      "input": "pozym_numbers",
+      "required": false,
+      "max_items": 100,
+      "kind": "integer_list",
+      "item": {
+       "kind": "integer",
+       "minimum": 1,
+       "maximum": 100
+      }
+     }
+    ]
+   },
+   "danger": "",
+   "objects": "several",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [
+    401
+   ],
+   "price_note": false
+  },
+  "receipts_get": {
+   "method": "GET",
+   "path": "/api/receipts/{docNo}",
+   "kind": "get",
+   "answer": "record",
+   "path_params": [
+    {
+     "name": "docNo",
+     "input": "docNo",
+     "required": true,
+     "description": "number of document to be searched",
+     "kind": "text",
+     "max_length": 100,
+     "min_length": 1
+    }
+   ],
+   "query": [],
+   "search": null,
+   "body": null,
+   "danger": "",
+   "objects": "",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [],
+   "price_note": false
+  },
+  "receipts_search": {
+   "method": "GET",
+   "path": "/api/receipts/search",
+   "kind": "search",
+   "answer": "list",
+   "path_params": [],
+   "query": [],
+   "search": {
+    "schema": "ReceiptSearch",
+    "fields": [
+     {
+      "name": "id",
+      "input": "id",
+      "required": false,
+      "description": "Document ID (numeric). Compared using filter_type.",
+      "kind": "integer",
+      "minimum": 0,
+      "maximum": 1000000000000000
+     },
+     {
+      "name": "receipt_no",
+      "input": "receipt_no",
+      "required": false,
+      "description": "Document number. Case-insensitive. Compared using filter_type.",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "date",
+      "input": "date",
+      "required": false,
+      "description": "Document date. Format: yyyy-MM-dd",
+      "kind": "date"
+     },
+     {
+      "name": "modify",
+      "input": "modify",
+      "required": false,
+      "description": "Last modification timestamp. Format: yyyy-MM-dd HH:mm:ss.",
+      "kind": "when"
+     },
+     {
+      "name": "wh",
+      "input": "wh",
+      "required": false,
+      "description": "Warehouse code. Multiple values can be comma-separated, e.g. `S001,S002`.",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     }
+    ],
+    "filter_type": [
+     "eq",
+     "ne",
+     "co",
+     "gt",
+     "lt",
+     "le",
+     "ge"
+    ],
+    "order": [
+     "receipt_no",
+     "id",
+     "date"
+    ],
+    "paging": true,
+    "max_limit": 250,
+    "fields_choice": [],
+    "at_least_one": true,
+    "combined_paging": false
+   },
+   "body": null,
+   "danger": "",
+   "objects": "",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [],
+   "price_note": false
+  },
+  "products_get": {
+   "method": "GET",
+   "path": "/api/products/{id}",
+   "kind": "get",
+   "answer": "record",
+   "path_params": [
+    {
+     "name": "id",
+     "input": "id",
+     "required": true,
+     "description": "agnum product ID",
+     "kind": "integer",
+     "minimum": 1,
+     "maximum": 1000000000000000
+    }
+   ],
+   "query": [],
+   "search": null,
+   "body": null,
+   "danger": "",
+   "objects": "",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [],
+   "price_note": false
+  },
+  "products_search": {
+   "method": "GET",
+   "path": "/api/products/search",
+   "kind": "search",
+   "answer": "list",
+   "path_params": [],
+   "query": [],
+   "search": {
+    "schema": "ProductSearch",
+    "fields": [
+     {
+      "name": "id",
+      "input": "id",
+      "required": false,
+      "description": "product id",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "code",
+      "input": "code",
+      "required": false,
+      "description": "product code",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "quant",
+      "input": "quant",
+      "required": false,
+      "description": "product quantity",
+      "kind": "decimal"
+     },
+     {
+      "name": "name",
+      "input": "name",
+      "required": false,
+      "description": "product name",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "modify",
+      "input": "modify",
+      "required": false,
+      "description": "product modify date time (format: yyyy-MM-dd HH:mm:ss)",
+      "kind": "when"
+     },
+     {
+      "name": "wh",
+      "input": "wh",
+      "required": false,
+      "description": "Warehouse code. Multiple values can be comma-separated, e.g. `S001,S002`.",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "barcode",
+      "input": "barcode",
+      "required": false,
+      "description": "product barcode",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     }
+    ],
+    "filter_type": [
+     "eq",
+     "ne",
+     "co",
+     "gt",
+     "lt",
+     "le",
+     "ge"
+    ],
+    "order": [
+     "code",
+     "id",
+     "name",
+     "quant",
+     "barcode"
+    ],
+    "paging": false,
+    "max_limit": null,
+    "fields_choice": [],
+    "at_least_one": false,
+    "combined_paging": true
+   },
+   "body": null,
+   "danger": "",
+   "objects": "",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [],
+   "price_note": false
+  },
+  "products_qty_search": {
+   "method": "GET",
+   "path": "/api/products/qty/search",
+   "kind": "search",
+   "answer": "any",
+   "path_params": [],
+   "query": [],
+   "search": {
+    "schema": "ProductQtySearch",
+    "fields": [
+     {
+      "name": "id",
+      "input": "id",
+      "required": false,
+      "description": "product id",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "code",
+      "input": "code",
+      "required": false,
+      "description": "product code",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "name",
+      "input": "name",
+      "required": false,
+      "description": "product name",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "modify",
+      "input": "modify",
+      "required": false,
+      "description": "product modify date time (format: yyyy-MM-dd HH:mm:ss)",
+      "kind": "when"
+     },
+     {
+      "name": "wh",
+      "input": "wh",
+      "required": false,
+      "description": "Warehouse code. Multiple values can be comma-separated, e.g. `S001,S002`.",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "qty",
+      "input": "qty",
+      "required": false,
+      "description": "product quantity",
+      "kind": "decimal"
+     },
+     {
+      "name": "barcode",
+      "input": "barcode",
+      "required": false,
+      "description": "product barcode",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     }
+    ],
+    "filter_type": [
+     "eq",
+     "ne",
+     "co",
+     "gt",
+     "lt",
+     "le",
+     "ge"
+    ],
+    "order": [
+     "code",
+     "id",
+     "qty",
+     "barcode"
+    ],
+    "paging": false,
+    "max_limit": null,
+    "fields_choice": [],
+    "at_least_one": false,
+    "combined_paging": true
+   },
+   "body": null,
+   "danger": "",
+   "objects": "",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [],
+   "price_note": false
+  },
+  "products_price_search": {
+   "method": "GET",
+   "path": "/api/products/price/search",
+   "kind": "search",
+   "answer": "record",
+   "path_params": [],
+   "query": [],
+   "search": {
+    "schema": "ProductPriceSearch",
+    "fields": [
+     {
+      "name": "id",
+      "input": "id",
+      "required": false,
+      "description": "product id",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "code",
+      "input": "code",
+      "required": false,
+      "description": "product code",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "name",
+      "input": "name",
+      "required": false,
+      "description": "product name",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "barcode",
+      "input": "barcode",
+      "required": false,
+      "description": "product barcode",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "wh",
+      "input": "wh",
+      "required": false,
+      "description": "warehouse code",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "modify",
+      "input": "modify",
+      "required": false,
+      "description": "product modify date time (format: yyyy-MM-dd HH:mm:ss)",
+      "kind": "when"
+     }
+    ],
+    "filter_type": [
+     "eq",
+     "ne",
+     "co",
+     "gt",
+     "lt",
+     "le",
+     "ge"
+    ],
+    "order": [
+     "id",
+     "code",
+     "barcode"
+    ],
+    "paging": false,
+    "max_limit": null,
+    "fields_choice": [],
+    "at_least_one": false,
+    "combined_paging": true
+   },
+   "body": null,
+   "danger": "",
+   "objects": "",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [],
+   "price_note": false
+  },
+  "production_norms_get": {
+   "method": "GET",
+   "path": "/api/production/norms/{id}",
+   "kind": "get",
+   "answer": "record",
+   "path_params": [
+    {
+     "name": "id",
+     "input": "id",
+     "required": true,
+     "description": "agnum production norm ID",
+     "kind": "integer",
+     "minimum": 1,
+     "maximum": 1000000000000000
+    }
+   ],
+   "query": [
+    {
+     "name": "wh",
+     "input": "wh",
+     "required": false,
+     "kind": "text",
+     "max_length": 200,
+     "min_length": 1,
+     "description": "warehouse code"
+    }
+   ],
+   "search": null,
+   "body": null,
+   "danger": "",
+   "objects": "",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [],
+   "price_note": false
+  },
+  "production_norms_delete": {
+   "method": "DELETE",
+   "path": "/api/production/norms/{id}",
+   "kind": "delete",
+   "answer": "boolean",
+   "path_params": [
+    {
+     "name": "id",
+     "input": "id",
+     "required": true,
+     "description": "production norm ID",
+     "kind": "integer",
+     "minimum": 1,
+     "maximum": 1000000000000000
+    }
+   ],
+   "query": [],
+   "search": null,
+   "body": null,
+   "danger": "delete",
+   "objects": "one",
+   "single_object": true,
+   "strict": true,
+   "no_effect": [
+    401,
+    403,
+    409
+   ],
+   "price_note": false
+  },
+  "production_norms_search": {
+   "method": "GET",
+   "path": "/api/production/norms/search",
+   "kind": "search",
+   "answer": "list",
+   "path_params": [],
+   "query": [],
+   "search": {
+    "schema": "ProductionNormSearch",
+    "fields": [
+     {
+      "name": "id",
+      "input": "id",
+      "required": false,
+      "description": "Norm ID (numeric). Compared using filter_type.",
+      "kind": "integer",
+      "minimum": 0,
+      "maximum": 1000000000000000
+     },
+     {
+      "name": "code",
+      "input": "code",
+      "required": false,
+      "description": "Norm code. Case-insensitive. Compared using filter_type.",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "product_code",
+      "input": "product_code",
+      "required": false,
+      "description": "Product code. Case-insensitive. Compared using filter_type.",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "product_id",
+      "input": "product_id",
+      "required": false,
+      "description": "Product ID (numeric). Compared using filter_type.",
+      "kind": "integer",
+      "minimum": 0,
+      "maximum": 1000000000000000
+     },
+     {
+      "name": "modify",
+      "input": "modify",
+      "required": false,
+      "description": "Last modification timestamp. Format: yyyy-MM-dd HH:mm:ss.",
+      "kind": "when"
+     },
+     {
+      "name": "wh",
+      "input": "wh",
+      "required": false,
+      "description": "Warehouse code. Multiple values can be comma-separated, e.g. `S001,S002`.",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     }
+    ],
+    "filter_type": [
+     "eq",
+     "ne",
+     "co",
+     "gt",
+     "lt",
+     "le",
+     "ge"
+    ],
+    "order": [
+     "id",
+     "code",
+     "product_code",
+     "modify_date"
+    ],
+    "paging": true,
+    "max_limit": 250,
+    "fields_choice": [],
+    "at_least_one": true,
+    "combined_paging": false
+   },
+   "body": null,
+   "danger": "",
+   "objects": "",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [],
+   "price_note": false
+  },
+  "processing_norms_get": {
+   "method": "GET",
+   "path": "/api/processing/norms/{id}",
+   "kind": "get",
+   "answer": "record",
+   "path_params": [
+    {
+     "name": "id",
+     "input": "id",
+     "required": true,
+     "description": "agnum processing norm ID",
+     "kind": "integer",
+     "minimum": 1,
+     "maximum": 1000000000000000
+    }
+   ],
+   "query": [
+    {
+     "name": "wh",
+     "input": "wh",
+     "required": false,
+     "kind": "text",
+     "max_length": 200,
+     "min_length": 1,
+     "description": "warehouse code"
+    }
+   ],
+   "search": null,
+   "body": null,
+   "danger": "",
+   "objects": "",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [],
+   "price_note": false
+  },
+  "processing_norms_delete": {
+   "method": "DELETE",
+   "path": "/api/processing/norms/{id}",
+   "kind": "delete",
+   "answer": "boolean",
+   "path_params": [
+    {
+     "name": "id",
+     "input": "id",
+     "required": true,
+     "description": "processing norm ID",
+     "kind": "integer",
+     "minimum": 1,
+     "maximum": 1000000000000000
+    }
+   ],
+   "query": [],
+   "search": null,
+   "body": null,
+   "danger": "delete",
+   "objects": "one",
+   "single_object": true,
+   "strict": true,
+   "no_effect": [
+    401,
+    403,
+    409
+   ],
+   "price_note": false
+  },
+  "processing_norms_search": {
+   "method": "GET",
+   "path": "/api/processing/norms/search",
+   "kind": "search",
+   "answer": "list",
+   "path_params": [],
+   "query": [],
+   "search": {
+    "schema": "ProcessingNormSearch",
+    "fields": [
+     {
+      "name": "id",
+      "input": "id",
+      "required": false,
+      "description": "Norm ID (numeric). Compared using filter_type.",
+      "kind": "integer",
+      "minimum": 0,
+      "maximum": 1000000000000000
+     },
+     {
+      "name": "norm_code",
+      "input": "norm_code",
+      "required": false,
+      "description": "Norm code. Case-insensitive. Compared using filter_type.",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "wh",
+      "input": "wh",
+      "required": false,
+      "description": "Warehouse code. Multiple values can be comma-separated, e.g. `S001,S002`.",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     }
+    ],
+    "filter_type": [
+     "eq",
+     "ne",
+     "co",
+     "gt",
+     "lt",
+     "le",
+     "ge"
+    ],
+    "order": [
+     "id",
+     "norm_code",
+     "modify_date"
+    ],
+    "paging": true,
+    "max_limit": 250,
+    "fields_choice": [
+     "id",
+     "wh",
+     "norm_code",
+     "memo",
+     "input_products",
+     "output_products",
+     "costs",
+     "modify_date"
+    ],
+    "at_least_one": true,
+    "combined_paging": false
+   },
+   "body": null,
+   "danger": "",
+   "objects": "",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [],
+   "price_note": false
+  },
+  "orders_get": {
+   "method": "GET",
+   "path": "/api/orders/{docNo}",
+   "kind": "get",
+   "answer": "record",
+   "path_params": [
+    {
+     "name": "docNo",
+     "input": "docNo",
+     "required": true,
+     "description": "",
+     "kind": "text",
+     "max_length": 100,
+     "min_length": 1
+    }
+   ],
+   "query": [],
+   "search": null,
+   "body": null,
+   "danger": "",
+   "objects": "",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [],
+   "price_note": false
+  },
+  "orders_tracking_get": {
+   "method": "GET",
+   "path": "/api/orders/tracking/{docNo}",
+   "kind": "get",
+   "answer": "any",
+   "path_params": [
+    {
+     "name": "docNo",
+     "input": "docNo",
+     "required": true,
+     "description": "document number",
+     "kind": "text",
+     "max_length": 100,
+     "min_length": 1
+    }
+   ],
+   "query": [],
+   "search": null,
+   "body": null,
+   "danger": "",
+   "objects": "",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [],
+   "price_note": false
+  },
+  "orders_tracking_search": {
+   "method": "GET",
+   "path": "/api/orders/tracking/search",
+   "kind": "search",
+   "answer": "list",
+   "path_params": [],
+   "query": [],
+   "search": {
+    "schema": null,
+    "fields": [
+     {
+      "name": "id",
+      "input": "id",
+      "required": false,
+      "description": "",
+      "kind": "integer",
+      "minimum": 0,
+      "maximum": 1000000000000000
+     },
+     {
+      "name": "doc_no",
+      "input": "doc_no",
+      "required": false,
+      "description": "",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "track_no",
+      "input": "track_no",
+      "required": false,
+      "description": "",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     }
+    ],
+    "filter_type": [],
+    "order": [],
+    "paging": false,
+    "fields_choice": [],
+    "at_least_one": true,
+    "combined_paging": false
+   },
+   "body": null,
+   "danger": "",
+   "objects": "",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [],
+   "price_note": false
+  },
+  "orders_search": {
+   "method": "GET",
+   "path": "/api/orders/search",
+   "kind": "search",
+   "answer": "list",
+   "path_params": [],
+   "query": [],
+   "search": {
+    "schema": "OrderSearch",
+    "fields": [
+     {
+      "name": "id",
+      "input": "id",
+      "required": false,
+      "description": "Document ID (numeric). Compared using filter_type.",
+      "kind": "integer",
+      "minimum": 0,
+      "maximum": 1000000000000000
+     },
+     {
+      "name": "order_no",
+      "input": "order_no",
+      "required": false,
+      "description": "Document number. Case-insensitive. Compared using filter_type.",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "reg_no",
+      "input": "reg_no",
+      "required": false,
+      "description": "Document registration number. Case-insensitive. Compared using filter_type.",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "date",
+      "input": "date",
+      "required": false,
+      "description": "Document date. Format: yyyy-MM-dd",
+      "kind": "date"
+     },
+     {
+      "name": "modify",
+      "input": "modify",
+      "required": false,
+      "description": "Last modification timestamp. Format: yyyy-MM-dd HH:mm:ss.",
+      "kind": "when"
+     },
+     {
+      "name": "wh",
+      "input": "wh",
+      "required": false,
+      "description": "Warehouse code. Multiple values can be comma-separated, e.g. `S001,S002`.",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     }
+    ],
+    "filter_type": [
+     "eq",
+     "ne",
+     "co",
+     "gt",
+     "lt",
+     "le",
+     "ge"
+    ],
+    "order": [
+     "order_no",
+     "reg_no",
+     "id",
+     "date"
+    ],
+    "paging": true,
+    "max_limit": 250,
+    "fields_choice": [],
+    "at_least_one": true,
+    "combined_paging": false
+   },
+   "body": null,
+   "danger": "",
+   "objects": "",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [],
+   "price_note": false
+  },
+  "orders_pdf_get": {
+   "method": "GET",
+   "path": "/api/orders/pdf/{docNo}",
+   "kind": "pdf",
+   "answer": "object",
+   "path_params": [
+    {
+     "name": "docNo",
+     "input": "docNo",
+     "required": true,
+     "description": "document number",
+     "kind": "text",
+     "max_length": 100,
+     "min_length": 1
+    }
+   ],
+   "query": [],
+   "search": null,
+   "body": null,
+   "danger": "",
+   "objects": "",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [],
+   "price_note": false
+  },
+  "employee_get": {
+   "method": "GET",
+   "path": "/api/employee/{id}",
+   "kind": "get",
+   "answer": "record",
+   "path_params": [
+    {
+     "name": "id",
+     "input": "id",
+     "required": true,
+     "description": "agnum employee ID",
+     "kind": "integer",
+     "minimum": 1,
+     "maximum": 1000000000000000
+    }
+   ],
+   "query": [],
+   "search": null,
+   "body": null,
+   "danger": "",
+   "objects": "",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [],
+   "price_note": false
+  },
+  "customer_returns_get": {
+   "method": "GET",
+   "path": "/api/customer-returns/{docNo}",
+   "kind": "get",
+   "answer": "any",
+   "path_params": [
+    {
+     "name": "docNo",
+     "input": "docNo",
+     "required": true,
+     "description": "",
+     "kind": "text",
+     "max_length": 100,
+     "min_length": 1
+    }
+   ],
+   "query": [],
+   "search": null,
+   "body": null,
+   "danger": "",
+   "objects": "",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [],
+   "price_note": false
+  },
+  "customer_returns_search": {
+   "method": "GET",
+   "path": "/api/customer-returns/search",
+   "kind": "search",
+   "answer": "list",
+   "path_params": [],
+   "query": [],
+   "search": {
+    "schema": "CustomerReturnSearch",
+    "fields": [
+     {
+      "name": "id",
+      "input": "id",
+      "required": false,
+      "description": "Document ID (numeric). Compared using filter_type.",
+      "kind": "integer",
+      "minimum": 0,
+      "maximum": 1000000000000000
+     },
+     {
+      "name": "return_no",
+      "input": "return_no",
+      "required": false,
+      "description": "Document number. Case-insensitive. Compared using filter_type.",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "reg_no",
+      "input": "reg_no",
+      "required": false,
+      "description": "Document registration number. Case-insensitive. Compared using filter_type.",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "date",
+      "input": "date",
+      "required": false,
+      "description": "Document date. Format: yyyy-MM-dd",
+      "kind": "date"
+     },
+     {
+      "name": "return_date",
+      "input": "return_date",
+      "required": false,
+      "description": "Document date. Format: yyyy-MM-dd",
+      "kind": "date"
+     },
+     {
+      "name": "modify",
+      "input": "modify",
+      "required": false,
+      "description": "Last modification timestamp. Format: yyyy-MM-dd HH:mm:ss.",
+      "kind": "when"
+     },
+     {
+      "name": "wh",
+      "input": "wh",
+      "required": false,
+      "description": "Warehouse code. Multiple values can be comma-separated, e.g. `S001,S002`.",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     }
+    ],
+    "filter_type": [
+     "eq",
+     "ne",
+     "co",
+     "gt",
+     "lt",
+     "le",
+     "ge"
+    ],
+    "order": [
+     "return_no",
+     "id",
+     "date"
+    ],
+    "paging": true,
+    "max_limit": 250,
+    "fields_choice": [],
+    "at_least_one": true,
+    "combined_paging": false
+   },
+   "body": null,
+   "danger": "",
+   "objects": "",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [],
+   "price_note": false
+  },
+  "clients_get": {
+   "method": "GET",
+   "path": "/api/clients/{id}",
+   "kind": "get",
+   "answer": "record",
+   "path_params": [
+    {
+     "name": "id",
+     "input": "id",
+     "required": true,
+     "description": "",
+     "kind": "integer",
+     "minimum": 1,
+     "maximum": 1000000000000000
+    }
+   ],
+   "query": [],
+   "search": null,
+   "body": null,
+   "danger": "",
+   "objects": "",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [],
+   "price_note": false
+  },
+  "clients_search": {
+   "method": "GET",
+   "path": "/api/clients/search",
+   "kind": "search",
+   "answer": "list",
+   "path_params": [],
+   "query": [],
+   "search": {
+    "schema": "ClientSearch",
+    "fields": [
+     {
+      "name": "id",
+      "input": "id",
+      "required": false,
+      "description": "Client id",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "code",
+      "input": "code",
+      "required": false,
+      "description": "Client agnum code",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "name",
+      "input": "name",
+      "required": false,
+      "description": "Client name",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "client_code",
+      "input": "client_code",
+      "required": false,
+      "description": "Client company code",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "email",
+      "input": "email",
+      "required": false,
+      "description": "client email",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "debt",
+      "input": "debt",
+      "required": false,
+      "description": "Client debt amount",
+      "kind": "decimal"
+     },
+     {
+      "name": "modify",
+      "input": "modify",
+      "required": false,
+      "description": "client modify date time (format: yyyy-MM-dd HH:mm:ss)",
+      "kind": "when"
+     },
+     {
+      "name": "agent_id",
+      "input": "agent_id",
+      "required": false,
+      "description": "Client agent id",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "agent_code",
+      "input": "agent_code",
+      "required": false,
+      "description": "Client agent code",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "agent_name",
+      "input": "agent_name",
+      "required": false,
+      "description": "Client agent name",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     }
+    ],
+    "filter_type": [
+     "eq",
+     "ne",
+     "co",
+     "gt",
+     "lt",
+     "le",
+     "ge"
+    ],
+    "order": [
+     "code",
+     "id",
+     "name",
+     "email",
+     "modify",
+     "debt"
+    ],
+    "paging": false,
+    "max_limit": null,
+    "fields_choice": [],
+    "at_least_one": false,
+    "combined_paging": false
+   },
+   "body": null,
+   "danger": "",
+   "objects": "",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [],
+   "price_note": false
+  },
+  "clients_doc_search": {
+   "method": "GET",
+   "path": "/api/clients/doc/search",
+   "kind": "search",
+   "answer": "list",
+   "path_params": [],
+   "query": [
+    {
+     "name": "code",
+     "input": "code",
+     "required": false,
+     "kind": "text",
+     "max_length": 200,
+     "min_length": 1,
+     "description": "code"
+    },
+    {
+     "name": "client_code",
+     "input": "client_code",
+     "required": false,
+     "kind": "text",
+     "max_length": 200,
+     "min_length": 1,
+     "description": "client_code"
+    }
+   ],
+   "search": {
+    "schema": "ClientOrdersSearch",
+    "fields": [
+     {
+      "name": "id",
+      "input": "id",
+      "required": false,
+      "description": "Order id",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "order_no",
+      "input": "order_no",
+      "required": false,
+      "description": "Order number",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "dok_reg_nr",
+      "input": "dok_reg_nr",
+      "required": false,
+      "description": "Order registration number",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "paid",
+      "input": "paid",
+      "required": false,
+      "description": "y - paid, n - not paid, empty - all",
+      "kind": "text",
+      "max_length": 1,
+      "allowed": [
+       "y",
+       "n"
+      ]
+     },
+     {
+      "name": "modify",
+      "input": "modify",
+      "required": false,
+      "description": "Order modify date time (format: yyyy-MM-dd HH:mm:ss)",
+      "kind": "when"
+     },
+     {
+      "name": "min-date",
+      "input": "min_date",
+      "required": false,
+      "description": "Order minimum date (format: yyyy-MM-dd)",
+      "kind": "date"
+     },
+     {
+      "name": "max-date",
+      "input": "max_date",
+      "required": false,
+      "description": "Order maximum date (format: yyyy-MM-dd)",
+      "kind": "date"
+     },
+     {
+      "name": "wh",
+      "input": "wh",
+      "required": false,
+      "description": "Warehouse code. Multiple values can be comma-separated, e.g. `S001,S002`.",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     }
+    ],
+    "filter_type": [
+     "eq",
+     "ne",
+     "co",
+     "gt",
+     "lt",
+     "le",
+     "ge"
+    ],
+    "order": [
+     "order_no",
+     "id",
+     "dok_reg_nr",
+     "modify",
+     "date"
+    ],
+    "paging": false,
+    "max_limit": null,
+    "fields_choice": [],
+    "at_least_one": false,
+    "combined_paging": true
+   },
+   "body": null,
+   "danger": "",
+   "objects": "",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [],
+   "price_note": false
+  },
+  "clients_id_doc_search": {
+   "method": "GET",
+   "path": "/api/clients/{id}/doc/search",
+   "kind": "search",
+   "answer": "list",
+   "path_params": [
+    {
+     "name": "id",
+     "input": "client_id",
+     "required": true,
+     "description": "",
+     "kind": "integer",
+     "minimum": 1,
+     "maximum": 1000000000000000
+    }
+   ],
+   "query": [
+    {
+     "name": "code",
+     "input": "code",
+     "required": false,
+     "kind": "text",
+     "max_length": 200,
+     "min_length": 1,
+     "description": "code"
+    },
+    {
+     "name": "client_code",
+     "input": "client_code",
+     "required": false,
+     "kind": "text",
+     "max_length": 200,
+     "min_length": 1,
+     "description": "client_code"
+    }
+   ],
+   "search": {
+    "schema": "ClientOrdersSearch",
+    "fields": [
+     {
+      "name": "id",
+      "input": "id",
+      "required": false,
+      "description": "Order id",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "order_no",
+      "input": "order_no",
+      "required": false,
+      "description": "Order number",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "dok_reg_nr",
+      "input": "dok_reg_nr",
+      "required": false,
+      "description": "Order registration number",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     },
+     {
+      "name": "paid",
+      "input": "paid",
+      "required": false,
+      "description": "y - paid, n - not paid, empty - all",
+      "kind": "text",
+      "max_length": 1,
+      "allowed": [
+       "y",
+       "n"
+      ]
+     },
+     {
+      "name": "modify",
+      "input": "modify",
+      "required": false,
+      "description": "Order modify date time (format: yyyy-MM-dd HH:mm:ss)",
+      "kind": "when"
+     },
+     {
+      "name": "min-date",
+      "input": "min_date",
+      "required": false,
+      "description": "Order minimum date (format: yyyy-MM-dd)",
+      "kind": "date"
+     },
+     {
+      "name": "max-date",
+      "input": "max_date",
+      "required": false,
+      "description": "Order maximum date (format: yyyy-MM-dd)",
+      "kind": "date"
+     },
+     {
+      "name": "wh",
+      "input": "wh",
+      "required": false,
+      "description": "Warehouse code. Multiple values can be comma-separated, e.g. `S001,S002`.",
+      "kind": "text",
+      "max_length": 200,
+      "min_length": 1
+     }
+    ],
+    "filter_type": [
+     "eq",
+     "ne",
+     "co",
+     "gt",
+     "lt",
+     "le",
+     "ge"
+    ],
+    "order": [
+     "order_no",
+     "id",
+     "dok_reg_nr",
+     "modify",
+     "date"
+    ],
+    "paging": false,
+    "max_limit": null,
+    "fields_choice": [],
+    "at_least_one": false,
+    "combined_paging": true
+   },
+   "body": null,
+   "danger": "",
+   "objects": "",
+   "single_object": false,
+   "strict": false,
+   "no_effect": [],
+   "price_note": false
+  }
+ }
+}
