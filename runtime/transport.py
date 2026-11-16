@@ -109,7 +109,7 @@ class AgnumTransport:
         query: Sequence[tuple[str, str]] = (),
         *,
         shown: str,
-        limit: int = MAX_ANSWER_BYTES,
+        limit: int | None = None,
         missing_ok: bool = False,
     ) -> Answer:
         """A GET. With ``missing_ok`` a 404 that is Agnum's own "not found" problem is
@@ -122,7 +122,7 @@ class AgnumTransport:
             shown=shown,
             mutating=False,
             no_effect=(),
-            limit=limit,
+            limit=MAX_ANSWER_BYTES if limit is None else limit,
             missing_ok=missing_ok,
         )
 

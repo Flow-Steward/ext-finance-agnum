@@ -269,14 +269,15 @@ def test_no_request_starts_without_time_to_finish() -> None:
 def test_an_answer_too_large_is_refused() -> None:
     from runtime import transport
 
-    fake = FakeAgnum({"GET /api/clients/7": (200, b"[" + b"1," * 600_000 + b"1]")})
+    fake = FakeAgnum({"GET /api/clients/7": (200, b"[" + b"1," * 1_600_000 + b"1]")})
     old = transport.MAX_ANSWER_BYTES
-    transport.MAX_ANSWER_BYTES = 1_000_000
+    transport.MAX_ANSWER_BYTES = 2 * 1024 * 1024
     try:
         response = run(fake, "clients_get", {"id": 7})
     finally:
         transport.MAX_ANSWER_BYTES = old
-    assert response["error_code"] in {"response_too_large"}
+    assert response["error_code"] == "response_too_large"
+    assert "larger than the 2 MB this extension reads" in response["error"]
 
 
 def test_the_key_is_never_in_a_result() -> None:
