@@ -177,9 +177,14 @@ def _value(context: Context, answer: Answer) -> tuple[Any, str | None]:
 
 
 def search_records(
-    context: Context, operation_id: str, given: Mapping[str, Any]
+    context: Context, operation_id: str, given: Mapping[str, Any], *, proof: bool = False
 ) -> tuple[list[Any], str | None, list[str]]:
-    """(records, text, warnings) of a search; Agnum's 404 "not found" is no records."""
+    """(records, text, warnings) of a search; Agnum's 404 "not found" is no records.
+
+    With ``proof`` the answer decides whether something is created: only a JSON list or
+    Agnum's "not found" problem counts, and an empty answer or JSON ``null`` is refused
+    (a plain search step shows it as no records with a warning).
+    """
     prepared = prepare(operation_id, given)
     entry = spec(operation_id)
     answer = context.transport.read(
@@ -192,6 +197,14 @@ def search_records(
     if isinstance(value, list):
         return value, None, warnings
     if value is None and text is None:
+        if proof:
+            raise errors.no_effect(
+                errors.INVALID_RESPONSE,
+                f"Agnum answered {prepared.shown} without content (HTTP {answer.status}): that "
+                "does not show that nothing matches, so nothing was created or changed",
+                failure_class="provider",
+                retryable=False,
+            )
         return [], None, ["Agnum answered without content"]
     if text is not None:
         if entry["answer"] != "any":

@@ -9,7 +9,8 @@ conflict. A record is created only when nothing matches.
 
 Agnum answers a search that finds nothing with 404 and its "not found" problem (the
 specification's NotFound example: ``/api/products/search``, "product ABC123 not
-found"); that is read as no records. A 404 without that problem body is an error.
+found"); that is read as no records, as is an empty JSON list. A 404 without that
+problem body, an empty answer and JSON ``null`` are no proof: the step stops.
 """
 
 from __future__ import annotations
@@ -53,7 +54,7 @@ def _find(context: Context, operation_id: str, rules: list[Rule], **extra: str) 
     query = {search: value for search, _, value in rules}
     query["filter_type"] = "eq"
     query.update(extra)
-    records, text, _ = search_records(context, operation_id, query)
+    records, text, _ = search_records(context, operation_id, query, proof=True)
     if text is not None:
         raise _untrusted(operation_id, rules, "an answer that is not JSON")
     matched = [
