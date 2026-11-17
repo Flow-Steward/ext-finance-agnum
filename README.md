@@ -17,7 +17,11 @@ return an empty list.
 
 Find or create client and the create-if-new steps look before they write: every record Agnum
 returns is checked again, and an ambiguous or untrustworthy answer stops the step without
-writing anything.
+writing anything. An empty answer is never taken as "nothing there"; the receipt check reads
+every page of the number.
+
+A write whose answer is too large for the step output keeps its identifiers (id, code,
+numbers) and says what was cut; the change itself is reported as made.
 
 Replacing, changing and deleting a production or processing norm take an explicit norm ID; they
 delete stored rows and cannot be undone.

@@ -70,7 +70,8 @@ CREATED = [
 DOCUMENT_CHECK = (
     " Before writing, the step looks the number up and stops with a conflict, writing "
     "nothing, when Agnum already has a document with it{also}. When the lookup cannot be "
-    "trusted (Agnum returns documents with other numbers), it also stops without writing."
+    "trusted (Agnum returns documents with other numbers, or an empty answer instead of a "
+    "list or its not-found answer), it also stops without writing."
 )
 
 
@@ -175,6 +176,9 @@ def steps(generated: dict[str, list[dict[str, Any]]]) -> list[dict[str, Any]]:
             + DOCUMENT_CHECK.format(
                 also=" from the same supplier, or one whose supplier cannot be told apart"
             )
+            + " It reads every page of receipts with that number. Suppliers are told apart "
+            "by id, code and company code only: e-mail alone never decides, and keys that "
+            "contradict each other stop the step."
             + " Needs READ_VKS and SAVE_VKS (or READ_ALL and SAVE_ALL).",
             "inputs": _inputs(generated, "receipts_create"),
             "outputs": copy.deepcopy(CREATED),

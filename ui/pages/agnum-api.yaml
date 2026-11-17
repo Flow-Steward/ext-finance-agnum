@@ -131,7 +131,7 @@ components:
 
     ### Create sales document if new
 
-    Creates a sales document — an invoice, an order or an offer (doc_type) — once per document number (doc_no). Before writing, the step looks the number up and stops with a conflict, writing nothing, when Agnum already has a document with it. When the lookup cannot be trusted (Agnum returns documents with other numbers), it also stops without writing. Needs READ_VSK and SAVE_VSK (or READ_ALL and SAVE_ALL).
+    Creates a sales document — an invoice, an order or an offer (doc_type) — once per document number (doc_no). Before writing, the step looks the number up and stops with a conflict, writing nothing, when Agnum already has a document with it. When the lookup cannot be trusted (Agnum returns documents with other numbers, or an empty answer instead of a list or its not-found answer), it also stops without writing. Needs READ_VSK and SAVE_VSK (or READ_ALL and SAVE_ALL).
 
     Action id `create_sales_document_if_new` · changes data · Agnum: `GET /api/orders/search`, `POST /api/orders`
 
@@ -175,7 +175,7 @@ components:
 
     ### Create purchase receipt if new
 
-    Creates a purchase receipt once per supplier and document number (doc_no). Before writing, the step looks the number up and stops with a conflict, writing nothing, when Agnum already has a document with it from the same supplier, or one whose supplier cannot be told apart. When the lookup cannot be trusted (Agnum returns documents with other numbers), it also stops without writing. Needs READ_VKS and SAVE_VKS (or READ_ALL and SAVE_ALL).
+    Creates a purchase receipt once per supplier and document number (doc_no). Before writing, the step looks the number up and stops with a conflict, writing nothing, when Agnum already has a document with it from the same supplier, or one whose supplier cannot be told apart. When the lookup cannot be trusted (Agnum returns documents with other numbers, or an empty answer instead of a list or its not-found answer), it also stops without writing. It reads every page of receipts with that number. Suppliers are told apart by id, code and company code only: e-mail alone never decides, and keys that contradict each other stop the step. Needs READ_VKS and SAVE_VKS (or READ_ALL and SAVE_ALL).
 
     Action id `create_purchase_receipt_if_new` · changes data · Agnum: `GET /api/receipts/search`, `POST /api/receipts`
 
