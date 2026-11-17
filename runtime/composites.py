@@ -250,18 +250,82 @@ def create_sales_document_if_new(context: Context) -> dict[str, Any]:
     return _write(context, "orders_create", prepared)
 
 
-SUPPLIER_KEYS = ("id", "code", "company_code", "email")
+#: Keys that name one supplier; e-mail does not (an accountant may serve several).
+STRONG_SUPPLIER_KEYS = ("id", "code", "company_code")
+#: Receipts read per page while looking for the same number (the search's maximum).
+RECEIPT_PAGE = 250
+#: Pages read at most; more receipts with one number than this is not looked through.
+MAX_RECEIPT_PAGES = 40
+#: Time a next page must still have, so the check never ends half-way unnoticed.
+PAGE_WINDOW_SECONDS = 30.0
 
 
-def _same_supplier(given: Mapping[str, Any], record: Mapping[str, Any]) -> bool | None:
-    """True / False, or None when the receipt's supplier cannot be compared."""
+def _same_supplier(given: Mapping[str, Any], record: Mapping[str, Any]) -> str:
+    """ "same", "other", "contradicts" or "unknown" (nothing strong to compare).
+
+    Only id, code and company code decide: all compared ones equal is the same supplier,
+    all different is another one, and a mix contradicts itself. E-mail never decides.
+    """
     client = record.get("client")
     if not isinstance(client, Mapping):
-        return None
-    compared = [k for k in SUPPLIER_KEYS if given.get(k) is not None and client.get(k) is not None]
+        return "unknown"
+    compared = [
+        _same(given[k], client[k])
+        for k in STRONG_SUPPLIER_KEYS
+        if given.get(k) is not None and client.get(k) is not None
+    ]
     if not compared:
-        return None
-    return any(_same(given[k], client[k]) for k in compared)
+        return "unknown"
+    if all(compared):
+        return "same"
+    return "other" if not any(compared) else "contradicts"
+
+
+def _all_receipts(context: Context, doc_no: str) -> list[Mapping[str, Any]]:
+    """Every receipt Agnum has with this number, page after page, ordered by ID.
+
+    Absence is proven only by a last page shorter than the page size. A page that
+    repeats a receipt already read, running out of time, or more than
+    ``MAX_RECEIPT_PAGES`` pages stops the step: nothing is created.
+    """
+    rule = ("receipt_no", "doc_no", doc_no)
+    found: list[Mapping[str, Any]] = []
+    seen: set[str] = set()
+    for page in range(MAX_RECEIPT_PAGES):
+        if page and context.transport.remaining() < PAGE_WINDOW_SECONDS:
+            raise errors.no_effect(
+                errors.TIMEOUT,
+                f"The step ran out of time after {page} pages of receipts {doc_no}: it is not "
+                "known whether the same supplier's receipt is on a later page, so nothing was "
+                "created",
+            )
+        records = _find(
+            context,
+            "receipts_search",
+            [rule],
+            order="id",
+            limit=str(RECEIPT_PAGE),
+            offset=str(page * RECEIPT_PAGE),
+        )
+        if len(records) > RECEIPT_PAGE:
+            raise _untrusted(
+                "receipts_search", [rule], f"{len(records)} records on a page of {RECEIPT_PAGE}"
+            )
+        for record in records:
+            key = str(record.get("id"))
+            if record.get("id") is None or key in seen:
+                raise _untrusted(
+                    "receipts_search", [rule], "a receipt without an ID or one already read"
+                )
+            seen.add(key)
+        found += records
+        if len(records) < RECEIPT_PAGE:
+            return found
+    raise errors.no_effect(
+        errors.CONFLICT,
+        f"Agnum has more than {MAX_RECEIPT_PAGES * RECEIPT_PAGE} receipts numbered {doc_no}; "
+        "they were not all compared, so nothing was created",
+    )
 
 
 def create_purchase_receipt_if_new(context: Context) -> dict[str, Any]:
@@ -269,14 +333,20 @@ def create_purchase_receipt_if_new(context: Context) -> dict[str, Any]:
     doc_no = prepared.body["doc_no"]
     supplier = prepared.body.get("client") or {}
     warnings = []
-    for record in _existing(context, "receipts_search", "receipt_no", doc_no):
+    for record in _all_receipts(context, doc_no):
         same = _same_supplier(supplier, record)
-        if same is False:
+        if same == "other":
             warnings.append(
                 f"Agnum has receipt {doc_no} (ID {record.get('id')}) from another supplier"
             )
             continue
-        why = "from the same supplier" if same else "whose supplier cannot be compared"
+        why = {
+            "same": "from the same supplier",
+            "contradicts": "whose supplier's id, code and company code contradict each other "
+            "when compared with the ones given",
+            "unknown": "whose supplier cannot be compared (no id, code or company code on "
+            "both sides)",
+        }[same]
         raise errors.no_effect(
             errors.CONFLICT,
             f"Agnum already has purchase receipt {doc_no} {why} (ID {record.get('id')}); "

@@ -227,7 +227,13 @@ def test_the_same_number_from_another_supplier_is_a_new_receipt() -> None:
     response = run(fake, "create_purchase_receipt_if_new", RECEIPT)
     assert response["ok"] is True, response
     assert "another supplier" in response["result"]["warnings"][0]
-    assert fake.calls[0].query == [("receipt_no", "INV-9"), ("filter_type", "eq")]
+    assert fake.calls[0].query == [
+        ("receipt_no", "INV-9"),
+        ("filter_type", "eq"),
+        ("order", "id"),
+        ("limit", "250"),
+        ("offset", "0"),
+    ]
 
 
 def test_a_document_refused_after_the_check_is_reported_as_the_write_says() -> None:
