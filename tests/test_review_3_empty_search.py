@@ -1,9 +1,5 @@
-"""Regressions of the 2026-11-17 review: what may prove that Agnum has no record, and
-what a write's result keeps when it is too large.
-
-Numbers are the review's: 3 (an empty answer is no proof), 9 (large write results),
-14 (strong supplier keys before e-mail), 16 (every page of the receipt check).
-"""
+"""Review 2026-11-17, item 3: an empty answer or JSON null to a search is no proof that
+nothing is there; the everyday writes stop, a plain search step shows it with a warning."""
 
 from __future__ import annotations
 

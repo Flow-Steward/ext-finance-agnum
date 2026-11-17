@@ -1,9 +1,5 @@
-"""Regressions of the 2026-11-17 review: what may prove that Agnum has no record, and
-what a write's result keeps when it is too large.
-
-Numbers are the review's: 3 (an empty answer is no proof), 9 (large write results),
-14 (strong supplier keys before e-mail), 16 (every page of the receipt check).
-"""
+"""Review 2026-11-17, item 16: the receipt check reads every page of the number before
+it creates anything."""
 
 from __future__ import annotations
 
